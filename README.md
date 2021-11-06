@@ -14,4 +14,3 @@
 1. Lint
 1. Jest
 1. Jest-supertest
-1. 
