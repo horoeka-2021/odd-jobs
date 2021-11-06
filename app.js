@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-const logLevel = process.env.NODE_ENV || 'tiny'
+const logLevel = process.env.NODE_LOG_LEVEL || 'tiny'
 
 // view engine setup
 app.engine('hbs', hbs({
