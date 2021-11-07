@@ -25,16 +25,15 @@ npm start
 1. Express-Handlebars
 1. Server Side Routing
 ## NPM Scripts
-* Common scripts
-1. webpack - used to build bundle.js
+* Test script
 1. test - testing using Jest
 * For starting the app in development
 1. dev - used for starting the server in the development environment
-1. dev-client - run webpack with watch option
+1. dev-client - run webpack with watch option to create bundle.js
 1. dev-server - run server(Express)
 * For starting the app in production
 1. start - used for starting the server(Express) in the production environment
-1. build - used for building the server & client in the production environment
+1. build - run webpack without watch option to create bundle.js
 ##Testing
 1. Jest is the core part
 1. Supertest for testing HTTP

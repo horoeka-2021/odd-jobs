@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   entry: path.join(__dirname, './index.js'),
   output: {
-    path:path.resolve(__dirname, '../public'),
+    path:path.resolve(__dirname, '../server/public'),
     filename: 'bundle.js'
   },
   mode: 'development',
@@ -18,6 +18,10 @@ module.exports = {
             presets: [
               '@babel/preset-env',
               '@babel/preset-react'
+            ],
+            plugins: [
+              "@babel/plugin-proposal-class-properties",
+              "@babel/plugin-proposal-object-rest-spread"
             ]
           }
         }
