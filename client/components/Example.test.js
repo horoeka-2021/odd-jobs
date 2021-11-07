@@ -8,7 +8,7 @@ import { expect } from '@jest/globals'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-// import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer'
 
 import Example from './Example'
 
@@ -19,11 +19,11 @@ test('Example - snapshot testing using testing-library', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
-// test('Example - snapshot testing using react-test-renderer', () => {
-//   const app = renderer.create(<App/>)
+test('Example - snapshot testing using react-test-renderer', () => {
+  const app = renderer.create(<Example/>)
 
-//   expect(app.toJSON()).toMatchSnapshot()
-// })
+  expect(app.toJSON()).toMatchSnapshot()
+})
 
 test('Example - UI testing', () => {
   render(<Example title='UI testing'/>)
