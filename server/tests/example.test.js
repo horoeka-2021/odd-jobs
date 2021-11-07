@@ -1,10 +1,10 @@
 const request = require('supertest')
 const cheerio = require('cheerio')
 
-const app = require('../app')
+const server = require('../server')
 
 test('Example - testing route with supertest', async () => {
-  const res = await request(app)
+  const res = await request(server)
     .get('/example')
 
   expect(res.statusCode).toEqual(200)
@@ -12,7 +12,7 @@ test('Example - testing route with supertest', async () => {
 })
 
 test('Example - testing route with supertest and cheerio', async () => {
-  const res = await request(app).get('/example')
+  const res = await request(server).get('/example')
   expect(res.statusCode).toEqual(200)
   const $ = cheerio.load(res.text)
   expect($('#msg').text()).toMatch('example message for testing')
