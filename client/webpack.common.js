@@ -3,14 +3,14 @@ const path = require('path')
 module.exports = {
   entry: path.join(__dirname, './index.js'),
   output: {
-    path:path.resolve(__dirname, '../server/public'),
+    path: path.resolve(__dirname, '../server/public'),
     filename: 'bundle.js'
   },
   mode: 'development',
   module: {
     rules: [
       {
-        test:/\.jsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -20,8 +20,8 @@ module.exports = {
               '@babel/preset-react'
             ],
             plugins: [
-              "@babel/plugin-proposal-class-properties",
-              "@babel/plugin-proposal-object-rest-spread"
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-object-rest-spread'
             ]
           }
         }
