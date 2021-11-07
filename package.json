@@ -35,6 +35,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "babel-loader": "^8.2.3",
+    "cheerio": "^1.0.0-rc.10",
     "eslint": "^7.32.0",
     "eslint-config-eda": "^0.1.4",
     "jest": "^27.3.1",

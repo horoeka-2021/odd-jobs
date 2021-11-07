@@ -34,19 +34,24 @@ npm start
 * For starting the app in production
 1. start - used for starting the server(Express) in the production environment
 1. build - run webpack without watch option to create bundle.js
-##Testing
+## Testing
 * Used libraries
 1. Jest is the core part
 1. Supertest for testing HTTP/API endpoints
 1. Testing-library for testing UI components(React)
 1. Cheerio: server side JQuery implementation
-* locations
+* Test locations
 1. Client-side: client/tests
 1. Server-side: server/tests
+* Running tests
+```sh
+npm run test
+```
 ## To Do List
 1. Knex
 1. SQLite3(?)
 1. Lint
 1. Jest
 1. Jest-supertest
-1. Server Side API
+1. Test for React components
+1. Server Side API endpoints
