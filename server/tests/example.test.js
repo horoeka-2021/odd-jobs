@@ -1,3 +1,4 @@
+require('regenerator-runtime/runtime')
 const request = require('supertest')
 const cheerio = require('cheerio')
 

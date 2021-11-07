@@ -38,8 +38,8 @@ npm start
 * Used libraries
 1. Jest is the core part
 1. Supertest for testing HTTP/API endpoints
-1. Testing-library for testing UI components(React)
 1. Cheerio: server side JQuery implementation
+1. Testing-library for testing UI components(React)
 * Test locations
 1. Client-side: client/tests
 1. Server-side: server/tests
@@ -50,8 +50,5 @@ npm run test
 ## To Do List
 1. Knex
 1. SQLite3(?)
-1. Lint
-1. Jest
-1. Jest-supertest
 1. Test for React components
 1. Server Side API endpoints

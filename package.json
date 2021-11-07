@@ -4,7 +4,8 @@
   "private": true,
   "description": "Boilerplate for React/Express web applications",
   "scripts": {
-    "test": "jest --watch --noStackTrace",
+    "test": "jest --watchAll --noStackTrace",
+    "test-trace": "jest --watchAll",
     "lint": "eslint --ext .js,.jsx .",
     "dev": "run-p dev-client dev-server",
     "dev-client": "webpack --config client/webpack.dev.js --watch",
@@ -17,6 +18,19 @@
     "extends": "eda",
     "ignorePatterns": [
       "bundle.js"
+    ]
+  },
+  "jest": {
+    "verbose": true
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread"
     ]
   },
   "dependencies": {
@@ -44,6 +58,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.0",
+    "react-test-renderer": "^17.0.2",
+    "regenerator-runtime": "^0.13.9",
     "supertest": "^6.1.6",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",

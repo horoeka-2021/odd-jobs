@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example - snapshot testing using testing-library 1`] = `
+<DocumentFragment>
+  <div>
+    <h2>
+      Example React component - props.title:changed title
+    </h2>
+    <p>
+      The text you entered:
+    </p>
+    <input
+      value=""
+    />
+    <button>
+      Click
+    </button>
+  </div>
+</DocumentFragment>
+`;
