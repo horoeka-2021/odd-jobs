@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react'
 
-// import { getExamples } from '../api/example'
+import { getExamples } from '../api/example'
 
 function Example (props) {
   const [userInput, setUserInput] = useState('')
-  const [contentFromDB, setContentFromDB] = useState({})
+  const [contentFromDB, setContentFromDB] = useState([])
 
   useEffect(() => {
     fetchExamples()
-  })
+  }, [])
 
-  function fetchExamples () {
-    const obj = {
-      title: 'Test title'
+  async function fetchExamples () {
+    // const obj = {
+    //   title: 'Test title'
+    // }
+    try {
+      console.log('fetching data from server')
+      const fetchData = await getExamples()
+      console.log(fetchData)
+      setContentFromDB(fetchData)
+    } catch (error) {
+      setContentFromDB([])
     }
-    setContentFromDB(obj)
   }
 
   function handleClick (event) {
@@ -31,7 +38,16 @@ function Example (props) {
       <p>The text you entered:{userInput}</p>
       <input onChange={handleChange} value={userInput}/>
       <button onClick={handleClick}>Click</button>
-      <p>This is from database:{contentFromDB.title}</p>
+      <p>This is from database</p>
+      <ul>
+        {
+          contentFromDB.length > 0 && contentFromDB.map((ele) => {
+            return (
+              <li key={ele.id}>{ele.title} : {ele.description} - {ele.count}</li>
+            )
+          })
+        }
+      </ul>
     </div>
   )
 }

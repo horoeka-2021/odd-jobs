@@ -26,7 +26,7 @@ router.post('/posttest', function (req, res, next) {
 router.get('/data/', async (req, res) => {
   try {
     const examples = await db.getExamples()
-    res.json({ examples })
+    res.json(examples)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
