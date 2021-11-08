@@ -12,8 +12,18 @@
     "dev-server": "NODE_LOG_LEVEL=dev nodemon server",
     "start": "npm run prod-server",
     "prod-server": "NODE_LOG_LEVEL=tiny node server",
-    "build": "webpack --config client/webpack.prod.js"
+    "build": "webpack --config client/webpack.prod.js",
+    "knex": "knex --knexfile server/db/knexfile.js"
   },
+  "keywords": [
+    "express",
+    "node",
+    "knex",
+    "handlebars",
+    "jest",
+    "react",
+    "sqlite"
+  ],
   "eslintConfig": {
     "extends": "eda",
     "ignorePatterns": [
@@ -39,7 +49,9 @@
     "express": "~4.16.1",
     "express-handlebars": "^5.3.4",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "knex": "^0.95.13",
+    "morgan": "~1.9.1",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

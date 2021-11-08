@@ -106,4 +106,7 @@ dist
 # Bundle files will be created during the build time
 bundle.*
 
+# DB
+dev.sqlite3
+
 temp/
