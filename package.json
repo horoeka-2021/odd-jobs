@@ -72,6 +72,7 @@
     "react-router-dom": "^6.0.0",
     "react-test-renderer": "^17.0.2",
     "regenerator-runtime": "^0.13.9",
+    "superagent": "^6.1.0",
     "supertest": "^6.1.6",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
