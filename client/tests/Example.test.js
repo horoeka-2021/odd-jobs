@@ -9,7 +9,7 @@ import '@testing-library/jest-dom'
 
 import renderer from 'react-test-renderer'
 
-import Example from './Example'
+import Example from '../components/Example'
 require('regenerator-runtime/runtime')
 
 // Structural test using snapshots

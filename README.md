@@ -102,7 +102,8 @@ npm test -- -u
 
 ## To Do List
 
-* Test for React components
+* Refactoring package.json - versions
 * Server Side API endpoints
+* Test for React components - revise
 * Testing DB CRUD - mock db injection
 * Testing routing/json from API 
