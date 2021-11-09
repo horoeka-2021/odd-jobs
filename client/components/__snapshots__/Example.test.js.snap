@@ -1,6 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Example - snapshot testing using react-test-renderer 1`] = `
+exports[`Example - client -  snapshot testing using testing-library 1`] = `
+<DocumentFragment>
+  <div>
+    <h2>
+      Example React component - props.title:changed title
+    </h2>
+    <p>
+      The text you entered:
+    </p>
+    <input
+      value=""
+    />
+    <button>
+      Click
+    </button>
+    <p>
+      This is from database
+    </p>
+    <ul />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Example - client - snapshot testing using react-test-renderer 1`] = `
 <div>
   <h2>
     Example React component - props.title:
@@ -18,24 +41,9 @@ exports[`Example - snapshot testing using react-test-renderer 1`] = `
   >
     Click
   </button>
+  <p>
+    This is from database
+  </p>
+  <ul />
 </div>
-`;
-
-exports[`Example - snapshot testing using testing-library 1`] = `
-<DocumentFragment>
-  <div>
-    <h2>
-      Example React component - props.title:changed title
-    </h2>
-    <p>
-      The text you entered:
-    </p>
-    <input
-      value=""
-    />
-    <button>
-      Click
-    </button>
-  </div>
-</DocumentFragment>
 `;

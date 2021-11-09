@@ -1,7 +1,6 @@
 /**
  * @jest-environment jsdom
  */
-
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { expect } from '@jest/globals'
@@ -11,22 +10,23 @@ import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 
 import Example from './Example'
+require('regenerator-runtime/runtime')
 
 // Structural test using snapshots
-test('Example - snapshot testing using testing-library', () => {
-  const { asFragment } = render(<Example title='changed title'/>)
+test('Example - client -  snapshot testing using testing-library', () => {
+  const { asFragment } = render(<Example title='changed title' />)
 
   expect(asFragment()).toMatchSnapshot()
 })
 
-test('Example - snapshot testing using react-test-renderer', () => {
-  const app = renderer.create(<Example/>)
+test('Example - client - snapshot testing using react-test-renderer', () => {
+  const app = renderer.create(<Example />)
 
   expect(app.toJSON()).toMatchSnapshot()
 })
 
-test('Example - UI testing', () => {
-  render(<Example title='UI testing'/>)
+test('Example - client - UI testing', () => {
+  render(<Example title='UI testing' />)
   const paragraph = screen.getByText('The text you entered', { exact: false })
   expect(paragraph.textContent).toMatch('')
 

@@ -15,9 +15,7 @@ function Example (props) {
     //   title: 'Test title'
     // }
     try {
-      console.log('fetching data from server')
       const fetchData = await getExamples()
-      console.log(fetchData)
       setContentFromDB(fetchData)
     } catch (error) {
       setContentFromDB([])
