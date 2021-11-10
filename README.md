@@ -102,8 +102,8 @@ npm test -- -u
 
 ## To Do List
 
-* Refactoring package.json - versions
-* Server Side API endpoints
-* Test for React components - revise
-* Testing DB CRUD - mock db injection - before/after
-* Testing routing/json from API 
+* Refactoring package.json - adjust versions
+* Server Side API endpoints - revisit
+* Test for React components(add another example component) - revise to remove the warning
+* Testing backend with injected DB - before/after in Test
+* Testing routing/json from API with injected backend
