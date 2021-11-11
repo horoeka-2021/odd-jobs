@@ -107,3 +107,4 @@ npm test -- -u
 * Test for React components(add another example component) - revise to remove the warning
 * Testing backend with injected DB - before/after in Test
 * Testing routing/json from API with injected backend
+* CSS - using Tailwindcss
