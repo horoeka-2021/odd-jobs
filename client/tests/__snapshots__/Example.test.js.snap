@@ -4,8 +4,11 @@ exports[`Example - client -  snapshot testing using testing-library 1`] = `
 <DocumentFragment>
   <div>
     <h2>
-      Example React component - props.title:changed title
+      Hello from Example React component 1
     </h2>
+    <p>
+      props.title:changed title
+    </p>
     <p>
       The text you entered:
     </p>
@@ -13,12 +16,8 @@ exports[`Example - client -  snapshot testing using testing-library 1`] = `
       value=""
     />
     <button>
-      Click
+      Convert to uppercase
     </button>
-    <p>
-      This is from database
-    </p>
-    <ul />
   </div>
 </DocumentFragment>
 `;
@@ -26,8 +25,11 @@ exports[`Example - client -  snapshot testing using testing-library 1`] = `
 exports[`Example - client - snapshot testing using react-test-renderer 1`] = `
 <div>
   <h2>
-    Example React component - props.title:
+    Hello from Example React component 1
   </h2>
+  <p>
+    props.title:
+  </p>
   <p>
     The text you entered:
     
@@ -39,11 +41,7 @@ exports[`Example - client - snapshot testing using react-test-renderer 1`] = `
   <button
     onClick={[Function]}
   >
-    Click
+    Convert to uppercase
   </button>
-  <p>
-    This is from database
-  </p>
-  <ul />
 </div>
 `;
