@@ -13,7 +13,7 @@ test('Examples - testing route with supertest - async/await', async () => {
   expect(res.text).toMatch('React component will be shown below')
 })
 
-// using then/done
+// using done
 test('Examples - testing route with supertest - done()', (done) => {
   request(server)
     .get('/examples')
