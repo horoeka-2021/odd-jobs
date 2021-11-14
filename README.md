@@ -151,10 +151,6 @@ Server side test shows how to use supertest and cheerio library for testing
 API testing
 [API testing example-api.test.js](/server/tests/example-api.test.js)
 
-# To Do List
-* Testing backend with injected DB - before/after in Test
-* Testing routing/json from API with injected backend
-
 ## Stretch
 * CSS - using TailwindCSS
 * Refactoring package.json - adjust package versions
