@@ -80,7 +80,7 @@ The shcema of the example table
 | description | string |
 
 # Examples
-## Example React components
+## Client - Example React Components
 
 ```
 http://localhost:3000/#/example4
@@ -91,12 +91,36 @@ This shows how to use form in React
 ###  Example component 2
 This shows how to get data from the API end point using superagent
 
-## Example API end point
+## Server Side - Example Server Routes
 
+### Server Routes
+* A default route - Rendering using HBS
+```
+http://localhost:3000/examples
+```
+* A route accepts a parameter
+```
+http://localhost:3000/examples/param/<parameter>
+```
+* A route accepts a query string 
+```
+http://localhost:3000/examples/query?key=<value>
+```
+* A route accepts post data - userId and content
+```html
+<form action="http://localhost:3000/examples/posttest" method="post">
+  <input name="userId"/>
+  <input name="Content"/>
+</form>
+```
+
+### Example API end point
 URL for testing the example end point which returns the records of the example table
 ```
-http://localhost:3000/example/data/
+http://localhost:3000/examples/data/
 ```
+
+
 
 # Testing
 
@@ -127,9 +151,9 @@ Server side test shows how to use supertest and cheerio library for testing
 [Server side example.test.js](/server/tests/example.test.js)
 
 # To Do List
-
-* Refactoring package.json - adjust versions
-* Server Side API endpoints - revisit
 * Testing backend with injected DB - before/after in Test
 * Testing routing/json from API with injected backend
+
+## Stretch
 * CSS - using Tailwindcss
+* Refactoring package.json - adjust package versions

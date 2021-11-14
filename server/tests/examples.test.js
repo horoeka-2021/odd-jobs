@@ -4,17 +4,17 @@ const cheerio = require('cheerio')
 
 const server = require('../server')
 
-test('Example - testing route with supertest', async () => {
+test('Examples - testing route with supertest', async () => {
   const res = await request(server)
-    .get('/example')
+    .get('/examples')
 
   expect(res.statusCode).toEqual(200)
   expect(res.text).toMatch('React component will be shown below')
 })
 
-test('Example - testing route with supertest and cheerio', async () => {
+test('Examples - testing route with supertest and cheerio', async () => {
   const res = await request(server)
-    .get('/example/param/123')
+    .get('/examples/param/123')
 
   expect(res.statusCode).toEqual(200)
   const $ = cheerio.load(res.text)
@@ -22,9 +22,9 @@ test('Example - testing route with supertest and cheerio', async () => {
   expect($('#param').text()).toMatch('123')
 })
 
-test('Example - sending query string', async () => {
+test('Examples - sending query string', async () => {
   const res = await request(server)
-    .get('/example/query')
+    .get('/examples/query')
     .query({ key: 'value' })
 
   expect(res.statusCode).toEqual(200)
@@ -33,10 +33,10 @@ test('Example - sending query string', async () => {
   expect($('#param').text()).toMatch('value')
 })
 
-test('Example POST - sending form data', async () => {
+test('Examples POST - sending form data', async () => {
   const formData = { userId: 101, content: 'Testing POST' }
   const res = await request(server)
-    .post('/example/posttest/')
+    .post('/examples/posttest/')
     .send(formData)
 
   expect(res.statusCode).toEqual(200)
