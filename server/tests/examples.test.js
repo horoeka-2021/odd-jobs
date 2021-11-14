@@ -4,12 +4,25 @@ const cheerio = require('cheerio')
 
 const server = require('../server')
 
-test('Examples - testing route with supertest', async () => {
+// using async/await
+test('Examples - testing route with supertest - async/await', async () => {
   const res = await request(server)
     .get('/examples')
 
   expect(res.statusCode).toEqual(200)
   expect(res.text).toMatch('React component will be shown below')
+})
+
+// using then/done
+test('Examples - testing route with supertest - done()', (done) => {
+  request(server)
+    .get('/examples')
+    .expect(200)
+    .end((err, res) => {
+      expect(err).toBeNull()
+      expect(res.text).toMatch('Hello from HBS example')
+      done()
+    })
 })
 
 test('Examples - testing route with supertest and cheerio', async () => {
