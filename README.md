@@ -71,7 +71,7 @@ npm run knex migrate:latest
 ```sh
 npm run knex seed:run
 ```
-The shcema of the example table
+The schema of the example table
 | Column name | Type |
 | ----------- | ----------- |
 | id | integer |
@@ -155,5 +155,6 @@ Server side test shows how to use supertest and cheerio library for testing
 * Testing routing/json from API with injected backend
 
 ## Stretch
-* CSS - using Tailwindcss
+* CSS - using TailwindCSS
 * Refactoring package.json - adjust package versions
+* Database configuration for Heroku deployment
