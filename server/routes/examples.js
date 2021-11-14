@@ -23,10 +23,10 @@ router.post('/posttest', function (req, res, next) {
   res.render('example', { message: `Hello from userID:${userId}`, param: `The content:${content}` })
 })
 
-router.get('/data/', async (req, res) => {
+router.get('/api/', async (req, res) => {
   try {
     const examples = await db.getExamples()
-    res.json(examples)
+    res.json({ examples })
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })

@@ -115,12 +115,10 @@ http://localhost:3000/examples/query?key=<value>
 ```
 
 ### Example API end point
-URL for testing the example end point which returns the records of the example table
+URL to access the example end point which returns the records of the example table
 ```
-http://localhost:3000/examples/data/
+http://localhost:3000/examples/api/
 ```
-
-
 
 # Testing
 
@@ -149,6 +147,9 @@ npm test -- -u
 ## Server Side Testing
 Server side test shows how to use supertest and cheerio library for testing  
 [Server side example.test.js](/server/tests/example.test.js)
+
+API testing
+[API testing example-api.test.js](/server/tests/example-api.test.js)
 
 # To Do List
 * Testing backend with injected DB - before/after in Test
