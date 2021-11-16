@@ -151,7 +151,10 @@ Server side test shows how to use supertest and cheerio library for testing
 API testing
 [API testing example-api.test.js](/server/tests/example-api.test.js)
 
+## To do 
+* Heroku deployment - DB configuration/package.json
+* Add Redux/with testing
+
 ## Stretch
 * CSS - using TailwindCSS
 * Refactoring package.json - adjust package versions
-* Database configuration for Heroku deployment
