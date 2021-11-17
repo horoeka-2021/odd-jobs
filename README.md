@@ -153,7 +153,8 @@ API testing
 
 ## To do 
 * Heroku deployment - DB configuration/package.json
-* Add Redux/with testing
+* Add Redux with testing
+* Add authentication & authorization with JWT
 
 ## Stretch
 * CSS - using TailwindCSS
