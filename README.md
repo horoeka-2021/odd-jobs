@@ -84,7 +84,7 @@ The schema of the example table
 ## Client - Example React Components
 
 ```
-http://localhost:3000/#/example4
+http://localhost:3000/#/example
 ```
 ### Example component 1
 This shows how to use form in React
