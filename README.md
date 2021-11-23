@@ -1,11 +1,12 @@
-# Boilerplate 
+# Boilerplate - Version 2
 Using
 * Express
 * React
 * Handlebars
-* Knex
+* Knex - Sqlite3
 * Handlebars
 * Jest
+* Postgres for deployment as Sqlite3 will be not used in production
 
 ## How to run
 
@@ -150,6 +151,14 @@ Server side test shows how to use supertest and cheerio library for testing
 
 API testing
 [API testing example-api.test.js](/server/tests/example-api.test.js)
+
+## Deployment to Heroku
+### New scripts added to Package.json
+Heroku uses specific scripts named heroku-prebuild, heroku-postbuild and heroku-cleanup
+* heroku-postbuild - This will be executed by Heroku after installation of dependencies and it will start the below two sripts
+  * build-knex - This will create tables
+  * build-webpack - This will build the webpack bundle file for client components
+* heroku-cleanup - This will start any tasks needed after all the builds finished
 
 ## To do 
 * Heroku deployment - DB configuration/package.json
