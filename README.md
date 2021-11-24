@@ -155,16 +155,15 @@ API testing
 ## Deployment to Heroku
 ### New scripts added to Package.json
 Heroku uses specific scripts named heroku-prebuild, heroku-postbuild and heroku-cleanup
-* heroku-postbuild - This will be executed by Heroku after installation of dependencies and it will start the below two sripts
+* heroku-postbuild - This will be executed by Heroku after installation of dependencies and it will start the below two scripts
   * build-knex - This will create tables
   * build-webpack - This will build the webpack bundle file for client components
 * heroku-cleanup - This will start any tasks needed after all the builds finished
 
 ## To do 
-* Heroku deployment - DB configuration/package.json
 * Add Redux with testing
-* Add authentication & authorization with JWT
+* Add authentication & authorization with JWT and testing
 
 ## Stretch
-* CSS - using TailwindCSS
+* CSS - using TailwindCSS or material UI
 * Refactoring package.json - adjust package versions
