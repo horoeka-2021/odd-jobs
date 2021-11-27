@@ -5,12 +5,13 @@ import 'regenerator-runtime/runtime'
 
 // redux
 import { applyMiddleware, compose, createStore } from 'redux'
+import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 
 import App from './components/App'
-import { Provider } from 'react-redux'
+import reducers from './reducers'
 
-const composeEnhancers = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 document.addEventListener('DOMContentLoaded', () => {

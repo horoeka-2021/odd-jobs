@@ -1,6 +1,7 @@
 // Action generator
 
 import { getExamples } from '../api/example'
+import { showError } from './error'
 
 export const FETCH_EXAMPLE_PENDING = 'FETCH_EXAMPLE_PENDING'
 export const FETCH_EXAMPLE_SUCCESS = 'FETCH_EXAMPLE_SUCCESS'
@@ -18,17 +19,16 @@ function fetchExampleSuccess (examples) {
   }
 }
 
-export function fetchExample () {
-  return (dispatch) => {
-    dispatch(fetchExamplePending())
-    return getExamples()
-      .then(example => {
-        dispatch(fetchExampleSuccess(examples))
-        return null
-      })
-      .catch((err) => ) {
-        const errMessage = err.response?.text || err.errMessage
-        dispatch(showError(errMessage))
-      }
+export function fetchExamples () {
+  return async (dispatch) => {
+    try {
+      dispatch(fetchExamplePending())
+      const examples = await getExamples()
+      console.log('from server', examples)
+      dispatch(fetchExampleSuccess(examples))
+    } catch (error) {
+      const errMessage = error.response?.text || error.errMessage
+      dispatch(showError(errMessage))
+    }
   }
 }
