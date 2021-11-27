@@ -14,6 +14,7 @@ test('Examples - testing route with supertest - async/await', async () => {
 })
 
 // using done
+// eslint-disable-next-line jest/no-done-callback
 test('Examples - testing route with supertest - done()', (done) => {
   request(server)
     .get('/examples')
