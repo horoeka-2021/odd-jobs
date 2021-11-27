@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { getExamples } from '../api/example'
+// import { getExamples } from '../api/example'
+// using redux async action
+import { fetchExamples } from '../actions/examples'
 
 function ExampleDataFromServer () {
-  const [contentFromDB, setContentFromDB] = useState([])
+  // disabled the below to use Redux not local state
+  // const [contentFromDB, setContentFromDB] = useState([])
+  const dispatch = useDispatch()
+  const contentFromDB = useSelector(state => state.examples)
 
   useEffect(() => {
-    fetchExamples()
+    dispatch(fetchExamples())
   }, [])
 
-  async function fetchExamples () {
-    // const obj = {
-    //   title: 'Test title'
-    // }
-    try {
-      const fetchData = await getExamples()
-      setContentFromDB(fetchData)
-    } catch (error) {
-      setContentFromDB([])
-    }
-  }
+  // changed to use Redux action
+  // async function fetchExamples () {
+  //   // const obj = {
+  //   //   title: 'Test title'
+  //   // }
+  //   try {
+  //     const fetchData = await getExamples()
+  //     setContentFromDB(fetchData)
+  //   } catch (error) {
+  //     setContentFromDB([])
+  //   }
+  // }
 
   return (
     <div>

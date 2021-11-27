@@ -1,0 +1,17 @@
+branches:
+  only:
+    - main
+language: node_js
+node_js:
+- 14
+script:
+- npm run lint
+- npm run test-no-watch
+# deploy:
+#   - provider: heroku
+#     api_key:
+#       secure: kCxyHswjg6tsxNSmxcEDWhLO/0z4xuFarsVKdc3SeUP4hiyFsZddwvZprI0qmqEcsthS2JBvXNG0UiR3zv12hMWyJ+x8zR2BCHz/0pZ0wcmCuVmpgcyXJ1lyQFgLowUp+03gPJcfEmpU4ix5iZrqBRGmMB/V4KrOg88KchZ6pXovpBpkMaGjNLe/EJRjVZ1KdMcOu2UibdXq5xEX/7ybTkzgUKfVzyieARat/IZka+f9p/eI2hwCh+vdVke0WoHu0Wvl6IeFKkCBy3SzJz7SvL20ppFyRtaRQR1yFFUqDZtb9FwwAX25opwBZ/ErNVqg+aWUITRAwkZDKB/t2Eomuv+MObcA/dSW92sIoJdyR61LF7SLFbV84X9xAz2SDEobBuyrpRJh9kuPX3efNAfJ+QwpZF53COlFjno+0RxKafwLmlJstd64DPWBHBTHF556eKFf8yNbryp//I/1fgMzC2mgMb5fbrXer5AnrJbmuaSLYKvWQx/EaRdcXefLirCZtxoJjheMwwOpWth658zS7qGCVyKwBRiQOykvqCn3Ho6LEmuzeRDOoJk5Jw9DTsHlwDqBVCnc78OW9K7E/txAxXb05BXOBEsnfUrcQ9b+sTKMzI5iVJdMkLUutZmOExCPCmsMa2QvhnZ8W+wL6RW6KzzwMzXI1q8sCndfFm8SR/I=
+#     app: boilerplate-tommy
+#     on:
+#       repo: tommy-yoon/boilerplate-react-express-sqlite
+#       branch: main

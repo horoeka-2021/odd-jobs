@@ -1,12 +1,19 @@
-# Boilerplate - Version 2
-Using
+# Boilerplate
+
+## Changes in Version 3
+* Redux is added
+
+## Changes in Version 2
+* Add configurations for deployment to Heroku
+* Added Postgres for deployment as Sqlite3 will be not used in production
+
+## Used Libraries
 * Express
 * React
 * Handlebars
 * Knex - Sqlite3
 * Handlebars
 * Jest
-* Postgres for deployment as Sqlite3 will be not used in production
 
 ## How to run
 

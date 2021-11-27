@@ -23,6 +23,7 @@ router.post('/posttest', function (req, res, next) {
   res.render('example', { message: `Hello from userID:${userId}`, param: `The content:${content}` })
 })
 
+// API endpoint example
 router.get('/api/', async (req, res) => {
   try {
     const examples = await db.getExamples()
