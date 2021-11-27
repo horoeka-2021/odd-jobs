@@ -13,6 +13,7 @@
     "dev-server": "NODE_LOG_LEVEL=dev nodemon server",
     "test": "jest --watchAll --noStackTrace",
     "test-trace": "jest --watchAll",
+    "test-no-watch": "jest",
     "lint": "eslint . --ext .js,.jsx .",
     "heroku-postbuild": "npm run build-knex && npm run build-webpack",
     "build-knex": "npm run knex -- migrate:latest",

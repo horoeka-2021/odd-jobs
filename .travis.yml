@@ -6,7 +6,7 @@ node_js:
 - 14
 script:
 - npm run lint
-- npm run test
+- npm run test-no-watch
 # deploy:
 #   - provider: heroku
 #     api_key:
