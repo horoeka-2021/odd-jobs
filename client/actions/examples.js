@@ -19,6 +19,7 @@ function fetchExampleSuccess (examples) {
   }
 }
 
+// async action generator
 export function fetchExamples () {
   return async (dispatch) => {
     try {

@@ -8,21 +8,17 @@
   },
   "scripts": {
     "knex": "knex --knexfile server/db/knexfile.js",
-    
     "dev": "run-p dev-client dev-server",
     "dev-client": "webpack --config client/webpack.dev.js --watch",
     "dev-server": "NODE_LOG_LEVEL=dev nodemon server",
-    
     "test": "jest --watchAll --noStackTrace",
     "test-trace": "jest --watchAll",
     "test-no-watch": "jest",
     "lint": "eslint . --ext .js,.jsx .",
-    
     "heroku-postbuild": "npm run build-knex && npm run build-webpack",
     "build-knex": "npm run knex -- migrate:latest",
     "build-webpack": "webpack --config client/webpack.prod.js --mode=production",
     "heroku-cleanup": "npm run knex -- seed:run",
-    
     "start": "NODE_LOG_LEVEL=tiny node server"
   },
   "keywords": [
@@ -70,6 +66,7 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "@auth0/auth0-react": "^1.8.0",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
