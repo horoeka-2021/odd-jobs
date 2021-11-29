@@ -1,5 +1,8 @@
 # Boilerplate
 
+## Changes in Version 4
+* Authentication using Auth0 is added
+
 ## Changes in Version 3
 * Redux is added
 

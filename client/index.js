@@ -1,26 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router } from 'react-router-dom'
+
 import 'regenerator-runtime/runtime'
 
 // redux
-import { applyMiddleware, compose, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
+
+// for Auth0
+import { Auth0Provider } from '@auth0/auth0-react'
 
 import App from './components/App'
-import reducers from './reducers'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)))
+import store from './store'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <Router>
+    <Auth0Provider
+      domain = {'horoeka-2021-tommy.au.auth0.com'}
+      clientId = {'qnmXNdDByBoCtPGsv2u1Vj0EZRubrWDg'}
+      redirectUri={window.location.origin}
+      audience='https://boilerplate-tommy.herokuapp.com'
+    >
+      <Provider store={store}>
         <App />
-      </Router>
-    </Provider>,
+      </Provider>
+    </Auth0Provider>,
     document.getElementById('react-component-here')
   )
 })
