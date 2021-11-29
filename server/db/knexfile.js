@@ -2,7 +2,6 @@
 const path = require('path')
 
 module.exports = {
-
   local: {
     client: 'sqlite3',
     connection: {
@@ -23,7 +22,6 @@ module.exports = {
     },
     useNullAsDefault: true
   },
-
   development: {
     client: 'postgresql',
     connection: {
@@ -39,7 +37,6 @@ module.exports = {
     },
     useNullAsDefault: true
   },
-
   production: {
     client: 'postgresql',
     connection: {
