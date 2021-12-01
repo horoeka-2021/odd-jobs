@@ -13,7 +13,7 @@ function App () {
   return (
     <Router>
       <Route path='/' component={Nav} />
-      <h1>Hello from React - env : {process.env.NODE_ENV}</h1>
+      <h1>Hello from React</h1>
       <Link to='/example'>To see the example</Link>
       <Route path='/example' exact render={() => <Example title='Welcome'/>}/>
       <Route path='/example' exact component={ExampleDataFromServer}/>
