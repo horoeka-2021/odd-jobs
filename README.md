@@ -48,7 +48,7 @@ npm start
 
 1. Create a branch for each issue ticket from the dev branch   
 You can use the issue ticket number  
-e.g. dev-1, dev-1-configure-yml or 1-dev
+e.g. devops-1, devops-1-configure-yml or 1-devops
 2. Once the change is done
 3. Go to the dev branch
 ```sh
