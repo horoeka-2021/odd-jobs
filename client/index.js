@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Auth0Provider
       domain = {'horoeka-2021-tommy.au.auth0.com'}
-      clientId = {'qnmXNdDByBoCtPGsv2u1Vj0EZRubrWDg'}
+      clientId = {'Lni1HcOiEaWMRtuoEouZO08BDTcG7h5I'}
       redirectUri={window.location.origin}
-      audience='https://boilerplate-tommy.herokuapp.com'
+      audience='https://oddjobs-horoeka.herokuapp.com'
     >
       <Provider store={store}>
         <App />
