@@ -8,22 +8,17 @@
   },
   "scripts": {
     "knex": "NODE_ENV=local knex --knexfile server/db/knexfile.js",
-    
     "dev": "NODE_ENV=local run-p dev-client dev-server",
     "dev-client": "NODE_ENV=local webpack --config client/webpack.dev.js --watch",
     "dev-server": "NODE_ENV=local NODE_LOG_LEVEL=dev nodemon server",
-    
     "test": "jest --watchAll --noStackTrace",
     "test-trace": "jest --watchAll",
     "test-no-watch": "jest",
-    
     "lint": "eslint . --ext .js,.jsx .",
-    
     "heroku-postbuild": "npm run build-knex && npm run build-webpack",
     "build-knex": "npm run knex -- migrate:latest",
     "build-webpack": "webpack --config client/webpack.prod.js --mode=production",
     "heroku-cleanup": "npm run knex -- seed:run",
-    
     "start": "NODE_LOG_LEVEL=tiny node server"
   },
   "keywords": [
@@ -57,9 +52,7 @@
     ]
   },
   "dependencies": {
-    "-": "^0.0.1",
     "cookie-parser": "~1.4.4",
-    "D": "^1.0.0",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-handlebars": "^5.3.4",
@@ -68,7 +61,8 @@
     "morgan": "~1.9.1",
     "pg": "^8.7.1",
     "react-redux": "^7.2.6",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
     "@auth0/auth0-react": "^1.8.0",
@@ -92,7 +86,6 @@
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.0",
     "regenerator-runtime": "^0.13.9",
-    "superagent": "^6.1.0",
     "supertest": "^6.1.6",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",

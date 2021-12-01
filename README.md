@@ -7,11 +7,9 @@
 * Jest
 * Redux
 * SQLite/Postgres
-* Auth0 - in progress
+* Auth0 - (in progress)
 
 ## How to run
-
-
 
 ### For local environment
 #### Install NPM packages
@@ -167,11 +165,3 @@ Heroku uses specific scripts named heroku-prebuild, heroku-postbuild and heroku-
   * build-knex - This will create tables
   * build-webpack - This will build the webpack bundle file for client components
 * heroku-cleanup - This will start any tasks needed after all the builds finished
-
-## To do 
-* Add Redux with testing
-* Add authentication & authorization with JWT and testing
-
-## Stretch
-* CSS - using TailwindCSS or material UI
-* Refactoring package.json - adjust package versions
