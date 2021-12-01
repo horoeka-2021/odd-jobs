@@ -1,34 +1,41 @@
-# Boilerplate
-
-## Changes in Version 4
-* Authentication using Auth0 is added
-
-## Changes in Version 3
-* Redux is added
-
-## Changes in Version 2
-* Add configurations for deployment to Heroku
-* Added Postgres for deployment as Sqlite3 will be not used in production
+# Odd-jobs
 
 ## Used Libraries
 * Express
 * React
-* Handlebars
 * Knex - Sqlite3
-* Handlebars
 * Jest
+* Redux
+* SQLite/Postgres
+* Auth0 - in progress
 
 ## How to run
 
-### For Development
 
+
+### For local environment
+#### Install NPM packages
+```sh
+npm i
+```
+#### Setup database
+1. Create the example table
+```sh
+npm run knex migrate:latest
+```
+2. Add seed rows to the example table
+```sh
+npm run knex seed:run
+```
+
+#### Run the server
 ```sh 
 npm run dev
 ```
 
 And access it using a web browser [Localhost](http://localhost:3000/)
 
-### For Production
+### For Sever environment
 
 Build first 
 ```sh
@@ -52,7 +59,6 @@ npm start
 
 1. Node
 1. Express
-1. Express-Handlebars
 1. Server Side Routing
 
 # NPM Scripts
@@ -74,14 +80,6 @@ npm start
 
 # Database - SQLite3
 
-1. Create the example table
-```sh
-npm run knex migrate:latest
-```
-2. Add seed rows to the example table
-```sh
-npm run knex seed:run
-```
 The schema of the example table
 | Column name | Type |
 | ----------- | ----------- |
