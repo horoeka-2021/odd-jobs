@@ -3,7 +3,6 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const hbs = require('express-handlebars')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
@@ -12,13 +11,6 @@ const exampleRouter = require('./routes/examples')
 const app = express()
 
 const logLevel = process.env.NODE_LOG_LEVEL || 'tiny'
-
-// view engine setup
-app.engine('hbs', hbs({
-  extname: 'hbs'
-}))
-app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'views'))
 
 app.use(logger(logLevel))
 app.use(express.json())
