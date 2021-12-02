@@ -52,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "@syncfusion/ej2-react-calendars": "^19.3.55",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",

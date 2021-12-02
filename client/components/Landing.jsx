@@ -22,7 +22,7 @@ function Landing (props) {
       </ul>
 
       <Link to='/apprentice'><button>Apprentices</button></Link>
-      <Link to='/community'><button>Community Member</button></Link>
+      <Link to='/member'><button>Community Member</button></Link>
 
     </div>
   )

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars'
 
 export default function AddJob () {
   const history = useHistory()
@@ -9,6 +10,7 @@ export default function AddJob () {
   function handleChange () {
 
   }
+
   function handleAdd () {
 
   }
@@ -23,11 +25,13 @@ export default function AddJob () {
             <label htmlFor='title'>Job Title</label>
             <input name='title' value='title' onChange={handleChange}/>
             <label htmlFor='description'>Job Description</label>
-            <textarea name='description' value='description' onChange={handleChange}/>
-            <label htmlFor='date'>Date</label>
-            <input name='date'type='date' placeholder='date'
-              onChange={handleChange} value='date' />
+            <DateRangePickerComponent id="daterangepicker"
+              placeholder='Select a range'
+              format='dd-MMM-yy'
+              start="Year"
+              depth="Year" />
 
+            <textarea name='description' value='description' onChange={handleChange}/>
             <label htmlFor='classification' ></label>
             <select name='classification'onChange={handleChange}>
               <option hidden>Select from this list</option>

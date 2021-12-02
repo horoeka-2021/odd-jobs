@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import { DatePickerComponent } from '@syncfusion/ej2-react-calendars'
 
 export default function NewApprentice () {
   const [newApprentice, setNewApprentice] = useState([])
   const history = useHistory()
+  const minDate = new Date('12/02/2003')
 
   function handleChange () {
 
@@ -35,6 +37,12 @@ export default function NewApprentice () {
             <label>Phone
               <input type= 'number' name="phone" value={newApprentice.phone} onChange={handleChange}/>
             </label>
+            <label htmlFor="birthday">Birthday
+              <DatePickerComponent id="datepicker" format='dd-MMM-yy' min={minDate}/></label>
+            <label>Gender
+              <input type='gender'name="gender" value={newApprentice.gender} onChange={handleChange}/>
+            </label>
+
             <label name='description'>Description</label>
             <textarea name='description' value='' onChange={handleChange}/>
 
@@ -114,9 +122,14 @@ export default function NewApprentice () {
             </label>
 
             <h4>Experience</h4>
+            <label htmlFor='experience' >Experience</label>
+            <select name='experience' onChange={handleChange}>
+              <option hidden>Select from this list</option>
+              <option value={1}>Less than 6 months</option>
+              <option value={2}>6- 12 months</option>
+              <option value={3}>more than 12 months</option>
+            </select>
 
-            <label name='experience'>Experience</label>
-            <input type='text' name='experience' value=''/>
           </div>
           <button onClick={handleAdd}>Submit</button>
         </form>
