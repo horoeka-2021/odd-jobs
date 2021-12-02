@@ -25,8 +25,6 @@ function App () {
       <Route path='/job/new' component={AddJob} />
       <Route path='/apprentice/new' component={NewApprentice} />
       <Route path='/member/new' component={NewMember} />
-
-      <Route path='/example' exact component={ExampleDataFromServer}/>
     </Router>
   )
 }
