@@ -1,7 +1,6 @@
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
 import React from 'react'
 import Landing from './Landing'
-import ExampleDataFromServer from './ExampleDataFromServer'
 import Nav from './Nav'
 
 // authentication
