@@ -16,8 +16,8 @@ import store from './store'
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Auth0Provider
-      domain = {'horoeka-2021-tommy.au.auth0.com'}
-      clientId = {'Lni1HcOiEaWMRtuoEouZO08BDTcG7h5I'}
+      domain = {'dev-bekgk-j7.us.auth0.com'}
+      clientId = {'Cgi79romxK0TEunaP25UzzSgFdDNUVrt'}
       redirectUri={window.location.origin}
       audience='https://oddjobs-horoeka.herokuapp.com'
     >
