@@ -1,7 +1,6 @@
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
 import React from 'react'
 import Landing from './Landing'
-import ExampleDataFromServer from './ExampleDataFromServer'
 import Nav from './Nav'
 
 // authentication
@@ -26,8 +25,6 @@ function App () {
       <Route path='/job/new' component={AddJob} />
       <Route path='/apprentice/new' component={NewApprentice} />
       <Route path='/member/new' component={NewMember} />
-
-      <Route path='/example' exact component={ExampleDataFromServer}/>
     </Router>
   )
 }
