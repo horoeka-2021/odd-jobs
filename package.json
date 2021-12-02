@@ -52,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "@syncfusion/ej2-react-calendars": "^19.3.55",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -61,7 +62,7 @@
     "morgan": "~1.9.1",
     "pg": "^8.7.1",
     "react-redux": "^7.2.6",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^4.2.0",
     "superagent": "^6.1.0"
   },
   "devDependencies": {
