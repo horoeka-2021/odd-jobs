@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // called all the time before any other function
 app.use((req, res, next) => {
-  console.log('HTTP request received')
+  // console.log('HTTP request received')
   next()
 })
 
@@ -41,7 +41,11 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error')
+  // res.render('error')
+  res.json({
+    message: err.message,
+    error: err
+  })
 })
 
 module.exports = app

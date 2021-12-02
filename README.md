@@ -44,6 +44,36 @@ Then run the server
 npm start
 ```
 
+# Git workflow
+
+1. Create a branch for each issue ticket from the dev branch   
+You can use the issue ticket number  
+e.g. devops-1, devops-1-configure-yml or 1-devops
+2. Once the change is done
+3. Go to the dev branch
+```sh
+git checkout dev
+```
+4. Pull in the dev branch
+```sh
+git pull
+```
+5. Go back to the issue branch and start merging with dev
+```sh
+git merge dev
+```
+6. Handle all the conflicts
+7. Push from the issue branch
+```
+git push
+```
+8. Crate a pull request
+9. After the pull request is approved and your branch is merged into dev,  
+either 
+* You can delete the branch safely  
+or
+* You can keep using it if you want
+
 # Installed packages & components
 
 ## Client Side
