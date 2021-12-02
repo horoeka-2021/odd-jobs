@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 // import { getExamples } from '../api/example'
 // using redux async action
-import { fetchExamples } from '../actions/examples'
+import { fetchExamples } from '../../actions/examples'
 
 function ExampleDataFromServer () {
   // disabled the below to use Redux not local state
