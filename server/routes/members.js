@@ -7,8 +7,8 @@ const db = require('../db/db')
 router.get('/', async (req, res) => {
   const auth0Id = req.body.auth0Id
   try {
-    const members = await db.getMember(auth0Id)
-    res.json(members)
+    const member = await db.getMember(auth0Id)
+    res.json(member)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })

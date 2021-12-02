@@ -25,4 +25,5 @@ function getMember (auth0Id, db = database) {
       'users.gender_id as genderId'
     )
     .where('users.auth0_id', auth0Id)
+    .first()
 }
