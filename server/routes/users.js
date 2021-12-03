@@ -3,8 +3,22 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-/* GET users listing. */
-router.post('/', function (req, res) {
+// ================================================================
+// GET route: /api/v1/users/             (gets a list of ALL users)
+router.get('/', (req, res) => {
+  db.getAllUsers()
+    .then(users => {
+      res.status(200)
+      return res.json(users)
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
+// ================================================================
+// POST route: /api/v1/users/signup            (creates a new user)
+router.post('/signup', function (req, res) {
   const { name, email, phone, birthDate, genderId } = req.body
   const member = {
     name: name,

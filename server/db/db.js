@@ -6,6 +6,11 @@ const database = knex(config)
 
 module.exports = {
   getExamples,
+  getAllJobs,
+  getAllUsers,
+  getAllMembers,
+  getAllApprentices,
+
   getMemberByAuthId,
   addNewMember,
   updateMember,
@@ -22,6 +27,28 @@ module.exports = {
 
 function getExamples (db = database) {
   return db('examples')
+    .select()
+}
+
+// UTILITY FUNCTIONS ===========================================================
+function getAllJobs (db = database) {
+  return db('jobs')
+    .select()
+}
+
+function getAllUsers (db = database) {
+  return db('users')
+    .select()
+}
+
+function getAllMembers (db = database) {
+  return db('member_profiles')
+    .select()
+}
+
+function getAllApprentices (db = database) {
+  return db('apprentice_profiles')
+    .join('users', 'users.id', 'apprentice_profiles.id')
     .select()
 }
 
