@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import JobListItem from '../Jobs/JobListItem'
+// import JobListItem from '../Jobs/JobListItem'
 import ProfileItem from '../Profile/ProfileItem'
 
 function MemberProfile () {
@@ -13,7 +13,7 @@ function MemberProfile () {
       <Link to='/job/new'><button>Add New Job</button></Link>
       <ProfileItem profiles={profiles}/>
 
-      <JobListItem />
+      {/* <JobListItem /> */}
     </div>
   )
 }

@@ -8,7 +8,8 @@ export function getProfile (auth0Id) {
     })
 }
 
-// export function getAllProfiles () {
-//   return request.get('/api/v1/members')
-//     .then((res) => res.body)
-// }
+export function addProfile (newMember) {
+  return request
+    .post('/api/v1/members')
+    .send(newMember)
+}

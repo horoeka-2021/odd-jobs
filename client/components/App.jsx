@@ -27,7 +27,7 @@ function App () {
       <Route exact path='/jobs' component={JobList} />
       <Route path='/jobs/new' component={AddJob} />
       <Route exact path='/apprentice/new' component={NewApprentice} />
-      <Route exact path='/member/new' component={NewMember} />
+      <Route exact path='/member/new' render={({ history }) => <NewMember history={history}/>} />
     </Router>
   )
 }
