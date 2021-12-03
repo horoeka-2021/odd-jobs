@@ -3,8 +3,8 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-// =====================================================================
-// GET route: /api/v1/members/
+// UTILITY =====================================================================
+// GET route: /api/v1/members/                       (get a list of ALL members)
 router.get('/', (req, res) => {
   db.getAllMembers()
     .then(members => {
@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
     })
 })
 
-// =====================================================================
-// POST route: /api/v1/members/
+// =============================================================================
+// POST route: /api/v1/members/          (get information about a single member)
 router.get('/:userId', async (req, res) => {
   console.log(req.body)
   const auth0Id = req.body.auth0Id
@@ -32,8 +32,8 @@ router.get('/:userId', async (req, res) => {
   }
 })
 
-// =====================================================================
-// PUT route: /api/v1/members/2/edit
+// =============================================================================
+// PUT route: /api/v1/members/2/edit               (edit a member's information)
 router.put('/:user_id/edit', async (req, res) => {
   const userId = req.params.user_id
   const { name, email, phone, locationId, birthDate } = req.body
@@ -55,7 +55,7 @@ router.put('/:user_id/edit', async (req, res) => {
   }
 })
 
-// =====================================================================
+// =============================================================================
 
 // // API endpoint example
 // router.get('/list', async (req, res) => {

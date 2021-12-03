@@ -43,6 +43,7 @@ function getAllUsers (db = database) {
 
 function getAllMembers (db = database) {
   return db('member_profiles')
+    .join('users', 'users.id', 'member_profiles.user_id')
     .select()
 }
 

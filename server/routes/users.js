@@ -3,7 +3,7 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-// ================================================================
+// UTILITY ==============================================================
 // GET route: /api/v1/users/             (gets a list of ALL users)
 router.get('/', (req, res) => {
   db.getAllUsers()
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// ================================================================
+// ======================================================================
 // POST route: /api/v1/users/signup            (creates a new user)
 router.post('/signup', function (req, res) {
   const { name, email, phone, birthDate, genderId } = req.body

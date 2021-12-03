@@ -3,7 +3,7 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-// ============================================================================
+// UTILITY ====================================================================
 // GET route: /api/v1/jobs/                        (returns a list of all jobs)
 router.get('/', (req, res) => {
   db.getAllJobs()
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// ============================================================================
+// MEMBER =====================================================================
 // GET route: /api/v1/jobs/1       (returns a list of jobs for a single member)
 router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
@@ -29,7 +29,7 @@ router.get('/:userId', async (req, res) => {
   }
 })
 
-// =============================================================================
+// MEMBER & APPRENTICE =========================================================
 // GET route: /api/v1/jobs/details/2      (returns the details for a single job)
 router.get('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
@@ -43,7 +43,7 @@ router.get('/details/:jobId', async (req, res) => {
   }
 })
 
-// =============================================================================
+// MEMBER ======================================================================
 // DELETE route: /api/jobs/details/2          (deletes a single job from the db)
 router.delete('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
@@ -57,7 +57,7 @@ router.delete('/details/:jobId', async (req, res) => {
   }
 })
 
-// =============================================================================
+// MEMBER ======================================================================
 // POST route: /api/v1/jobs/new         (adds a new job listing to the database)
 router.post('/new', async (req, res) => {
   const {
@@ -89,7 +89,7 @@ router.post('/new', async (req, res) => {
   }
 })
 
-// =============================================================================
+// MEMBER ======================================================================
 // POST route: /api/v1/jobs/edit/2       (updates a job listing in the database)
 router.post('/edit/:jobId', async (req, res) => {
   const {

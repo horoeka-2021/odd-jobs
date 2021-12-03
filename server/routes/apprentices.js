@@ -4,8 +4,8 @@ const router = express.Router()
 const db = require('../db/db')
 module.exports = router
 
-// ================================================================
-// GET route: /api/v1/apprentices/  (get a list of all apprentices)
+// UTILITY =====================================================================
+// GET route: /api/v1/apprentices/               (get a list of all apprentices)
 router.get('/', (req, res, next) => {
   db.getAllApprentices()
     .then(apprentices => {
@@ -21,8 +21,8 @@ router.get('/', (req, res, next) => {
     })
 })
 
-// ================================================================
-// GET route: /api/v1/apprentices/3
+// =============================================================================
+// GET route: /api/v1/apprentices/3              (get a single apprentice by id)
 router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
@@ -36,4 +36,4 @@ router.get('/:userId', async (req, res) => {
   }
 })
 
-// ================================================================
+// =============================================================================
