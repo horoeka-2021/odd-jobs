@@ -7,7 +7,8 @@ const database = knex(config)
 module.exports = {
   getExamples,
   getMemberByAuthId,
-  registerNewMember,
+  addNewMember,
+  updateMember,
   getMemberJobsList,
   getJobDetails,
   addJobListing,
@@ -35,7 +36,7 @@ function getMemberByAuthId (auth0Id, db = database) {
     .first()
 }
 
-function registerNewMember (newMember, db = database) {
+function addNewMember (newMember, db = database) {
   return db('users')
     .insert(newMember)
     .returning({
@@ -47,9 +48,9 @@ function registerNewMember (newMember, db = database) {
     })
 }
 
-function editMemberProfile (userId, db = database) {
-  return db('member_profiles')
-    .where('user_id', userId)
+function updateMember (user, db = database) {
+  return db('users')
+    .where('id', user.user_id)
     .update({ 
       name: user.name,
       email: user.email,

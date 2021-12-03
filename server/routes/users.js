@@ -13,7 +13,7 @@ router.post('/', function (req, res) {
     birth_date: birthDate,
     gender_id: genderId
   }
-  db.registerNewMember(member)
+  db.addNewMember(member)
     .then(() => {
       res.sendStatus(201)
       return null

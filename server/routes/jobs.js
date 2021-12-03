@@ -77,14 +77,13 @@ router.post('/edit/:jobId', async (req, res) => {
   }
   try {
     const updatedJobListing = await db.updateJobListing(req.params.jobId, jobListing)
+    console.log('updatedJobListing: ',updatedJobListing)
     res.sendStatus(201)
-    res.redirect(`/jobs/details/${updatedJobListing.id}`)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
   }
 })
-
 
 // // API endpoint example
 // router.get('/list', async (req, res) => {
