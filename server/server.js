@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const exampleRouter = require('./routes/examples')
 const membersRouter = require('./routes/members')
+const apprenticesRouter = require('./routes/apprentices')
 const jobsRouter = require('./routes/jobs')
 
 const app = express()
@@ -30,6 +31,7 @@ app.use('/', indexRouter)
 app.use('/examples', exampleRouter)
 app.use('/api/v1/users', usersRouter)
 app.use('/api/v1/members', membersRouter)
+app.use('/api/v1/apprentices', apprenticesRouter)
 app.use('/api/v1/jobs', jobsRouter)
 
 // catch 404 and forward to error handler

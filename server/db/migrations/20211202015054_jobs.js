@@ -1,11 +1,13 @@
 exports.up = function (knex) {
   return knex.schema.createTable('jobs', (table) => {
     table.increments('id').primary()
-    table.string('title')
     table.integer('service_type_id').references('id').inTable('service_types')
-    table.string('description')
-    table.boolean('paid')
     table.integer('created_member_id').references('id').inTable('member_profiles')
+    table.integer('location_id').references('id').inTable('locations')
+    table.string('title')
+    table.string('description')
+    table.string('status')
+    table.boolean('paid')
     table.date('expected_start')
     table.date('expected_end')
     table.date('actual_start')
@@ -13,8 +15,6 @@ exports.up = function (knex) {
     table.date('created_date')
     table.date('updated_date')
     table.date('deleted_date')
-    table.string('status')
-    table.integer('location_id').references('id').inTable('locations')
   })
 }
 
