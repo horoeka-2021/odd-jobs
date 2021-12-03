@@ -10,6 +10,7 @@ router.get('/:userId', (req, res) => {
     db.getMemberJobsList(userId)
       .then(jobs => {
         res.json(jobs)
+        return null
       })
   } catch (err) {
     res.status(500).json({ error: err.message })
