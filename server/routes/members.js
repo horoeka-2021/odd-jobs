@@ -40,10 +40,11 @@ router.put('/:user_id/edit', async (req, res) => {
 })
 
 // // API endpoint example
-// router.get('/list', async (req, res) => {
+// router.get('/', async (req, res) => {
 //   try {
-//     const members = await db.getMembers()
+//     const members = await db.getMember()
 //     res.json(members)
+//     console.log(members)
 //   } catch (error) {
 //     console.error(error)
 //     res.status(500).json({ error: error.message })

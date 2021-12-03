@@ -9,21 +9,21 @@ export function fetchProfilePending () {
   }
 }
 
-export function fetchProfileSuccess (profile) {
+export function fetchProfileSuccess (profiles) {
   return {
     type: FETCH_PROFILE_SUCCESS,
-    profile
+    profiles
   }
 }
 
-export function fetchProfile (auth0Id) {
-  console.log('calling', auth0Id)
+export function fetchProfile (auth0Id, history) {
   return (dispatch) => {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
-        console.log(profile)
         dispatch(fetchProfileSuccess(profile))
+        console.log(profile)
+        history.push(`members/${profile.id}`)
         return null
       })
       .catch((err) => {
@@ -32,3 +32,20 @@ export function fetchProfile (auth0Id) {
       })
   }
 }
+
+// export function fetchAllProfiles () {
+//   return (dispatch) => {
+//     dispatch(fetchProfilePending())
+//     // API post order to server
+//     return getAllProfiles()
+//       .then((profilesList) => {
+//         console.log(profilesList)
+//         dispatch(fetchProfileSuccess(profilesList))
+//         return null
+//       })
+//       .catch((err) => {
+//         const errMessage = err.response?.text || err.message
+//         console.error(errMessage)
+//       })
+//   }
+// }

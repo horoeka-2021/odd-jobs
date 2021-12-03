@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from 'react'
-
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import JobListItem from '../Jobs/JobListItem'
+import ProfileItem from '../Profile/ProfileItem'
 
 function MemberProfile () {
-  const [members, setMember] = useState([])
+  const profiles = useSelector(state => state.profiles)
 
   return (
     <div>
       <h1>Member page</h1>
       <Link to='/job/new'><button>Add New Job</button></Link>
-      {/*
-      {members.map(member => (
-        <div key={member.id}>
-          <p>{member.name}</p>
-          <p>{member.email}</p>
-          <p>{member.phone}</p>
-        </div>
+      <ProfileItem profiles={profiles}/>
 
-      ))} */}
-
+      <JobListItem />
     </div>
   )
 }
