@@ -4,8 +4,10 @@ const router = express.Router()
 const db = require('../db/db')
 
 // API endpoint example
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
+  console.log(req.body)
   const auth0Id = req.body.auth0Id
+  console.log('auth0Id', auth0Id)
   try {
     const member = await db.getMember(auth0Id)
     res.json(member)

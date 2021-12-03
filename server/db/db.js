@@ -15,6 +15,7 @@ function getExamples (db = database) {
 }
 
 function getMember (auth0Id, db = database) {
+  console.log('in db.js', auth0Id)
   return db('member_profiles')
     .leftJoin('users', 'users.id', 'member_profiles.user_id')
     .select('users.id as id',

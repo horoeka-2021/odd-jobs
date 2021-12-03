@@ -1,24 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
 
 function MemberProfile () {
+  const [members, setMember] = useState([])
+
   return (
     <div>
-      <h1>Memeber page</h1>
+      <h1>Member page</h1>
       <Link to='/job/new'><button>Add New Job</button></Link>
+      {/*
+      {members.map(member => (
+        <div key={member.id}>
+          <p>{member.name}</p>
+          <p>{member.email}</p>
+          <p>{member.phone}</p>
+        </div>
 
-      <div>
-        <p>Name</p>
-        <p>Email</p>
-        <p>Phone</p>
-        <p>Location</p>
+      ))} */}
 
-      </div>
-
-      {/* job list for memeber id */}
-      <div>
-        <p>jobList</p>
-      </div>
     </div>
   )
 }

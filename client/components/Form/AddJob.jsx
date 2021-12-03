@@ -1,18 +1,32 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars'
+
+const initial = {
+  title: '',
+  description: '',
+  service_types: '',
+  locations: '',
+  payment: ''
+
+}
 
 export default function AddJob () {
-  const history = useHistory()
+  const [newJob, setNewJob] = useState(initial)
 
-  function handleChange () {
+  function handleChange (e) {
+    const { name, value } = e.target
 
+    setNewJob({
+      ...newJob,
+      [name]: value
+    })
   }
 
-  function handleAdd () {
+  function handleAdd (e) {
+    e.preventDefault()
 
+    console.log(newJob)
   }
   return (
     <>
@@ -22,47 +36,43 @@ export default function AddJob () {
       <section >
         <form >
           <div >
-            <label htmlFor='title'>Job Title</label>
-            <input name='title' value='title' onChange={handleChange}/>
-            <label htmlFor='description'>Job Description</label>
-            <DateRangePickerComponent id="daterangepicker"
-              placeholder='Select a range'
-              format='dd-MMM-yy'
-              start="Year"
-              depth="Year" />
+            <label >Job Title
+              <input name='title' value={newJob.title} onChange={handleChange}/>
+            </label>
+            <label >Job Description
+              <textarea name='description' value={newJob.description }onChange={handleChange}/>
+            </label>
 
-            <textarea name='description' value='description' onChange={handleChange}/>
-            <label htmlFor='classification' ></label>
-            <select name='classification'onChange={handleChange}>
+            <label>Classification</label>
+            <select name='service_types' onChange={handleChange}>
               <option hidden>Select from this list</option>
               <option value={1}>Plumber</option>
               <option value={2}>Electrician</option>
-              <option value={3}>Developer</option>
-              <option value={4}>Tutor</option>
-              <option value={5}>Builder</option>
-              <option value={6}>House Kepper</option>
-              <option value={7}>Community Support Worker</option>
-              <option value={8}>Babysitter</option>
-              <option value={9}>Gardener</option>
-              <option value={10}>Painter</option>
-              <option value={11}>Mechanic</option>
-              <option value={12}>Mover</option>
-              <option value={13}>Dog Walker</option>
-            </select>
-            <label htmlFor='location' >Location</label>
-            <select name='location' onChange={handleChange}>
-              <option hidden>Select from this list</option>
-              <option value={1}>Central Auckland</option>
-              <option value={2}>North Auckland</option>
-              <option value={3}>East Auckland</option>
-              <option value={4}>West Auckland</option>
-              <option value={5}>South Auckland</option>
+              <option value={3}>Carpenter</option>
+              <option value={4}>Painter</option>
+              <option value={5}>Landscaper</option>
+              <option value={6}>Builder</option>
+              <option value={7}>Gardener</option>
+              <option value={8}>Developer</option>
+              <option value={9}>Mechanic</option>
+              <option value={10}>Tutor</option>
             </select>
 
-            <input type="radio" name='payment' value='paid'/>
-            <label htmlFor='paid'>Paid</label>
-            <input type='radio' name='payment' value='koha'/>
-            <label htmlFor="koha">Koha</label>
+            <h4>Location</h4>
+            <label >Location</label>
+            <select name='locations' onChange={handleChange}>
+              <option hidden>Select from this list</option>
+              <option value={1}>North Auckland</option>
+              <option value={2}>South Auckland</option>
+              <option value={3}>West Auckland</option>
+              <option value={4}>East Auckland</option>
+              <option value={5}>Central Auckland</option>
+            </select>
+
+            <input type="radio" name='payment' value='Paid' onChange={handleChange}/>
+            <label >Paid</label>
+            <input type='radio' name='payment' value='koha' onChange={handleChange}/>
+            <label>Koha</label>
           </div>
           <button onClick={handleAdd}>Add</button>
         </form>
