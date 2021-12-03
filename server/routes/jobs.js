@@ -25,6 +25,18 @@ router.get('/details/:jobId', async (req, res) => {
   }
 })
 
+router.delete('/details/:jobId', async (req, res) => {
+  const jobId = req.params.jobId
+  try {
+    const deletedJobListing = await db.deleteJobListingById(jobId)
+    console.log('deletedJobListing: ', deletedJobListing)
+    res.json({ message: `Job ${jobId} successfully deleted` })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
 router.post('/new', async (req, res) => {
   const {
     title,
@@ -46,8 +58,9 @@ router.post('/new', async (req, res) => {
   }
   try {
     const newJobListing = await db.addJobListing(jobListing)
+    console.log('newJobListing: ', newJobListing)
+    res.json({ message: `Job ${newJobListing.id} successfully created` })
     res.sendStatus(201)
-    res.redirect(`/jobs/details/${newJobListing.id}`)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
@@ -76,6 +89,7 @@ router.post('/edit/:jobId', async (req, res) => {
   try {
     const updatedJobListing = await db.updateJobListing(req.params.jobId, jobListing)
     console.log('updatedJobListing: ', updatedJobListing)
+    res.json({ message: `Job ${updatedJobListing.id} successfully updated` })
     res.sendStatus(201)
   } catch (error) {
     console.error(error)
