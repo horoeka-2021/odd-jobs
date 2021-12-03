@@ -155,10 +155,11 @@ function getApprenticeByUserId (userId, db = database) {
       'apprentice_profiles.id as apprenticeId',
       'apprentice_profiles.experience_rating_id as experienceRatingId'
     )
+    .first()
 }
 
 function getApprenticeLocations (userId, db = database) {
   return db('apprentice_locations')
     .where('user_id', userId)
-    .select('locations.id as locationId')
+    .select('location_id as locationId')
 }
