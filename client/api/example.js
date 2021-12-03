@@ -7,6 +7,6 @@ export async function getExamples () {
     console.log('data', data)
     return data.body.examples
   } catch (error) {
-    return []
+    console.error(error)
   }
 }
