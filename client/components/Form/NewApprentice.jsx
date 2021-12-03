@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import { DatePickerComponent } from '@syncfusion/ej2-react-calendars'
 
 export default function NewApprentice () {
   const [newApprentice, setNewApprentice] = useState([])
@@ -37,8 +36,8 @@ export default function NewApprentice () {
             <label>Phone
               <input type= 'number' name="phone" value={newApprentice.phone} onChange={handleChange}/>
             </label>
-            <label htmlFor="birthday">Birthday
-              <DatePickerComponent id="datepicker" format='dd-MMM-yy' min={minDate}/></label>
+            <label htmlFor="birthday">Birthday</label>
+
             <label>Gender
               <input type='gender'name="gender" value={newApprentice.gender} onChange={handleChange}/>
             </label>

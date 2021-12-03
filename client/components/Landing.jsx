@@ -21,8 +21,8 @@ function Landing (props) {
 
       </ul>
 
-      <Link to='/apprentice'><button>Apprentices</button></Link>
-      <Link to='/member'><button>Community Member</button></Link>
+      <Link to='/apprentice/new'><button>Apprentices</button></Link>
+      <Link to='/member/new'><button>Community Member</button></Link>
 
     </div>
   )
