@@ -3,13 +3,28 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-// API endpoint example
-router.post('/', async (req, res) => {
+// UTILITY =====================================================================
+// GET route: /api/v1/members/                       (get a list of ALL members)
+router.get('/', (req, res) => {
+  db.getAllMembers()
+    .then(members => {
+      res.status(200)
+      return res.json(members)
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
+// =============================================================================
+// POST route: /api/v1/members/          (get information about a single member)
+router.get('/:userId', async (req, res) => {
   console.log(req.body)
   const auth0Id = req.body.auth0Id
   console.log('auth0Id', auth0Id)
   try {
     const member = await db.getMemberByAuthId(auth0Id)
+    console.log(`Current Member: ${member}`)
     res.json(member)
   } catch (error) {
     console.error(error)
@@ -17,6 +32,8 @@ router.post('/', async (req, res) => {
   }
 })
 
+// =============================================================================
+// PUT route: /api/v1/members/2/edit               (edit a member's information)
 router.put('/:user_id/edit', async (req, res) => {
   const userId = req.params.user_id
   const { name, email, phone, locationId, birthDate } = req.body
@@ -28,7 +45,6 @@ router.put('/:user_id/edit', async (req, res) => {
     location_id: locationId,
     birth_date: birthDate
   }
-
   try {
     const updatedMember = await db.updateMember(member)
     console.log('updatedMember: ', updatedMember)
@@ -38,6 +54,8 @@ router.put('/:user_id/edit', async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 })
+
+// =============================================================================
 
 // // API endpoint example
 // router.get('/list', async (req, res) => {

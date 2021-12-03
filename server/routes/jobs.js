@@ -3,21 +3,39 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-// API endpoint example
+// UTILITY ====================================================================
+// GET route: /api/v1/jobs/                        (returns a list of all jobs)
+router.get('/', (req, res) => {
+  db.getAllJobs()
+    .then(jobs => {
+      res.status(200)
+      return res.json(jobs)
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
+// MEMBER =====================================================================
+// GET route: /api/v1/jobs/1       (returns a list of jobs for a single member)
 router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
     const jobs = await db.getMemberJobsList(userId)
+    console.log(`list of jobs: ${JSON.stringify(jobs)}`)
     res.json(jobs)
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
 })
 
+// MEMBER & APPRENTICE =========================================================
+// GET route: /api/v1/jobs/details/2      (returns the details for a single job)
 router.get('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
   try {
     const jobDetails = await db.getJobDetails(jobId)
+    console.log(`jobDetails: ${jobDetails}`)
     res.json(jobDetails)
   } catch (error) {
     console.error(error)
@@ -25,6 +43,8 @@ router.get('/details/:jobId', async (req, res) => {
   }
 })
 
+// MEMBER ======================================================================
+// DELETE route: /api/jobs/details/2          (deletes a single job from the db)
 router.delete('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
   try {
@@ -37,6 +57,8 @@ router.delete('/details/:jobId', async (req, res) => {
   }
 })
 
+// MEMBER ======================================================================
+// POST route: /api/v1/jobs/new         (adds a new job listing to the database)
 router.post('/new', async (req, res) => {
   const {
     title,
@@ -67,6 +89,8 @@ router.post('/new', async (req, res) => {
   }
 })
 
+// MEMBER ======================================================================
+// POST route: /api/v1/jobs/edit/2       (updates a job listing in the database)
 router.post('/edit/:jobId', async (req, res) => {
   const {
     title,
