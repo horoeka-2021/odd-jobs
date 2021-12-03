@@ -1,9 +1,24 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
+
+const db = require('../db/db')
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('sample route')
+router.post('/', function (req, res) {
+  const { name, email, phone, birthDate, genderId } = req.body
+  const member = {
+    name: name,
+    email: email,
+    phone: phone,
+    birth_date: birthDate,
+    gender_id: genderId
+  }
+  db.registerNewMember(member)
+    .then(() => {
+      res.sendStatus(201)
+      return null
+    }) 
+    .catch ((error) => console.error(error))
 })
 
 module.exports = router

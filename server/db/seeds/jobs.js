@@ -17,7 +17,9 @@ exports.seed = function (knex) {
           actual_end: '',
           created_date: '2016-01-01',
           updated_date: '2016-01-01',
-          deleted_date: ''
+          deleted_date: '',
+          location_id: 1,
+          status: 'open'
         },
         {
           id: 2,
@@ -32,7 +34,9 @@ exports.seed = function (knex) {
           actual_end: '',
           created_date: '2016-01-01',
           updated_date: '2016-01-01',
-          deleted_date: ''
+          deleted_date: '',
+          location_id: 2,
+          status: 'pending'
         }
       ])
     })
