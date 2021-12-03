@@ -9,18 +9,20 @@ export function fetchProfilePending () {
   }
 }
 
-export function fetchProfileSuccess (profiles) {
+export function fetchProfileSuccess (profile) {
   return {
-    type: FETCH_PROFILE_PENDING,
-    profiles: profiles
+    type: FETCH_PROFILE_SUCCESS,
+    profile
   }
 }
 
 export function fetchProfile (auth0Id) {
+  console.log('calling', auth0Id)
   return (dispatch) => {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
+        console.log(profile)
         dispatch(fetchProfileSuccess(profile))
         return null
       })

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchProfile } from '../actions/profiles'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -8,6 +8,7 @@ function Landing (props) {
   const { logout, loginWithRedirect, isAuthenticated } = useAuth0()
   const redirectUri = `${window.location.origin}` // /member/new
   const state = useSelector(state => state)
+  const dispatch = useDispatch()
 
   function handleMember () {
     // check if logged in or not
@@ -18,7 +19,7 @@ function Landing (props) {
     } else {
       console.log(state.user.auth0Id)
       const auth0Id = state.user.auth0Id
-      fetchProfile(auth0Id)
+      dispatch(fetchProfile(auth0Id))
     }
   }
 
