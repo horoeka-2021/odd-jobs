@@ -16,12 +16,12 @@ export function fetchProfileSuccess (profiles) {
   }
 }
 
-export function fetchProfile () {
+export function fetchProfile (auth0Id) {
   return (dispatch) => {
     dispatch(fetchProfilePending())
-    return getProfile()
-      .then((profiles) => {
-        dispatch(fetchProfileSuccess(profiles))
+    return getProfile(auth0Id)
+      .then((profile) => {
+        dispatch(fetchProfileSuccess(profile))
         return null
       })
       .catch((err) => {

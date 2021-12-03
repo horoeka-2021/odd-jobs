@@ -1,6 +1,10 @@
 import request from 'superagent'
 
-export function getProfile () {
+export function getProfile (auth0Id) {
   return request.get('/api/v1/members')
-    .then((res) => res.body)
+    .send({ auth0_id: auth0Id })
+    .then((res) => {
+      console.log('returned profile', res.body)
+      return res.body
+    })
 }
