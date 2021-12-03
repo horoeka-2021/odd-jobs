@@ -12,14 +12,14 @@ router.post('/', async (req, res) => {
     const member = await db.getMemberByAuthId(auth0Id)
     res.json(member)
   } catch (error) {
-      console.error(error)
-      res.status(500).json({ error: error.message })
-    }
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 router.put('/:user_id/edit', async (req, res) => {
   const userId = req.params.user_id
-  const { name, email, phone, locationId, birthDate} = req.body
+  const { name, email, phone, locationId, birthDate } = req.body
   const member = {
     user_id: userId,
     name: name,
@@ -34,9 +34,9 @@ router.put('/:user_id/edit', async (req, res) => {
     console.log('updatedMember: ', updatedMember)
     res.sendStatus(200)
   } catch (error) {
-      console.error(error)
-      res.status(500).json({ error: error.message })
-    }
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 // // API endpoint example

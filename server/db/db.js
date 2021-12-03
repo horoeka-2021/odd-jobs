@@ -51,20 +51,20 @@ function addNewMember (newMember, db = database) {
 function updateMember (user, db = database) {
   return db('users')
     .where('id', user.user_id)
-    .update({ 
+    .update({
       name: user.name,
       email: user.email,
       phone: user.phone,
       birth_date: user.birth_date,
-      location_id: user.location_id,
+      location_id: user.location_id
     })
 }
 
 function getMemberJobsList (userId, db = database) {
   return db('jobs')
-  .where('created_member_id', userId)
-  .select('jobs.title as jobsTitle',
-  'jobs.id as jobsId')
+    .where('created_member_id', userId)
+    .select('jobs.title as jobsTitle',
+      'jobs.id as jobsId')
 }
 
 function getJobDetails (userId, db = database) {
@@ -133,4 +133,3 @@ function deleteJobListingById (jobId, db = database) {
     .where('id', jobId)
     .del()
 }
-

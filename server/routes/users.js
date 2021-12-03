@@ -17,8 +17,8 @@ router.post('/', function (req, res) {
     .then(() => {
       res.sendStatus(201)
       return null
-    }) 
-    .catch ((error) => console.error(error))
+    })
+    .catch((error) => console.error(error))
 })
 
 module.exports = router

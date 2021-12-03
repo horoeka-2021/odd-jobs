@@ -4,14 +4,11 @@ const router = express.Router()
 const db = require('../db/db')
 
 // API endpoint example
-router.get('/:userId', (req, res) => {
+router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
-    db.getMemberJobsList(userId)
-      .then(jobs => {
-        res.json(jobs)
-        return null
-      })
+    const jobs = await db.getMemberJobsList(userId)
+    res.json(jobs)
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
@@ -45,16 +42,16 @@ router.post('/new', async (req, res) => {
     location_id: locationId,
     expected_start: expectedStart,
     expected_end: expectedEnd,
-    service_type_id: serviceTypeId,
+    service_type_id: serviceTypeId
   }
   try {
     const newJobListing = await db.addJobListing(jobListing)
     res.sendStatus(201)
     res.redirect(`/jobs/details/${newJobListing.id}`)
-    } catch (error) {
-      console.error(error)
-      res.status(500).json({ error: error.message })
-    }
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 router.post('/edit/:jobId', async (req, res) => {
@@ -74,11 +71,11 @@ router.post('/edit/:jobId', async (req, res) => {
     location_id: locationId,
     expected_start: expectedStart,
     expected_end: expectedEnd,
-    service_type_id: serviceTypeId,
+    service_type_id: serviceTypeId
   }
   try {
     const updatedJobListing = await db.updateJobListing(req.params.jobId, jobListing)
-    console.log('updatedJobListing: ',updatedJobListing)
+    console.log('updatedJobListing: ', updatedJobListing)
     res.sendStatus(201)
   } catch (error) {
     console.error(error)
