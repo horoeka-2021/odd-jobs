@@ -53,7 +53,6 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
-    "@syncfusion/ej2-react-calendars": "^19.3.55",
     "cookie-parser": "~1.4.4",
     "daisyui": "^1.16.2",
     "debug": "~2.6.9",
@@ -66,8 +65,9 @@
     "knex": "^0.95.14",
     "morgan": "~1.9.1",
     "pg": "^8.7.1",
+    "react-datepicker": "^4.5.0",
     "react-redux": "^7.2.6",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^4.2.0",
     "superagent": "^6.1.0"
   },
   "devDependencies": {
