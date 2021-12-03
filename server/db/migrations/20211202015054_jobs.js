@@ -13,6 +13,8 @@ exports.up = function (knex) {
     table.date('created_date')
     table.date('updated_date')
     table.date('deleted_date')
+    table.string('status')
+    table.integer('location_id').references('id').inTable('locations')
   })
 }
 
