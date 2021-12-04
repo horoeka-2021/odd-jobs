@@ -24,7 +24,7 @@ function Nav () {
         </div>
         <div className="flex flex-1 content-between justify-evenly">
           <Link to='/' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Home</Link>
-          <Link to='/' className="btn btn-ghost  text-gray-600 btn-m rounded-btn font-sans mx-2">Our Story</Link>
+          <Link to='/ourstorys' className="btn btn-ghost  text-gray-600 btn-m rounded-btn font-sans mx-2">Our Story</Link>
           <Link to='/' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Hire Now</Link>
           <Link to='/jobs' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Find Jobs</Link>
         </div>

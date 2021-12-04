@@ -8,6 +8,7 @@ function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
   const redirectUri = `${window.location.origin}/#/member/new`
   const state = useSelector(state => state)
+  console.log('landing', state.user.auth0Id)
   const dispatch = useDispatch()
   const { history } = props
   function handleMember () {
@@ -18,6 +19,8 @@ function Landing (props) {
       })
     } else {
       const auth0Id = state.user.auth0Id
+      console.log('auth0Id', state.user.auth0Id)
+
       dispatch(fetchProfile(auth0Id, history))
     }
   }

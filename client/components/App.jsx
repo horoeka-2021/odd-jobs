@@ -8,6 +8,7 @@ import JobList from './Jobs/JobList'
 import AddJob from './Form/AddJob'
 import NewApprentice from './Form/NewApprentice'
 import NewMember from './Form/NewMember'
+import OurStorys from './OurStorys/OurStorys'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { fetchAllProfiles } from '../actions/profiles'
 
@@ -22,6 +23,7 @@ function App () {
     <Router>
       <Route path='/' component={Nav} />
       <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
+      <Route path='/ourstorys' component={OurStorys} />
       <Route exact path='/apprentices/:id' component={ApprenticeProfile} />
       <Route exact path='/members/:id' component={MemberProfile} />
       <Route exact path='/jobs' component={JobList} />

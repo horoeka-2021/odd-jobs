@@ -36,6 +36,7 @@ export function fetchProfile (auth0Id, history) {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
+        console.log('fetch profile', profile)
         dispatch(fetchProfileSuccess(profile))
         console.log(profile)
         history.push(`members/${profile.id}`)

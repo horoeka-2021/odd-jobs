@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
 // ======================================================================
 // POST route: /api/v1/users/signup            (creates a new user)
 router.post('/signup', function (req, res) {
+  console.log('backend', req.body)
   const { name, email, phone, birthDate, genderId } = req.body
   const member = {
     name: name,
