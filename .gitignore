@@ -110,3 +110,6 @@ bundle.*
 dev.sqlite3
 
 temp/
+
+# Bundled app.css file
+server/public/css/app.css
