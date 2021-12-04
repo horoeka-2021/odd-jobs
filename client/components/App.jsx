@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React from 'react'
 import Landing from './Landing'
 import Nav from './Nav'
 import ApprenticeProfile from './Apprentices/ApprenticeProfile'
 import MemberProfile from './Community/MemberProfile'
 import JobList from './Jobs/JobList'
-import AddJob from './Form/AddJob'
+// import AddJob from './Form/AddJob'
 import NewApprentice from './Form/NewApprentice'
 import NewMember from './Form/NewMember'
 import OurStorys from './OurStorys/OurStorys'
@@ -32,7 +32,7 @@ function App () {
         </MemberProfile>
       }} />
       <Route exact path='/jobs' component={JobList} />
-      <Route path='/jobs/new' component={AddJob} />
+      {/* <Route path='/jobs/new' component={AddJob} /> */}
       <Route exact path='/apprentice/new' component={NewApprentice} />
       <Route exact path='/member/new' render={({ history }) => <NewMember history={history}/>} />
     </Router>

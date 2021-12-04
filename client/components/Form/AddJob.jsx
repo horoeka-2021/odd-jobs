@@ -56,7 +56,7 @@ export default function AddJob () {
               <option value={10}>Tutor</option>
             </select>
 
-            <h4>Location</h4>
+            {/* <h4>Location</h4>
             <label >Location</label>
             <select name='locations' onChange={handleChange}>
               <option hidden>Select from this list</option>
@@ -65,7 +65,7 @@ export default function AddJob () {
               <option value={3}>West Auckland</option>
               <option value={4}>East Auckland</option>
               <option value={5}>Central Auckland</option>
-            </select>
+            </select> */}
 
             <input type="radio" name='payment' value='Paid' onChange={handleChange}/>
             <label >Paid</label>

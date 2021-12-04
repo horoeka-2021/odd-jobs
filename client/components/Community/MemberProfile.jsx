@@ -4,6 +4,7 @@ import { Link, Route, useRouteMatch, Switch } from 'react-router-dom'
 import JobListItem from '../Jobs/JobListItem'
 import ProfileItem from '../Profile/ProfileItem'
 import { getJobById } from '../../api/jobs'
+import AddJob from '../Form/AddJob'
 
 function MemberProfile (props) {
   // const { children, history } = props
@@ -33,7 +34,7 @@ function MemberProfile (props) {
       <div>
         <ul>
           <li>
-            <Link to={`${url}/1`}>My Profile</Link>
+            <Link to={`${url}/${state.id}`}>My Profile</Link>
           </li>
           <li>
             <Link to={`${url}`}>Listed Jobs</Link>
@@ -45,13 +46,14 @@ function MemberProfile (props) {
         <h1>Member page</h1>
         {/* <ProfileItem data={profile}/>
       <JobListItem jobs={jobs}/> */}
+        {/* <button><Link to='/jobs/new'>Add New Job</Link></button> */}
 
-        <Route exact path={path}>
+        <Route exact path={path} >
           <JobListItem jobs={jobs}/>
+          <ProfileItem data={profile}/>
 
         </Route>
-        <Route path={`${path}/:id`}>
-          <ProfileItem data={profile}/>
+        <Route path={`${path}/:name`}>
         </Route>
 
       </div>
