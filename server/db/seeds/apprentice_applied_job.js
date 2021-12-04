@@ -8,7 +8,8 @@ exports.seed = function (knex) {
           id: 1,
           user_id: 1,
           job_id: 1,
-          status: 'pending',
+          message: 'Pick me please',
+          status: 'applied',
           applied_date: '2019-01-01'
         }
       ])
