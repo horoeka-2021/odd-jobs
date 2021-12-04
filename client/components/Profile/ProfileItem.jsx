@@ -6,12 +6,13 @@ function ProfileItem (props) {
   const genderList = { 1: 'Male', 2: 'Female', 3: 'Not Specified' }
 
   return (
-    <div key={id}>
-      <p>{name}</p>
+    <div>
+      <h1>Profile item</h1>
+      {/* <p>{name}</p>
       <p>{birthday}</p>
       <p>{ genderList[gender]}</p>
       <p>{phone}</p>
-      <p>{email}</p>
+      <p>{email}</p> */}
     </div>
   )
 }

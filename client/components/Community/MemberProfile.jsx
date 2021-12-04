@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link, Route, useRouteMatch } from 'react-router-dom'
+import { Link, Route, useRouteMatch, Switch } from 'react-router-dom'
 import JobListItem from '../Jobs/JobListItem'
 import ProfileItem from '../Profile/ProfileItem'
 import { getJobById } from '../../api/jobs'
@@ -31,16 +31,31 @@ function MemberProfile (props) {
   return (
     <>
       <div>
-        <span>My Profile</span>
-        <span>Job list</span>
+        <ul>
+          <li>
+            <Link to={`${url}/1`}>My Profile</Link>
+          </li>
+          <li>
+            <Link to={`${url}`}>Listed Jobs</Link>
+          </li>
+        </ul>
       </div>
-      {profile &&
-    <div>
-      <h1>Member page</h1>
-      <ProfileItem data={profile}/>
-      <JobListItem jobs={jobs}/>
-    </div>
-      }
+
+      <div>
+        <h1>Member page</h1>
+        {/* <ProfileItem data={profile}/>
+      <JobListItem jobs={jobs}/> */}
+
+        <Route exact path={path}>
+          <JobListItem jobs={jobs}/>
+
+        </Route>
+        <Route path={`${path}/:id`}>
+          <ProfileItem data={profile}/>
+        </Route>
+
+      </div>
+
     </>
   )
 }

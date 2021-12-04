@@ -5,15 +5,15 @@ function JobListItem ({ jobs }) {
   console.log('jobsItem', jobs)
   return (
     <div>
-      <button><Link to='/job/new'>Add New Job</Link></button>
-      <h1>Jobbbbbbb</h1>
+      <button><Link to='/jobs/new'>Add New Job</Link></button>
       {jobs.map((jobs) => {
         return (
-
-          <p key={jobs.jobsId}>{jobs.jobsTitle}</p>
+          <ul key={jobs.jobsId}>
+            <li>{jobs.jobsId}</li>
+            <li>{jobs.jobsTitle}</li>
+          </ul>
         )
       })}
-
     </div>
 
   )
