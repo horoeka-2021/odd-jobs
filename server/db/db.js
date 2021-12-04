@@ -6,14 +6,23 @@ const database = knex(config)
 
 module.exports = {
   getExamples,
+  getAllJobs,
+  getAllUsers,
+  getAllMembers,
+  getAllApprentices,
+
   getMemberByAuthId,
   addNewMember,
   updateMember,
   getMemberJobsList,
+
   getJobDetails,
   addJobListing,
   updateJobListing,
-  deleteJobListingById
+  deleteJobListingById,
+
+  getApprenticeByUserId,
+  getApprenticeLocations
 }
 
 function getExamples (db = database) {
@@ -21,6 +30,30 @@ function getExamples (db = database) {
     .select()
 }
 
+// UTILITY FUNCTIONS ===========================================================
+function getAllJobs (db = database) {
+  return db('jobs')
+    .select()
+}
+
+function getAllUsers (db = database) {
+  return db('users')
+    .select()
+}
+
+function getAllMembers (db = database) {
+  return db('member_profiles')
+    .join('users', 'users.id', 'member_profiles.user_id')
+    .select()
+}
+
+function getAllApprentices (db = database) {
+  return db('apprentice_profiles')
+    .join('users', 'users.id', 'apprentice_profiles.id')
+    .select()
+}
+
+// ALL MEMBER FUNCTIONS ========================================================
 function getMemberByAuthId (auth0Id, db = database) {
   return db('member_profiles')
     .leftJoin('users', 'users.id', 'member_profiles.user_id')
@@ -67,6 +100,7 @@ function getMemberJobsList (userId, db = database) {
       'jobs.id as jobsId')
 }
 
+// ALL JOB FUNCTIONS ===========================================================
 function getJobDetails (userId, db = database) {
   return db('jobs')
     .where('created_member_id', userId)
@@ -132,4 +166,28 @@ function deleteJobListingById (jobId, db = database) {
   return db('jobs')
     .where('id', jobId)
     .del()
+}
+
+// ALL APPRENTICE FUNCTIONS ====================================================
+function getApprenticeByUserId (userId, db = database) {
+  return db('apprentice_profiles')
+    .join('users', 'users.id', 'apprentice_profiles.id')
+    .where('users.id', userId)
+    .select(
+      'users.id as userId',
+      'users.name as name',
+      'users.email as email',
+      'users.phone as phone',
+      'users.birth_date as birthDate',
+      'users.gender_id as genderId',
+      'apprentice_profiles.id as apprenticeId',
+      'apprentice_profiles.experience_rating_id as experienceRatingId'
+    )
+    .first()
+}
+
+function getApprenticeLocations (userId, db = database) {
+  return db('apprentice_locations')
+    .where('user_id', userId)
+    .select('location_id as locationId')
 }

@@ -6,7 +6,7 @@ exports.seed = function (knex) {
       return knex('apprentice_assigned_job').insert([
         {
           id: 1,
-          apprentice_profile_id: 1,
+          user_id: 1,
           job_id: 1,
           status: 'pending',
           assigned_date: '2019-01-01'

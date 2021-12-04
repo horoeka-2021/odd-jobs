@@ -23,28 +23,46 @@ function Landing (props) {
   }
 
   return (
-    <div>
-      <h1>New Zealand&#39;s leading odd jobs platform for local community</h1>
-      <h2>Connect with people to get the job done on odd Jobs</h2>
-      <h3>Get Started Now</h3>
+    <div className="flex mb-4">
+      <div className="w-5/12 pl-10 pr-10 pt-10 mx-20">
+        <h2 className="text-5xl font-weight: 700 font-bold">Get the Job</h2>
+        <h2 className="text-5xl font-weight: 700 font-bold">Done In A Day</h2>
+        <p className="text-justify leading-tight w-4/5 pt-3">
+              Gain experience and be mentored by the best
+              in the industry.Start your training, make
+              a difference, and enhance your skills today!
+        </p>
+        <div className="w-full grid grid-cols-2 gap-2 pt-10 pb-5">
+          <div className="w-44">
+            <h3 className="text-xl font-weight: 700 font-bold">APPRENTICE</h3>
+            <p className="leading-tight">Prove your capability and skill and get the job done</p>
 
-      <p>Want your home cleaned or furniture put together? Just tell us about the task you’d like done, suggest a fair budget for a job well done and you’ll start to receive offers from available Taskers.</p>
+          </div>
 
-      <h3>How does Odd Jobs work?</h3>
-      <ul>
-        <li>Post your Task</li>
-        <ul><li>Tell us what you need. Its FREE to post!</li></ul>
-        <li>Review offers</li>
-        <ul><li>Get offers from Apprentice memebr and view profiles</li></ul>
-        <li>Get it done</li>
-        <ul><li>Choose the right person for your task and get it done</li></ul>
+          <div>
+            <h3 className="text-xl font-weight: 700 font-bold">COMMUNITY MEMBER</h3>
+            <p className="leading-tight">Post your requirements and match it with the right one</p><br></br>
+          </div>
 
-      </ul>
+          <div className="flex items-baseline">
+            <Link to='/member'>
+              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
+            </Link>
+          </div>
 
-      <Link to='/apprentice/new'><button>Apprentices</button></Link>
-      <button onClick={handleMember}> Community Member</button>
+          <div className="flex items-baseline">
+            <Link to='/apprentice'>
+              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
+            </Link>
+          </div>
 
+        </div>
+      </div>
+      <div className="mx-10 flex flex-col justify-end items-end">
+        <img className="construct-image" src="../img/construction.gif" />
+      </div>
     </div>
+
   )
 }
 
