@@ -14,13 +14,13 @@ const isAuthenticated = () => {
   return isAuthenticated
 }
 
-export function IfAuthenticated ({ children }) {
+export function IfAuthenticated({ children }) {
   return isAuthenticated()
     ? <>{children}</>
     : null
 }
 
-export function IfNotAuthenticated ({ children }) {
+export function IfNotAuthenticated({ children }) {
   return isAuthenticated()
     ? null
     : <>{children}</>

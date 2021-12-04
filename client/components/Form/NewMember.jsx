@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 
 // import { useSelector } from 'react-redux'
 
@@ -11,10 +12,10 @@ const initial = {
 
 }
 
-export default function NewMember () {
+export default function NewMember() {
   const [newMember, setNewMember] = useState(initial)
 
-  function handleChange (e) {
+  function handleChange(e) {
     const { name, value } = e.target
 
     setNewMember({
@@ -22,9 +23,13 @@ export default function NewMember () {
       [name]: value
     })
   }
-  function handleAdd (e) {
+  function handleAdd(e) {
     e.preventDefault()
-
+    // pass auth0Id and token as second and third parameter
+    newMember(newMember, 'auth0Id', 'token')
+      .then(setNewMember)
+      .then(closeAddForm)
+      .catch(err => console.log(err))
     console.log(newMember)
   }
 
@@ -40,13 +45,13 @@ export default function NewMember () {
           <div >
             <h4>Personal Info</h4>
             <label>Name
-              <input type='text' name='name' value={newMember.fullName} onChange={handleChange}/>
+              <input type='text' name='name' value={newMember.fullName} onChange={handleChange} />
             </label>
             <label>Email
-              <input type='email'name='email' value={newMember.email} onChange={handleChange}/>
+              <input type='email' name='email' value={newMember.email} onChange={handleChange} />
             </label>
             <label>Phone
-              <input type= 'text' name='phone' value={newMember.phone} onChange={handleChange}/>
+              <input type='text' name='phone' value={newMember.phone} onChange={handleChange} />
             </label>
 
             <h4>Location</h4>

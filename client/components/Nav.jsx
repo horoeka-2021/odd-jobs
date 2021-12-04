@@ -3,15 +3,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth0/Authenticated'
 
-function Nav () {
+function Nav() {
   const { logout, loginWithRedirect } = useAuth0()
 
-  function handleLogOff (e) {
+  function handleLogOff(e) {
     e.preventDefault()
     logout()
   }
 
-  function handleLogIn (e) {
+  // function handleRegister(e) {
+  //   e.preventDefault()
+  //   loginWithRedirect({ redirectUri: `${window.location.origin}/register` })
+  // }
+
+  function handleLogIn(e) {
     e.preventDefault()
     loginWithRedirect()
   }
