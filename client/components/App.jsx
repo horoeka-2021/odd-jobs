@@ -8,6 +8,8 @@ import JobList from './Jobs/JobList'
 import AddJob from './Form/AddJob'
 import NewApprentice from './Form/NewApprentice'
 import NewMember from './Form/NewMember'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { fetchAllProfiles } from '../actions/profiles'
 
 // authentication
 import { cacheUser } from '../actions/user'
@@ -15,16 +17,17 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
   cacheUser(useAuth0)
+
   return (
     <Router>
       <Route path='/' component={Nav} />
-      <Route path='/' exact render={() => <Landing title='Welcome'/>}/>
+      <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
       <Route exact path='/apprentices/:id' component={ApprenticeProfile} />
       <Route exact path='/members/:id' component={MemberProfile} />
       <Route exact path='/jobs' component={JobList} />
       <Route path='/jobs/new' component={AddJob} />
       <Route exact path='/apprentice/new' component={NewApprentice} />
-      <Route exact path='/member/new' component={NewMember} />
+      <Route exact path='/member/new' render={({ history }) => <NewMember history={history}/>} />
     </Router>
   )
 }
