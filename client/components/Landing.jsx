@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
-  const redirectUri = `${window.location.origin}/#/member/new`
+  const redirectUri = `${window.location.origin}/member/new`
   const state = useSelector(state => state)
   const dispatch = useDispatch()
   const { history } = props
