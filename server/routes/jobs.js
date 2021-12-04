@@ -19,12 +19,11 @@ router.get('/:userId', async (req, res) => {
 // MEMBER =====================================================================
 // GET route: /api/v1/jobs/2/applicants/12 (returns info on a single applicant)
 router.get('/:userId/applicants/:applicantId', async (req, res) => {
-  const userId = req.params.userId
   const applicantId = req.params.applicantId
   try {
-    const applicant = await db.getJobApplicant(applicantId)
-    console.log(`applicant: ${JSON.stringify(applicant)}`)
-    res.json(applicant)
+    const applicantDetails = await db.getJobApplicant(applicantId)
+    console.log(`applicantDetails: ${applicantDetails}`)
+    res.json(applicantDetails)
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
