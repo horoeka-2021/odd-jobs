@@ -5,6 +5,8 @@ const config = require('./knexfile')[environment]
 const database = knex(config)
 
 module.exports = {
+  getUser,
+
   getExamples,
   getAllJobs,
   getAllUsers,
@@ -12,6 +14,7 @@ module.exports = {
   getAllApprentices,
 
   getMemberByAuthId,
+  getMemberByUserId,
   addNewMember,
   updateMember,
   getMemberJobsList,
@@ -28,6 +31,20 @@ module.exports = {
 function getExamples (db = database) {
   return db('examples')
     .select()
+}
+
+function getUser (auth0Id, db = database) {
+  return db('users')
+    .select(
+      'users.id as id',
+      'users.name as name',
+      'users.email as email',
+      'users.phone as phone',
+      'users.birth_date as birthDate',
+      'users.gender_id as genderId'
+    )
+    .where('auth0_id', auth0Id)
+    .first()
 }
 
 // UTILITY FUNCTIONS ===========================================================
@@ -69,15 +86,36 @@ function getMemberByAuthId (auth0Id, db = database) {
     .first()
 }
 
+function getMemberByUserId (userId, db = database) {
+  return db('member_profiles')
+    .leftJoin('users', 'users.id', 'member_profiles.user_id')
+    .select(
+      'users.id as id',
+      'users.name as name',
+      'users.email as email',
+      'users.phone as phone',
+      'users.birth_date as birthDate',
+      'users.gender_id as genderId'
+    )
+    .where('users.id', userId)
+    .first()
+}
+
 function addNewMember (newMember, db = database) {
   return db('users')
-    .insert(newMember)
-    .returning({
-      name: newMember.name,
-      email: newMember.email,
-      phone: newMember.phone,
-      birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id
+    .insert(newMember, ['id'])
+    // .returning({
+    //   // auth0Id: 'auth0_Id',
+    //   // name: newMember.name,
+    //   // email: newMember.email,
+    //   // phone: newMember.phone,
+    //   // birth_date: newMember.birth_date,
+    //   // gender_id: newMember.gender_id
+    //   userId: 'user_id'
+    // })
+    .then((ids) => {
+      return db('member_profiles').insert({ user_id: ids[0] }, ['user_id'])
+        .then(() => getMemberByUserId(ids[0], db))
     })
 }
 
