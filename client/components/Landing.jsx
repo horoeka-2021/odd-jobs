@@ -6,26 +6,31 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
-  const redirectUri = `${window.location.origin}/#/member/new`
+  // const redirectUri = `${window.location.origin}/#/member`
   const state = useSelector(state => state)
+  const auth0Id = state.user.auth0Id
+
   console.log('landing', state.user.auth0Id)
   const dispatch = useDispatch()
   const { history } = props
+
+  function checkProfile () {
+    dispatch(fetchProfile(auth0Id, history))
+  }
+
   function handleMember () {
-    // check if logged in or not
+    // check if logged in Auth0 or not
     if (!isAuthenticated) {
       loginWithRedirect({
-        redirectUri
+        // redirect_uri: redirectUri
       })
     } else {
-      const auth0Id = state.user.auth0Id
-      console.log('auth0Id', state.user.auth0Id)
-
-      dispatch(fetchProfile(auth0Id, history))
+      checkProfile()
     }
   }
 
   return (
+
     <div className="flex mb-4">
       <div className="w-5/12 pl-10 pr-10 pt-10 mx-20">
         <h2 className="text-5xl font-weight: 700 font-bold">Get the Job</h2>

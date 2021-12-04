@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ProfileItem (props) {
-  const { id, name, email, phone, birthDate: birthday, genderId: gender } = props.profiles
+  const { id, name, email, phone, birthDate: birthday, genderId: gender } = props.data
 
   const genderList = { 1: 'Male', 2: 'Female', 3: 'Not Specified' }
 

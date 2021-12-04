@@ -9,6 +9,7 @@ import AddJob from './Form/AddJob'
 import NewApprentice from './Form/NewApprentice'
 import NewMember from './Form/NewMember'
 import OurStorys from './OurStorys/OurStorys'
+import WaitIndicator from './WaitIndicator'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { fetchAllProfiles } from '../actions/profiles'
 
@@ -25,7 +26,11 @@ function App () {
       <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
       <Route path='/ourstorys' component={OurStorys} />
       <Route exact path='/apprentices/:id' component={ApprenticeProfile} />
-      <Route exact path='/members/:id' component={MemberProfile} />
+      <Route exact path='/members/:id' render={({ history }) => {
+        return <MemberProfile history={history}>
+          <WaitIndicator />
+        </MemberProfile>
+      }} />
       <Route exact path='/jobs' component={JobList} />
       <Route path='/jobs/new' component={AddJob} />
       <Route exact path='/apprentice/new' component={NewApprentice} />
