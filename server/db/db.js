@@ -23,6 +23,8 @@ module.exports = {
   addJobListing,
   updateJobListing,
   deleteJobListingById,
+  getJobApplicant,
+  getApplicantsList,
 
   getApprenticeByUserId,
   getApprenticeLocations
@@ -109,7 +111,8 @@ function addNewMember (newMember, db = database) {
       email: newMember.email,
       phone: newMember.phone,
       birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id
+      gender_id: newMember.gender_id,
+      location_id: newMember.location_id
     })
 }
 
@@ -198,6 +201,37 @@ function deleteJobListingById (jobId, db = database) {
   return db('jobs')
     .where('id', jobId)
     .del()
+}
+
+function getJobApplicant (applicantId, db = database) {
+  return db('users')
+    .where('users.id', applicantId)
+    .join(
+      'jobs', 'jobs.created_member_id',
+      'apprentice_service_types', 'apprentice_service_types.user_id',
+      'apprentice_applied_jobs', 'apprentice_applied_jobs.user_id',
+      'apprentice_locations', 'apprentice_locations.user_id',
+      'experience_rating_id', 'experience_rating_id.user_id'
+    )
+    .select(
+      'users.id as usersId',
+      'users.name as usersName',
+      'users.email as usersEmail',
+      'users.phone as usersPhone',
+      'users.birth_date as usersBirthDate',
+      'apprentice_locations.locations_id as apprenticeLocationsId',
+      'apprentice_service_types.service_types_id as apprenticeServiceTypesId',
+      'experience_rating_id.rating as experienceRating',
+      'apprentice_applied_jobs.id as apprenticeAppliedJobsId',
+      'apprentice_applied_jobs.status as apprenticeAppliedStatus'
+    )
+    .first()
+}
+
+function getApplicantsList (jobId, db = database) {
+  return db('applicants')
+    .where('job_id', jobId)
+    .select()
 }
 
 // ALL APPRENTICE FUNCTIONS ====================================================

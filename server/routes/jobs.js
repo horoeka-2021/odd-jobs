@@ -3,19 +3,6 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-// UTILITY ====================================================================
-// GET route: /api/v1/jobs/                        (returns a list of all jobs)
-router.get('/', (req, res) => {
-  db.getAllJobs()
-    .then(jobs => {
-      res.status(200)
-      return res.json(jobs)
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message })
-    })
-})
-
 // MEMBER =====================================================================
 // GET route: /api/v1/jobs/1       (returns a list of jobs for a single member)
 router.get('/:userId', async (req, res) => {
@@ -24,6 +11,20 @@ router.get('/:userId', async (req, res) => {
     const jobs = await db.getMemberJobsList(userId)
     console.log(`list of jobs: ${JSON.stringify(jobs)}`)
     res.json(jobs)
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// MEMBER =====================================================================
+// GET route: /api/v1/jobs/2/applicants/12 (returns info on a single applicant)
+router.get('/:userId/applicants/:applicantId', async (req, res) => {
+  const userId = req.params.userId
+  const applicantId = req.params.applicantId
+  try {
+    const applicant = await db.getJobApplicant(applicantId)
+    console.log(`applicant: ${JSON.stringify(applicant)}`)
+    res.json(applicant)
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
@@ -119,6 +120,19 @@ router.post('/edit/:jobId', async (req, res) => {
     console.error(error)
     res.status(500).json({ error: error.message })
   }
+})
+
+// UTILITY ====================================================================
+// GET route: /api/v1/jobs/                        (returns a list of all jobs)
+router.get('/', (req, res) => {
+  db.getAllJobs()
+    .then(jobs => {
+      res.status(200)
+      return res.json(jobs)
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message })
+    })
 })
 
 // // API endpoint example
