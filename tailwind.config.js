@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   // Do not compile unused classes as part of the final CSS
   purge: {
