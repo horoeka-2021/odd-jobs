@@ -45,15 +45,13 @@ function Landing (props) {
           </div>
 
           <div className="flex items-baseline">
-            <Link to='/member'>
+            <Link to='/apprentice/new'>
               <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
             </Link>
           </div>
 
           <div className="flex items-baseline">
-            <Link to='/apprentice'>
-              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
-            </Link>
+            <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>GET STARTED</button>
           </div>
 
         </div>

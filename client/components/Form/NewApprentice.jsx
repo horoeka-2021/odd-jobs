@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
+// import { useSelector } from 'react-redux'
+// import { useHistory } from 'react-router-dom'
+// import { useAuth0 } from '@auth0/auth0-react'
 
 export default function NewApprentice () {
   const [newApprentice, setNewApprentice] = useState([])
-  const history = useHistory()
-  const minDate = new Date('12/02/2003')
+  // const history = useHistory()
+  // const minDate = new Date('12/02/2003')
 
   function handleChange () {
 
   }
   function handleAdd () {
-
+    setNewApprentice(newApprentice)
   }
 
-  const jobList = ['Plumber', 'Electrician', 'Developer', 'Tutor', 'Builder', 'House Kepper', 'Community Support Worker', 'Babysitter', 'Gardener', 'Painter', 'Mechanic', ' Mover', 'Dog Walker']
+  // const jobList = ['Plumber', 'Electrician', 'Developer', 'Tutor', 'Builder', 'House Kepper', 'Community Support Worker', 'Babysitter', 'Gardener', 'Painter', 'Mechanic', ' Mover', 'Dog Walker']
   return (
 
     <>
