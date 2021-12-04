@@ -11,11 +11,6 @@ function Nav() {
     logout()
   }
 
-  // function handleRegister(e) {
-  //   e.preventDefault()
-  //   loginWithRedirect({ redirectUri: `${window.location.origin}/register` })
-  // }
-
   function handleLogIn(e) {
     e.preventDefault()
     loginWithRedirect()
