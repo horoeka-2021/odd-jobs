@@ -4,8 +4,8 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex('apprentice_profiles').insert([
-        { id: 1, user_id: 1, location_id: 2, experience_rating_id: 1 },
-        { id: 2, user_id: 1, location_id: 3, experience_rating_id: 1 }
+        { id: 1, user_id: 1, location_id: 2 },
+        { id: 2, user_id: 1, location_id: 3 }
       ])
     })
 }
