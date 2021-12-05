@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
 // import JobListItem from '../Jobs/JobListItem'
 import JobList from '../Jobs/JobList'
@@ -7,17 +7,30 @@ import ProfileItem from '../Profile/ProfileItem'
 import { getJobById } from '../../api/jobs'
 import AddJob from '../Form/AddJob'
 
+import { fetchProfile } from '../../actions/profiles'
+
 function MemberProfile (props) {
   const { history } = props
   const [profile, setProfile] = useState([])
   const [jobs, setJobList] = useState([])
   const { path, url } = useRouteMatch()
-  const state = useSelector(state => state.profiles)
+  const state = useSelector(state => state)
+  const profiles = state.profiles
+  const auth0Id = state.user.auth0Id
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setProfile(state)
+    console.log('member-useEffect', auth0Id)
+    // check if the user has community member profile
+    dispatch(fetchProfile(auth0Id, history))
+    // if no profile returns ==> move to member creation page
+
+    // if there is member profile ==> get job list
+
+    setProfile(profiles)
     // console.log('setProfile --', profile)
-    getJobById(state.id)
+    getJobById(profiles.id)
       .then(jobList => {
         setJobList(jobList)
         return null
@@ -28,7 +41,7 @@ function MemberProfile (props) {
       })
   }, [])
 
-  console.log(state)
+  console.log(profiles)
   return (
     <>
       <div className="container mx-auto artboard artboard-demo">
@@ -58,7 +71,7 @@ function MemberProfile (props) {
             <ProfileItem data={profile}/>
           </Route>
           <Route path={'/members/addjob'} >
-            <AddJob userID={state.id} history={history}/>
+            <AddJob userID={profiles.id} history={history}/>
           </Route>
 
         </div>

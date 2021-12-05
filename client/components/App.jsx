@@ -15,7 +15,8 @@ import { cacheUser } from '../actions/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
-  cacheUser(useAuth0)
+  console.log('cacheUser')
+  cacheUser(useAuth0) // this is not triggered
 
   return (
     <Router>
@@ -23,7 +24,7 @@ function App () {
       <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
       <Route path='/ourstorys' component={OurStorys} />
       <Route exact path='/apprentices' component={ApprenticeProfile} />
-      <Route path='/members' render={({ history }) => {
+      <Route path='/member' render={({ history }) => {
         return <MemberProfile history={history}>
           <WaitIndicator />
         </MemberProfile>
