@@ -9,11 +9,10 @@ function OurStorys () {
           <h2 className="text-5xl font-weight: 700 font-bold">Our Story</h2>
         </div>
       </div>
-      <div className="border-image">
-        <div className="mx-0 mx-auto text-center max-w-screen-2xl">
-          <div className="w-3/4 mx-0 mx-auto">
-            <h2 className="text-3xl font-weight: 700 font-bold">Creating experiences and building relationships</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <div className="mx-0 mx-auto text-center max-w-screen-2xl">
+        <div className="w-3/4 mx-0 mx-auto pt-10">
+          <h2 className="text-3xl font-weight: 700 font-bold">Creating experiences and building relationships</h2>
+          <p className="pt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Mauris ac venenatis enim, ut bibendum tortor.
                   Sed quis auctor quam, in rutrum purus.
                   Vivamus varius vulputate quam, quis tempus enim posuere sed.
@@ -25,31 +24,61 @@ function OurStorys () {
                   Sed nec magna pulvinar, eleifend metus nec, pellentesque erat.
                   Nullam vitae urna vitae lacus tempus varius quis eget tellus.</p>
 
+        </div>
+
+        <div className="container mx-auto pt-10">
+          <h2 className="text-3xl font-weight: 700 font-bold">Our Team</h2>
+        </div>
+        <div className="grid grid-cols-3 gap-4 pt-5">
+          <div className="col-span-3 text-center">
+            <img src="../img/nathan.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
+            <p className="leading-tight">Nathan Rowe</p>
+            <p className="leading-tight">Founder/ Backend Lead</p>
+          </div>
+          <div className="">
+            <img src="../img/goretti.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
+            <p>Goretti Alani</p>
+            <p className="leading-tight">Vibe Lead/ Security Lead</p>
+          </div>
+          <div className="">
+            <img src="../img/crystal.png" className="mask mask-circle self-center inline max-w-xs max-h-48" />
+            <p>Crystal Chan</p>
+            <p className="leading-tight">Frontend Lead</p>
+          </div>
+          <div className="">
+            <img src="../img/nick.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
+            <p>Nicky Caparas</p>
+            <p className="leading-tight">Styling Lead/ Scrum Master</p>
+          </div>
+          <div className="col-span-3 text-center">
+            <img src="../img/tommy.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
+            <p>Tommy Yoon</p>
+            <p className="leading-tight">Git Lead/ DevOps</p>
           </div>
         </div>
-      </div>
-      <div className="container mx-auto">
-        <div className="w-full shadow stats ">
-          <div className="stat place-items-center place-content-center">
-            <div className="stat-title">Country</div>
-            <div className="stat-value text-indigo-500 font-sans">1</div>
-          </div>
+        <div className="container mx-auto pt-10">
+          <div className="w-full shadow stats ">
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Country</div>
+              <div className="stat-value text-indigo-500 font-sans">1</div>
+            </div>
 
-          <div className="stat place-items-center place-content-center">
-            <div className="stat-title">Employees</div>
-            <div className="stat-value text-indigo-500 font-sans">5+</div>
-          </div>
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Employees</div>
+              <div className="stat-value text-indigo-500 font-sans">5+</div>
+            </div>
 
-          <div className="stat place-items-center place-content-center">
-            <div className="stat-title">Partner Practices</div>
-            <div className="stat-value text-indigo-500 font-sans">5+</div>
-          </div>
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Partner Practices</div>
+              <div className="stat-value text-indigo-500 font-sans">5+</div>
+            </div>
 
-          <div className="stat place-items-center place-content-center">
-            <div className="stat-title">Users</div>
-            <div className="stat-value text-indigo-500 font-sans">5+</div>
-          </div>
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Users</div>
+              <div className="stat-value text-indigo-500 font-sans">5+</div>
+            </div>
 
+          </div>
         </div>
       </div>
     </div>

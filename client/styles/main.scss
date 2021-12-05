@@ -12,6 +12,7 @@ body {
      rgba(104, 127, 217, 0.0645831) 81.15%,
      rgba(104, 127, 217, 0.6) 100%);
     background-size: cover;
+    margin: 0 auto;
 }
 
 h1,h2,h3,h4{
@@ -19,7 +20,9 @@ h1,h2,h3,h4{
     color:#4E66C7;
 }
 html, body {
+    width: 100%;
     height: 100%;
+    overflow-y: auto;
 }
 p{
     font-family: Arial, Helvetica, sans-serif;
