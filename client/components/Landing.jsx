@@ -1,6 +1,5 @@
 import React from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import { fetchProfile } from '../actions/profiles'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -9,7 +8,6 @@ import { IfAuthenticated, IfNotAuthenticated } from './Auth0/Authenticated'
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
   const redirectUri = `${window.location.origin}/member`
-  const state = useSelector(state => state)
   // const auth0Id = state.user.auth0Id
   // const history = useHistory()
 
