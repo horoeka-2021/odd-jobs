@@ -1,17 +1,20 @@
 import React from 'react'
+// import { Link } from 'react-router-dom'
 
-function JobListItem (props) {
+function JobListItem ({ jobs }) {
+  console.log('jobsItem', jobs)
   return (
     <div>
-      <p>Title</p>
-      <p>Start Date</p>
-      <p>End Date</p>
-      <p>Description</p>
-      <p>Service Type</p>
-      <p>location</p>
-      <p>Payment</p>
-
+      {jobs.map((jobs) => {
+        return (
+          <ul key={jobs.jobsId}>
+            <li>{jobs.jobsId}</li>
+            <li>{jobs.jobsTitle}</li>
+          </ul>
+        )
+      })}
     </div>
+
   )
 }
 

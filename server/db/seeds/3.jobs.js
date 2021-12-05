@@ -10,7 +10,7 @@ exports.seed = function (knex) {
           description: 'I need a website built for my business, just a simple one that allows for login/register, and view a few items.',
           service_type_id: 8,
           paid: true,
-          created_member_id: 2,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: '',

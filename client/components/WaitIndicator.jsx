@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 function WaitIndicator (props) {
   return props.waiting
-    ? <img className='wait-indicator' src='/200w.gif' />
+    ? <img className='wait-indicator' src='/img/200w.gif' />
     : null
 }
 

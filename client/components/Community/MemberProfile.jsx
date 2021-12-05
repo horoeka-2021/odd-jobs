@@ -1,20 +1,67 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Route, useRouteMatch } from 'react-router-dom'
 // import JobListItem from '../Jobs/JobListItem'
+import JobList from '../Jobs/JobList'
 import ProfileItem from '../Profile/ProfileItem'
+import { getJobById } from '../../api/jobs'
+import AddJob from '../Form/AddJob'
 
-function MemberProfile () {
-  const profiles = useSelector(state => state.profiles)
+function MemberProfile (props) {
+  const { history } = props
+  const [profile, setProfile] = useState([])
+  const [jobs, setJobList] = useState([])
+  const { path, url } = useRouteMatch()
+  const state = useSelector(state => state.profiles)
 
+  useEffect(() => {
+    setProfile(state)
+    // console.log('setProfile --', profile)
+    getJobById(state.id)
+      .then(jobList => {
+        setJobList(jobList)
+        return null
+      })
+      .catch(err => {
+        console.error(err)
+        return false
+      })
+  }, [])
+
+  console.log(state)
   return (
-    <div>
-      <h1>Member page</h1>
-      <Link to='/job/new'><button>Add New Job</button></Link>
-      <ProfileItem profiles={profiles}/>
+    <>
+      <div>
+        <ul>
+          <li>
+            <Link to={`${url}/myprofile`}>My Profile</Link>
+          </li>
+          <li>
+            <Link to={`${url}`}>Listed Jobs</Link>
+          </li>
+          <li>
+            <Link to={`${url}/addjob`}>Add New Job</Link>
+          </li>
+        </ul>
+      </div>
 
-      {/* <JobListItem /> */}
-    </div>
+      <div>
+        <h1>Member page</h1>
+        <h2>You are now logged in</h2>
+
+        <Route exact path={path} >
+          {/* <JobListItem jobs={jobs} /> */}
+          <JobList jobs={jobs}/>
+        </Route>
+        <Route path={'/members/myprofile'}>
+          <ProfileItem data={profile}/>
+        </Route>
+        <Route path={'/members/addjob'} >
+          <AddJob userID={state.id} history={history}/>
+        </Route>
+
+      </div>
+    </>
   )
 }
 

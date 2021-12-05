@@ -1,22 +1,18 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import JobListItem from './JobListItem'
-import { fetchJobs } from '../../actions/jobs'
 
 function Jobs (props) {
-  const jobs = useSelector(state => state.jobs)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchJobs())
-  }, [])
-
-  console.log(jobs)
+  const { jobs } = props
   return (
     <div>
+
+      <h4>You have list {jobs.length} jobs</h4>
+
       <div>
-        <h4>10 jobs found</h4>
+
+        <JobListItem jobs={jobs}/>
+
       </div>
-      <JobListItem key='id'/>
 
     </div>
   )

@@ -37,8 +37,13 @@ export function fetchProfile (auth0Id, history) {
     return getProfile(auth0Id)
       .then((profile) => {
         dispatch(fetchProfileSuccess(profile))
-        console.log(profile)
-        history.push(`members/${profile.id}`)
+        if (typeof profile.id === 'undefined') {
+          console.log('hello new member')
+          history.push('/member/new')
+        } else {
+          console.log('hello exisiting')
+          history.push('/members')
+        }
         return null
       })
       .catch((err) => {

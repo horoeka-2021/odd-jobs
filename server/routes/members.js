@@ -55,8 +55,9 @@ router.get('/', (req, res) => {
 // =============================================================================
 // POST route: /api/v1/users/signup                         (creates a new user)
 router.post('/', function (req, res) {
-  const { name, email, phone, birthDate, genderId } = req.body
+  const { name, email, phone, birthDate, genderId, auth0Id } = req.body
   const member = {
+    auth0_id: auth0Id,
     name: name,
     email: email,
     phone: phone,
@@ -64,8 +65,8 @@ router.post('/', function (req, res) {
     gender_id: genderId
   }
   db.addNewMember(member)
-    .then(() => {
-      res.sendStatus(201)
+    .then((member) => {
+      res.status(201).json(member)
       return null
     })
     .catch((error) => console.error(error))
