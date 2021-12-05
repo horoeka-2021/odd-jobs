@@ -1,34 +1,57 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
-// import JobListItem from '../Jobs/JobListItem'
+import { useAuth0 } from '@auth0/auth0-react'
+
+// Api call
+import { getJobById } from '../../api/jobs'
+import { fetchProfile } from '../../actions/profiles'
+
+// component
+import AddJob from '../Form/AddJob'
 import JobList from '../Jobs/JobList'
 import ProfileItem from '../Profile/ProfileItem'
-import { getJobById } from '../../api/jobs'
-import AddJob from '../Form/AddJob'
 
 function MemberProfile (props) {
   const { history } = props
-  const [profile, setProfile] = useState([])
-  const [jobs, setJobList] = useState([])
   const { path, url } = useRouteMatch()
-  const state = useSelector(state => state.profiles)
+  const { loginWithRedirect, isAuthenticated } = useAuth0()
+  const state = useSelector(state => state)
+  const auth0Id = state.user.auth0Id
+  const dispatch = useDispatch()
+  // const redirectUri = `${window.location.origin}`
+  // const [profile, setProfile] = useState([])
+  const [jobs, setJobList] = useState([])
 
   useEffect(() => {
-    setProfile(state)
-    // console.log('setProfile --', profile)
-    getJobById(state.id)
-      .then(jobList => {
-        setJobList(jobList)
-        return null
+    // get the member job list
+    if (!isAuthenticated) {
+      loginWithRedirect({
+
       })
-      .catch(err => {
-        console.error(err)
-        return false
-      })
+    } else {
+      dispatch(fetchProfile(auth0Id, history))
+
+      getJobById(state.profiles.id)
+        .then(jobList => {
+          setJobList(jobList)
+          return null
+        })
+        .catch(err => {
+          console.error(err)
+          return false
+        })
+    }
   }, [])
 
-  console.log(state)
+  console.log('api', state.profiles)
+  /// verifiy 1. login  2.preexisting profile
+  // const redirectUri = `${window.location.origin}/#/member`
+
+  // function checkProfile () {
+
+  // }
+
   return (
     <>
       <div>
@@ -54,10 +77,10 @@ function MemberProfile (props) {
           <JobList jobs={jobs}/>
         </Route>
         <Route path={'/members/myprofile'}>
-          <ProfileItem data={profile}/>
+          <ProfileItem data={state.profiles}/>
         </Route>
         <Route path={'/members/addjob'} >
-          <AddJob userID={state.id} history={history}/>
+          <AddJob userID={state.profiles.id} history={history}/>
         </Route>
 
       </div>

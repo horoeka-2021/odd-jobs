@@ -59,17 +59,6 @@ export default function AddJob (props) {
               <option value={10}>Tutor</option>
             </select>
 
-            {/* <h4>Location</h4>
-            <label >Location</label>
-            <select name='locations' onChange={handleChange}>
-              <option hidden>Select from this list</option>
-              <option value={1}>North Auckland</option>
-              <option value={2}>South Auckland</option>
-              <option value={3}>West Auckland</option>
-              <option value={4}>East Auckland</option>
-              <option value={5}>Central Auckland</option>
-            </select> */}
-
             <input type="radio" name='payment' value='Paid' onChange={handleChange}/>
             <label >Paid</label>
             <input type='radio' name='payment' value='koha' onChange={handleChange}/>
