@@ -6,11 +6,10 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
-  const redirectUri = `${window.location.origin}/member/new`
+  // const redirectUri = `${window.location.origin}/#/member`
   const state = useSelector(state => state)
   const auth0Id = state.user.auth0Id
 
-  console.log('landing', state.user.auth0Id)
   const dispatch = useDispatch()
   const { history } = props
 
@@ -28,29 +27,29 @@ function Landing (props) {
       checkProfile()
     }
   }
+  console.log('landing', state.user.auth0Id)
 
   return (
 
     <div className="flex mb-4">
       <div className="w-5/12 pl-10 pr-10 pt-10 mx-20">
-        <h2 className="text-5xl font-weight: 700 font-bold">E tautoko ana tātou i</h2>
-        <h2 className="text-5xl font-weight: 700 font-bold">te Roopū Odd Jobs!</h2>
-        <p className="text-left leading-tight w-4/5 pt-3">
-        We stand by an ethos of building whanau who help fresh local talent gain
-        skills and experience through koha and gifting.<br></br><br></br>
-        Odd Jobs will link you to local juniors and up and coming skilled workers
-        within the trade and service fields.
+        <h2 className="text-5xl font-weight: 700 font-bold">Get the Job</h2>
+        <h2 className="text-5xl font-weight: 700 font-bold">Done In A Day</h2>
+        <p className="text-justify leading-tight w-4/5 pt-3">
+              Gain experience and be mentored by the best
+              in the industry.Start your training, make
+              a difference, and enhance your skills today!
         </p>
         <div className="w-full grid grid-cols-2 gap-2 pt-10 pb-5">
           <div className="w-44">
             <h3 className="text-xl font-weight: 700 font-bold">APPRENTICE</h3>
-            <p className="leading-tight">Current Apprentice or Junior in your field?</p>
+            <p className="leading-tight">Prove your capability and skill and get the job done</p>
 
           </div>
 
           <div>
             <h3 className="text-xl font-weight: 700 font-bold">COMMUNITY MEMBER</h3>
-            <p className="leading-tight">Have an odd job you need help with?</p><br></br>
+            <p className="leading-tight">Post your requirements and match it with the right one</p><br></br>
           </div>
 
           <div className="flex items-baseline">

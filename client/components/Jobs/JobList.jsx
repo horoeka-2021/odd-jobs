@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import React from 'react'
 import JobListItem from './JobListItem'
-import { getJobById } from '../../api/jobs'
 
 function Jobs (props) {
-  const [jobs, setJobList] = useState([])
-  const { id } = useParams()
-  useEffect(() => {
-    getJobById(id)
-      .then(jobList => {
-        setJobList(jobList)
-        return null
-      })
-      .catch(err => {
-        console.error(err)
-        return false
-      })
-  }, [])
-
-  console.log(jobs)
+  const { jobs } = props
   return (
     <div>
+
+      <h4>You have list {jobs.length} jobs</h4>
+
       <div>
-        <h4>10 jobs found</h4>
+
+        <JobListItem jobs={jobs}/>
+
       </div>
-      <JobListItem jobs={jobs}/>
 
     </div>
   )

@@ -9,7 +9,8 @@ const initial = {
 
 }
 
-export default function AddJob () {
+export default function AddJob (props) {
+  // const { history } = props
   const [newJob, setNewJob] = useState(initial)
 
   function handleChange (e) {
@@ -25,7 +26,9 @@ export default function AddJob () {
     e.preventDefault()
 
     console.log(newJob)
+    // history.push('/')
   }
+  console.log('add job -- ', props.userID)
   return (
     <>
       <h2>Add New Job</h2>
@@ -56,7 +59,7 @@ export default function AddJob () {
               <option value={10}>Tutor</option>
             </select>
 
-            <h4>Location</h4>
+            {/* <h4>Location</h4>
             <label >Location</label>
             <select name='locations' onChange={handleChange}>
               <option hidden>Select from this list</option>
@@ -65,7 +68,7 @@ export default function AddJob () {
               <option value={3}>West Auckland</option>
               <option value={4}>East Auckland</option>
               <option value={5}>Central Auckland</option>
-            </select>
+            </select> */}
 
             <input type="radio" name='payment' value='Paid' onChange={handleChange}/>
             <label >Paid</label>
