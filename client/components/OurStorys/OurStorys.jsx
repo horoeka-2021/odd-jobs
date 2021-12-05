@@ -6,7 +6,7 @@ function OurStorys () {
       <div className="flex flex-row self-center w-full relative">
         <img className="teamwork-image" src="./img/ourstory_banner.jpg" />
         <div className="ourstory-text">
-          <h2 className="text-5xl font-weight: 700 font-bold">Our Story</h2>
+          <h2 className="text-5xl font-weight: 700 font-bold">OUR STORY</h2>
         </div>
       </div>
       <div className="mx-0 mx-auto text-center max-w-screen-2xl">
@@ -32,27 +32,27 @@ function OurStorys () {
         <div className="grid grid-cols-3 gap-4 pt-5">
           <div className="col-span-3 text-center">
             <img src="../img/nathan.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p className="leading-tight">Nathan Rowe</p>
+            <p className="leading-tight"><img src="../img/linked.webp" className="max-h-10 inline"/>Nathan Rowe</p>
             <p className="leading-tight">Founder/ Backend Lead</p>
           </div>
           <div className="">
             <img src="../img/goretti.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p>Goretti Alani</p>
+            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Goretti Alani</p>
             <p className="leading-tight">Vibe Lead/ Security Lead</p>
           </div>
           <div className="">
             <img src="../img/crystal.png" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p>Crystal Chan</p>
+            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Crystal Chan</p>
             <p className="leading-tight">Frontend Lead</p>
           </div>
           <div className="">
             <img src="../img/nick.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p>Nicky Caparas</p>
+            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Nicky Caparas</p>
             <p className="leading-tight">Styling Lead/ Scrum Master</p>
           </div>
           <div className="col-span-3 text-center">
             <img src="../img/tommy.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p>Tommy Yoon</p>
+            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Tommy Yoon</p>
             <p className="leading-tight">Git Lead/ DevOps</p>
           </div>
         </div>
