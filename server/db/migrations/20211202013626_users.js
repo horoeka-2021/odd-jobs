@@ -7,6 +7,7 @@ exports.up = function (knex) {
     table.string('phone').notNullable()
     table.integer('birth_date').notNullable()
     table.integer('gender_id').notNullable().references('id').inTable('gender')
+    table.string('location_id').references('id').inTable('locations')
   })
 }
 
