@@ -78,7 +78,7 @@ exports.seed = function (knex) {
           description: 'Both taps in the kitchen need fixing, I am not sure if they are leaking or not',
           service_type_id: 1,
           paid: false,
-          created_member_id: 2,
+          created_member_id: 3,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: '',
