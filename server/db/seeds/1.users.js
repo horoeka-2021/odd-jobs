@@ -15,16 +15,8 @@ exports.seed = function (knex) {
         },
         {
           id: 2,
-<<<<<<< HEAD
-          auth0_id: 'google-oauth2|1019217409990120824471',
-          name: 'Nathan TheDog',
-||||||| 756974c
-          auth0_id: 'google-oauth2|101921740999012082447',
-          name: 'Nathan TheDog',
-=======
           auth0_id: 'google-oauth2|101921740999012082447',
           name: 'Tommy Yoon',
->>>>>>> dev
           email: 'test.test@gmail.com',
           phone: '1234567890',
           birth_date: '01/01/2000',

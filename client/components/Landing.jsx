@@ -6,13 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
-<<<<<<< HEAD
-  // const redirectUri = `${window.location.origin}/#/member`
-||||||| 756974c
-  const redirectUri = `${window.location.origin}/#/member/new`
-=======
   const redirectUri = `${window.location.origin}/member/new`
->>>>>>> dev
   const state = useSelector(state => state)
   const auth0Id = state.user.auth0Id
 
@@ -41,7 +35,7 @@ function Landing (props) {
       <div className="w-5/12 pl-10 pr-10 pt-10 mx-20">
         <h2 className="text-5xl font-weight: 700 font-bold">Get the Job</h2>
         <h2 className="text-5xl font-weight: 700 font-bold">Done In A Day</h2>
-        <p className="text-justify leading-tight w-4/5 pt-3">
+        <p className="text-left leading-tight w-4/5 pt-3">
               Gain experience and be mentored by the best
               in the industry.Start your training, make
               a difference, and enhance your skills today!

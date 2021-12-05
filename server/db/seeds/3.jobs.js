@@ -1,4 +1,4 @@
-exports.seed = function (knex) {
+sexports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('jobs').del()
     .then(function () {
@@ -27,11 +27,6 @@ exports.seed = function (knex) {
           description: 'I need a car battery fixed',
           service_type_id: 9,
           paid: true,
-<<<<<<< HEAD
-          created_member_id: 1,
-||||||| 756974c
-          created_member_id: 4,
-=======
           created_member_id: 2,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
@@ -169,7 +164,6 @@ exports.seed = function (knex) {
           service_type_id: 9,
           paid: true,
           created_member_id: 2,
->>>>>>> dev
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: '',
