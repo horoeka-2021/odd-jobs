@@ -23,9 +23,12 @@ module.exports = {
   addJobListing,
   updateJobListing,
   deleteJobListingById,
+  getJobApplicant,
+  getApplicantsList,
 
   getApprenticeByUserId,
-  getApprenticeLocations
+  getApprenticeLocations,
+  getApprenticeServiceTypes
 }
 
 function getExamples (db = database) {
@@ -109,7 +112,8 @@ function addNewMember (newMember, db = database) {
       email: newMember.email,
       phone: newMember.phone,
       birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id
+      gender_id: newMember.gender_id,
+      location_id: newMember.location_id
     })
 }
 
@@ -200,12 +204,49 @@ function deleteJobListingById (jobId, db = database) {
     .del()
 }
 
+function getJobApplicant (apprenticeAppliedJobId, db = database) {
+  return db('apprentice_applied_job')
+    .join('users', 'users.id', 'apprentice_applied_job.user_id')
+    .join('jobs', 'jobs.id', 'apprentice_applied_job.job_id')
+    .join('gender', 'gender.id', 'users.gender_id')
+    // .join('apprentice_service_types', 'id', 'apprentice_service_types.user_id'),
+    // .join('apprentice_locations', 'id', 'user.')
+  // , 'apprentice_locations.user_id',
+  // 'experience_rating_id', 'experience_rating_id.user_id'
+    .select(
+      'apprentice_applied_job.id as id',
+      'users.id as usersId',
+      'apprentice_applied_job.message as message',
+      'users.name as usersName',
+      'users.email as usersEmail',
+      'users.phone as usersPhone',
+      'users.birth_date as usersBirthDate',
+      'gender.name as gender',
+      // 'apprentice_locations.locations_id as apprenticeLocationsId',
+      // 'apprentice_service_types.service_types_id as apprenticeServiceTypesId',
+      // 'experience_rating_id.rating as experienceRating',
+      // 'apprentice_applied_jobs.id as apprenticeAppliedJobsId',
+      // 'apprentice_applied_jobs.status as apprenticeAppliedStatus'
+      'jobs.status as jobStatus',
+      'apprentice_applied_job.status as applicationStatus'
+    )
+    .where('apprentice_applied_job.id', apprenticeAppliedJobId)
+    .first()
+}
+
+function getApplicantsList (jobId, db = database) {
+  return db('applicants')
+    .where('job_id', jobId)
+    .select()
+}
+
 // ALL APPRENTICE FUNCTIONS ====================================================
 function getApprenticeByUserId (userId, db = database) {
   return db('apprentice_profiles')
     .join('users', 'users.id', 'apprentice_profiles.id')
     .where('users.id', userId)
     .select(
+      'apprentice_profiles.id as id',
       'users.id as userId',
       'users.name as name',
       'users.email as email',
@@ -220,6 +261,19 @@ function getApprenticeByUserId (userId, db = database) {
 
 function getApprenticeLocations (userId, db = database) {
   return db('apprentice_locations')
+    .join('locations', 'locations.id', 'apprentice_locations.location_id')
     .where('user_id', userId)
-    .select('location_id as locationId')
+    .select('location_id as id', 'locations.name as name')
+}
+
+function getApprenticeServiceTypes (userId, db = database) {
+  return db('apprentice_service_types')
+    .join('service_types', 'service_types.id', 'apprentice_service_types.service_type_id')
+    .join('experience_rating', 'experience_rating.id', 'apprentice_service_types.experience_rating_id')
+    .where('user_id', userId)
+    .select(
+      'apprentice_service_types.id as id',
+      'service_types.name as serviceType',
+      'experience_rating.name as experienceRating'
+    )
 }
