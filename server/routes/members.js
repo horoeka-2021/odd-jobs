@@ -27,7 +27,7 @@ router.put('/:user_id/edit', async (req, res) => {
 })
 
 // =============================================================================
-// GET route: /api/v1/members/          (get information about a single member)
+// GET route: /api/v1/members/           (get information about a single member)
 router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
@@ -52,8 +52,8 @@ router.get('/', (req, res) => {
     })
 })
 
-// ======================================================================
-// POST route: /api/v1/users/signup            (creates a new user)
+// =============================================================================
+// POST route: /api/v1/users/signup                         (creates a new user)
 router.post('/', function (req, res) {
   const { name, email, phone, birthDate, genderId, auth0Id } = req.body
   const member = {
