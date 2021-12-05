@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
-  // const redirectUri = `${window.location.origin}/#/member`
+  const redirectUri = `${window.location.origin}/member`
   const state = useSelector(state => state)
   const auth0Id = state.user.auth0Id
 
@@ -21,7 +21,7 @@ function Landing (props) {
     // check if logged in Auth0 or not
     if (!isAuthenticated) {
       loginWithRedirect({
-        // redirect_uri: redirectUri
+        redirect_uri: redirectUri
       })
     } else {
       checkProfile()
