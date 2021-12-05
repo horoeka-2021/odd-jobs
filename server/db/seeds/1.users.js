@@ -25,7 +25,7 @@ exports.seed = function (knex) {
         {
           id: 3,
           auth0_id: 'google-oauth2|105982239525097162561',
-          name: 'Nicky Caparas',
+          name: 'Nathan Rowe',
           email: 'test.test@gmail.com',
           phone: '1234567890',
           birth_date: '01/01/2000',
