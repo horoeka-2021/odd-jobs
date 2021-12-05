@@ -41,24 +41,24 @@ function MemberProfile (props) {
             <Link to={`${url}`}>Listed Jobs</Link>
           </li>
           <li>
-            <Link to="/members/addjobs">Add New Job2</Link>
+            <Link to="/members/addjob">Add New Job2</Link>
           </li>
         </ul>
       </div>
 
       <div>
         <h1>Member page</h1>
-
-        <Route exact path={path} >
-          <JobListItem jobs={jobs}/>
-        </Route>
-        <Route path="/members/myprofile">
-          <ProfileItem data={profile}/>
-        </Route>
-        <Route path="/members/addjobs">
-          <AddJob />
-        </Route>
-
+        <Switch>
+          <Route exact path={path} >
+            <JobListItem jobs={jobs} />
+          </Route>
+          <Route exact path="/members/myprofile">
+            <ProfileItem data={profile}/>
+          </Route>
+          <Route path="/members/addjob">
+            <AddJob userID={state.id}/>
+          </Route>
+        </ Switch>
       </div>
     </>
   )

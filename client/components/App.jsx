@@ -22,6 +22,7 @@ function App () {
 
   return (
     <Router>
+
       <Route path='/' component={Nav} />
       <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
       <Route path='/ourstorys' component={OurStorys} />
@@ -33,8 +34,9 @@ function App () {
       }} />
       <Route exact path='/jobs' component={JobList} />
       {/* <Route path='/jobs/new' component={AddJob} /> */}
-      <Route exact path='/apprentice/new' component={NewApprentice} />
-      <Route exact path='/member/new' render={({ history }) => <NewMember history={history}/>} />
+      <Route path='/apprentice/new' component={NewApprentice} />
+      <Route path='/member/new' render={({ history }) => <NewMember history={history}/>} />
+
     </Router>
   )
 }

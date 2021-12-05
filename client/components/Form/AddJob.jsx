@@ -9,7 +9,7 @@ const initial = {
 
 }
 
-export default function AddJob () {
+export default function AddJob (props) {
   const [newJob, setNewJob] = useState(initial)
 
   function handleChange (e) {
@@ -26,6 +26,7 @@ export default function AddJob () {
 
     console.log(newJob)
   }
+  console.log('add job -- ', props.userID)
   return (
     <>
       <h2>Add New Job</h2>
