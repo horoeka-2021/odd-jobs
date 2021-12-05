@@ -24,7 +24,7 @@ module.exports = {
   updateJobListing,
   deleteJobListingById,
   getJobApplicant,
-  getApplicantsList,
+  getJobApplicantList,
 
   getApprenticeByUserId,
   getApprenticeLocations,
@@ -237,10 +237,18 @@ function getJobApplicant (apprenticeAppliedJobId, db = database) {
     .first()
 }
 
-function getApplicantsList (jobId, db = database) {
-  return db('applicants')
+function getJobApplicantList (jobId, db = database) {
+  return db('apprentice_applied_job')
+    .leftJoin('users', 'users.id', 'apprentice_applied_job.user_id')
+    .leftJoin('jobs', 'jobs.id', 'apprentice_applied_job.job_id')
+    .select(
+      'apprentice_applied_job.id as id',
+      'users.id as usersId',
+      'users.name as usersName',
+      'jobs.status as jobStatus',
+      'apprentice_applied_job.status as applicationStatus'
+    )
     .where('job_id', jobId)
-    .select()
 }
 
 // ALL APPRENTICE FUNCTIONS ====================================================

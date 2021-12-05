@@ -45,6 +45,9 @@ router.get('/details/:jobId', async (req, res) => {
   try {
     const jobDetails = await db.getJobDetails(jobId)
     console.log(`jobDetails: ${jobDetails}`)
+    const applicants = await db.getJobApplicantList(jobId)
+    console.log(`applicants: ${JSON.stringify(applicants)}`)
+    jobDetails.applicants = applicants
     res.json(jobDetails)
   } catch (error) {
     console.error(error)
