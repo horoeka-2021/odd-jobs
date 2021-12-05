@@ -42,7 +42,7 @@ export function fetchProfile (auth0Id, history) {
           history.push('/member/new')
         } else {
           console.log('hello exisiting')
-          history.push(`members/${profile.id}`)
+          history.push('/members')
         }
         return null
       })

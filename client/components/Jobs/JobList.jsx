@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import JobListItem from './JobListItem'
 
 function Jobs (props) {
+  const { jobs } = props
   return (
     <div>
+
+      <h4>You have list {jobs.length} jobs</h4>
+
       <div>
-        <h4>10 jobs found</h4>
+
+        <JobListItem jobs={jobs}/>
+
       </div>
-      <JobListItem jobs={jobs}/>
 
     </div>
   )

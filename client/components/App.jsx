@@ -22,8 +22,8 @@ function App () {
       <Route path='/' component={Nav} />
       <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
       <Route path='/ourstorys' component={OurStorys} />
-      <Route exact path='/apprentices/:id' component={ApprenticeProfile} />
-      <Route path='/members/:id' render={({ history }) => {
+      <Route exact path='/apprentices' component={ApprenticeProfile} />
+      <Route path='/members' render={({ history }) => {
         return <MemberProfile history={history}>
           <WaitIndicator />
         </MemberProfile>

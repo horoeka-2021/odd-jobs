@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
-import JobListItem from '../Jobs/JobListItem'
+// import JobListItem from '../Jobs/JobListItem'
+import JobList from '../Jobs/JobList'
 import ProfileItem from '../Profile/ProfileItem'
 import { getJobById } from '../../api/jobs'
 import AddJob from '../Form/AddJob'
@@ -49,12 +50,13 @@ function MemberProfile (props) {
         <h2>You are now logged in</h2>
 
         <Route exact path={path} >
-          <JobListItem jobs={jobs} />
+          {/* <JobListItem jobs={jobs} /> */}
+          <JobList jobs={jobs}/>
         </Route>
-        <Route path={`/members/${state.id}/myprofile`}>
+        <Route path={'/members/myprofile'}>
           <ProfileItem data={profile}/>
         </Route>
-        <Route path={`/members/${state.id}/addjob`} >
+        <Route path={'/members/addjob'} >
           <AddJob userID={state.id} history={history}/>
         </Route>
 
