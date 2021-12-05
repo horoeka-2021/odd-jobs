@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Link, Route, useRouteMatch, Switch } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Link, Route, useRouteMatch } from 'react-router-dom'
 import JobListItem from '../Jobs/JobListItem'
 import ProfileItem from '../Profile/ProfileItem'
 import { getJobById } from '../../api/jobs'
 import AddJob from '../Form/AddJob'
 
 function MemberProfile (props) {
-  // const { children, history } = props
+  const { history } = props
   const [profile, setProfile] = useState([])
   const [jobs, setJobList] = useState([])
   const { path, url } = useRouteMatch()
-  console.log('route match', path, url)
   const state = useSelector(state => state.profiles)
 
   useEffect(() => {
@@ -19,7 +18,6 @@ function MemberProfile (props) {
     // console.log('setProfile --', profile)
     getJobById(state.id)
       .then(jobList => {
-        console.log('api', jobList)
         setJobList(jobList)
         return null
       })
@@ -29,36 +27,37 @@ function MemberProfile (props) {
       })
   }, [])
 
+  console.log(state)
   return (
     <>
       <div>
         <ul>
           <li>
-            {/* <Link to={`${url}/${state.id}`}>My Profile</Link> */}
-            <Link to="/members/myprofile">My Profile</Link>
+            <Link to={`${url}/myprofile`}>My Profile</Link>
           </li>
           <li>
             <Link to={`${url}`}>Listed Jobs</Link>
           </li>
           <li>
-            <Link to="/members/addjob">Add New Job2</Link>
+            <Link to={`${url}/addjob`}>Add New Job</Link>
           </li>
         </ul>
       </div>
 
       <div>
         <h1>Member page</h1>
-        <Switch>
-          <Route exact path={path} >
-            <JobListItem jobs={jobs} />
-          </Route>
-          <Route exact path="/members/myprofile">
-            <ProfileItem data={profile}/>
-          </Route>
-          <Route path="/members/addjob">
-            <AddJob userID={state.id}/>
-          </Route>
-        </ Switch>
+        <h2>You are now logged in</h2>
+
+        <Route exact path={path} >
+          <JobListItem jobs={jobs} />
+        </Route>
+        <Route path={`/members/${state.id}/myprofile`}>
+          <ProfileItem data={profile}/>
+        </Route>
+        <Route path={`/members/${state.id}/addjob`} >
+          <AddJob userID={state.id} history={history}/>
+        </Route>
+
       </div>
     </>
   )

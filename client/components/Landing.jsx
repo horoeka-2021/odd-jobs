@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { fetchProfile } from '../actions/profiles'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -9,8 +9,7 @@ function Landing (props) {
   // const redirectUri = `${window.location.origin}/#/member`
   const state = useSelector(state => state)
   const auth0Id = state.user.auth0Id
-  // const history = useHistory()
-  console.log('landing', state.user.auth0Id)
+
   const dispatch = useDispatch()
   const { history } = props
 
@@ -28,6 +27,7 @@ function Landing (props) {
       checkProfile()
     }
   }
+  console.log('landing', state.user.auth0Id)
 
   return (
 

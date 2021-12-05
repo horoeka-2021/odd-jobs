@@ -10,6 +10,7 @@ const initial = {
 }
 
 export default function AddJob (props) {
+  const { history } = props
   const [newJob, setNewJob] = useState(initial)
 
   function handleChange (e) {
@@ -25,6 +26,7 @@ export default function AddJob (props) {
     e.preventDefault()
 
     console.log(newJob)
+    // history.push('/')
   }
   console.log('add job -- ', props.userID)
   return (
