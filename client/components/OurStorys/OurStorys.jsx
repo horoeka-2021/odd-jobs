@@ -11,7 +11,7 @@ function OurStorys () {
       </div>
       <div className="mx-0 mx-auto text-center max-w-screen-2xl">
         <div className="w-3/4 mx-0 mx-auto pt-10">
-          <h2 className="text-3xl font-weight: 700 font-bold">E tautoko ana tatou i te Roopu Odd Jobs</h2>
+          <h2 className="text-3xl font-weight: 700 font-bold">E tautoko ana tatou i te Roopū Odd Jobs</h2>
           <h2 className="text-3xl font-weight: 700 font-bold">Everyone support the Odd Jobs community!</h2>
           <p className="pt-5">As a recent graduate in Web Development, OddJobs founder and product owner Nathan
            saw the need for a site that could bring together other junior devs and service and trade apprentices,
