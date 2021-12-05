@@ -92,13 +92,16 @@ function getMemberByAuthId (auth0Id, db = database) {
 function getMemberByUserId (userId, db = database) {
   return db('member_profiles')
     .leftJoin('users', 'users.id', 'member_profiles.user_id')
+    .leftJoin('locations', 'locations.id', 'member_profiles.location_id')
     .select(
       'users.id as id',
       'users.name as name',
       'users.email as email',
       'users.phone as phone',
       'users.birth_date as birthDate',
-      'users.gender_id as genderId'
+      'users.gender_id as genderId',
+      'locations.id as locationId',
+      'locations.name as locationName'
     )
     .where('users.id', userId)
     .first()
