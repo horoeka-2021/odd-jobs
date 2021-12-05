@@ -10,7 +10,7 @@ const initial = {
 }
 
 export default function AddJob (props) {
-  const { history } = props
+  // const { history } = props
   const [newJob, setNewJob] = useState(initial)
 
   function handleChange (e) {
