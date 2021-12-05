@@ -27,7 +27,7 @@ function OurStorys () {
         </div>
 
         <div className="container mx-auto pt-10">
-          <h2 className="text-3xl font-weight: 700 font-bold">Our Team</h2>
+          <h2 className="text-3xl font-weight: 700 font-bold">OUR TEAM</h2>
         </div>
         <div className="grid grid-cols-3 gap-4 pt-5">
           <div className="col-span-3 text-center">
