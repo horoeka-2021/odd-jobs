@@ -34,30 +34,32 @@ function MemberProfile (props) {
       <div>
         <ul>
           <li>
-            <Link to={`${url}/${state.id}`}>My Profile</Link>
+            {/* <Link to={`${url}/${state.id}`}>My Profile</Link> */}
+            <Link to="/members/myprofile">My Profile</Link>
           </li>
           <li>
             <Link to={`${url}`}>Listed Jobs</Link>
+          </li>
+          <li>
+            <Link to="/members/addjobs">Add New Job2</Link>
           </li>
         </ul>
       </div>
 
       <div>
         <h1>Member page</h1>
-        {/* <ProfileItem data={profile}/>
-      <JobListItem jobs={jobs}/> */}
-        {/* <button><Link to='/jobs/new'>Add New Job</Link></button> */}
 
         <Route exact path={path} >
           <JobListItem jobs={jobs}/>
-          <ProfileItem data={profile}/>
-
         </Route>
-        <Route path={`${path}/:name`}>
+        <Route path="/members/myprofile">
+          <ProfileItem data={profile}/>
+        </Route>
+        <Route path="/members/addjobs">
+          <AddJob />
         </Route>
 
       </div>
-
     </>
   )
 }
