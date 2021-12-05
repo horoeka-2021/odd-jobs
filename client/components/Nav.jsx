@@ -20,14 +20,16 @@ function Nav () {
     <div className="navbar mb-2 bg-white text-neutral-content w-full">
       <div className="flex flex-row w-full">
         <div className="px-15">
-          <img className="max-h-24" src="../img/oddjob_400_200px.png" />
+          <Link to='/'>
+            <img className="max-h-24" src="../img/oddjob_400_200px.png" />
+          </Link>
         </div>
         <div className="flex flex-1 content-between justify-evenly">
           <Link to='/' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Home</Link>
           <Link to='/ourstorys' className="btn btn-ghost  text-gray-600 btn-m rounded-btn font-sans mx-2">Our Story</Link>
           <IfNotAuthenticated>
-            <Link to='/' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Hire Now</Link>
-            <Link to='/jobs' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Find Jobs</Link>
+            <Link to='/signup' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2" >Hire Now</Link>
+            <Link to='/signup' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Find Jobs</Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
             <Link to='/members' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">My Profile</Link>

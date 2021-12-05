@@ -6,7 +6,7 @@ function Jobs (props) {
   return (
     <div>
 
-      <h4>You have list {jobs.length} jobs</h4>
+      <h4>You have listed {jobs.length} jobs</h4>
 
       <div>
 

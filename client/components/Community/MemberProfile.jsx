@@ -1,22 +1,24 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
+
 // import JobListItem from '../Jobs/JobListItem'
 import JobList from '../Jobs/JobList'
 import ProfileItem from '../Profile/ProfileItem'
-import { getJobById } from '../../api/jobs'
 import AddJob from '../Form/AddJob'
+import { getJobById } from '../../api/jobs'
 
 function MemberProfile (props) {
   const { history } = props
-  const [profile, setProfile] = useState([])
-  const [jobs, setJobList] = useState([])
   const { path, url } = useRouteMatch()
   const state = useSelector(state => state.profiles)
 
+  const [profile, setProfile] = useState([])
+  const [jobs, setJobList] = useState([])
+
   useEffect(() => {
     setProfile(state)
-    // console.log('setProfile --', profile)
     getJobById(state.id)
       .then(jobList => {
         setJobList(jobList)
@@ -28,9 +30,9 @@ function MemberProfile (props) {
       })
   }, [])
 
-  console.log(state)
   return (
     <>
+
       <div>
         <ul>
           <li>
@@ -59,8 +61,8 @@ function MemberProfile (props) {
         <Route path={'/members/addjob'} >
           <AddJob userID={state.id} history={history}/>
         </Route>
-
       </div>
+
     </>
   )
 }
