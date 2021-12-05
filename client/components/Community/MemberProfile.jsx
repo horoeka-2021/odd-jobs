@@ -67,10 +67,10 @@ function MemberProfile (props) {
             {/* <JobListItem jobs={jobs} /> */}
             <JobList jobs={jobs}/>
           </Route>
-          <Route path={'/members/myprofile'}>
+          <Route path={'/member/myprofile'}>
             <ProfileItem data={profile}/>
           </Route>
-          <Route path={'/members/addjob'} >
+          <Route path={'/member/addjob'} >
             <AddJob userID={profiles.id} history={history}/>
           </Route>
 
