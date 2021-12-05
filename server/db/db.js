@@ -106,29 +106,6 @@ function getMemberByUserId (userId, db = database) {
 
 function addNewMember (newMember, db = database) {
   return db('users')
-<<<<<<< HEAD
-    .insert(newMember, ['id'])
-    // .returning({
-    //   // auth0Id: 'auth0_Id',
-    //   // name: newMember.name,
-    //   // email: newMember.email,
-    //   // phone: newMember.phone,
-    //   // birth_date: newMember.birth_date,
-    //   // gender_id: newMember.gender_id
-    //   userId: 'user_id'
-    // })
-    .then((ids) => {
-      return db('member_profiles').insert({ user_id: ids[0] }, ['user_id'])
-        .then(() => getMemberByUserId(ids[0], db))
-||||||| 51ff952
-    .insert(newMember)
-    .returning({
-      name: newMember.name,
-      email: newMember.email,
-      phone: newMember.phone,
-      birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id
-=======
     .insert(newMember)
     .returning({
       name: newMember.name,
@@ -137,7 +114,6 @@ function addNewMember (newMember, db = database) {
       birth_date: newMember.birth_date,
       gender_id: newMember.gender_id,
       location_id: newMember.location_id
->>>>>>> dev
     })
 }
 
