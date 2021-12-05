@@ -11,21 +11,44 @@ function OurStorys () {
       </div>
       <div className="mx-0 mx-auto text-center max-w-screen-2xl">
         <div className="w-3/4 mx-0 mx-auto pt-10">
-          <h2 className="text-3xl font-weight: 700 font-bold">Creating experiences and building relationships</h2>
-          <p className="pt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris ac venenatis enim, ut bibendum tortor.
-                  Sed quis auctor quam, in rutrum purus.
-                  Vivamus varius vulputate quam, quis tempus enim posuere sed.
-                  Integer ac mauris enim.
-                  Class aptent taciti sociosqu ad litora torquent per conubia
-                  nostra, per inceptos himenaeos.
-                  Vivamus in porta enim, sed gravida orci.
-                  Nulla rutrum maximus lacus, a feugiat est.
-                  Sed nec magna pulvinar, eleifend metus nec, pellentesque erat.
-                  Nullam vitae urna vitae lacus tempus varius quis eget tellus.</p>
+          <h2 className="text-3xl font-weight: 700 font-bold">E tautoko ana tatou i te Roopu Odd Jobs</h2>
+          <h2 className="text-3xl font-weight: 700 font-bold">Everyone support the Odd Jobs community!</h2>
+          <p className="pt-5">As a recent graduate in Web Development, OddJobs founder and product owner Nathan
+           saw the need for a site that could bring together other junior devs and service and trade apprentices,
+           looking to gain the experience and self-confidence needed to grow their career.
+            So he and his team of five embarked on a week-long journey to create a hub for community members to post
+            their odd jobs and hire said juniors who are working toward completing their qualification or just need
+            work to help build their portfolio.
+            Because we at OddJobs are passionate about communities helping their local talent, we stand by an ethos
+            of building whanau who help fresh local talent gain skills and experience through koha and gifting.
+          </p>
 
         </div>
 
+        <div className="container mx-auto pt-10">
+          <div className="w-full shadow stats ">
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Country</div>
+              <div className="stat-value text-indigo-500 font-sans">1</div>
+            </div>
+
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Employees</div>
+              <div className="stat-value text-indigo-500 font-sans">5+</div>
+            </div>
+
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Partner Practices</div>
+              <div className="stat-value text-indigo-500 font-sans">5+</div>
+            </div>
+
+            <div className="stat place-items-center place-content-center">
+              <div className="stat-title">Users</div>
+              <div className="stat-value text-indigo-500 font-sans">5+</div>
+            </div>
+
+          </div>
+        </div>
         <div className="container mx-auto pt-10">
           <h2 className="text-3xl font-weight: 700 font-bold">OUR TEAM</h2>
         </div>
@@ -55,30 +78,7 @@ function OurStorys () {
             <p><img src="../img/linked.webp" className="max-h-10 inline"/>Tommy Yoon</p>
             <p className="leading-tight">Git Lead/ DevOps</p>
           </div>
-        </div>
-        <div className="container mx-auto pt-10">
-          <div className="w-full shadow stats ">
-            <div className="stat place-items-center place-content-center">
-              <div className="stat-title">Country</div>
-              <div className="stat-value text-indigo-500 font-sans">1</div>
-            </div>
 
-            <div className="stat place-items-center place-content-center">
-              <div className="stat-title">Employees</div>
-              <div className="stat-value text-indigo-500 font-sans">5+</div>
-            </div>
-
-            <div className="stat place-items-center place-content-center">
-              <div className="stat-title">Partner Practices</div>
-              <div className="stat-value text-indigo-500 font-sans">5+</div>
-            </div>
-
-            <div className="stat place-items-center place-content-center">
-              <div className="stat-title">Users</div>
-              <div className="stat-value text-indigo-500 font-sans">5+</div>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
