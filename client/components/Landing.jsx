@@ -9,6 +9,7 @@ function Landing (props) {
   const redirectUri = `${window.location.origin}/member`
   const state = useSelector(state => state)
   const auth0Id = state.user.auth0Id
+  // const history = useHistory()
 
   const dispatch = useDispatch()
   const { history } = props
@@ -21,10 +22,11 @@ function Landing (props) {
     // check if logged in Auth0 or not
     if (!isAuthenticated) {
       loginWithRedirect({
-        redirect_uri: redirectUri
+        redirectUri: redirectUri
       })
     } else {
-      checkProfile()
+      // checkProfile()
+      history.push('/member')
     }
   }
   console.log('landing', state.user.auth0Id)

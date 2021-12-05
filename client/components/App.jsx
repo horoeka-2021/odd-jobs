@@ -23,7 +23,7 @@ function App () {
       <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
       <Route path='/ourstorys' component={OurStorys} />
       <Route exact path='/apprentices' component={ApprenticeProfile} />
-      <Route path='/members' render={({ history }) => {
+      <Route path='/member' render={({ history }) => {
         return <MemberProfile history={history}>
           <WaitIndicator />
         </MemberProfile>

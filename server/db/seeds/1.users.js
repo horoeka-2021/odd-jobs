@@ -15,7 +15,7 @@ exports.seed = function (knex) {
         },
         {
           id: 2,
-          auth0_id: 'google-oauth2|1019217409990120824471',
+          auth0_id: 'google-oauth2|101921740999012082447',
           name: 'Tommy Yoon',
           email: 'test.test@gmail.com',
           phone: '1234567890',
@@ -24,7 +24,7 @@ exports.seed = function (knex) {
         },
         {
           id: 3,
-          auth0_id: 'google-oauth2|1019217409990120824471',
+          auth0_id: 'google-oauth2|101921740999012082447',
           name: 'Nathan Rowe',
           email: 'test.test@gmail.com',
           phone: '1234567890',
@@ -33,7 +33,7 @@ exports.seed = function (knex) {
         },
         {
           id: 4,
-          auth0_id: 'google-oauth2|1019217409990120824471',
+          auth0_id: 'google-oauth2|101921740999012082447',
           name: 'Crystal Chan',
           email: 'test.test@gmail.com',
           phone: '1234567890',
@@ -42,7 +42,7 @@ exports.seed = function (knex) {
         },
         {
           id: 5,
-          auth0_id: 'google-oauth2|1019217409990120824471',
+          auth0_id: 'google-oauth2|101921740999012082447',
           name: 'Nicky Plantita',
           email: 'test.test@gmail.com',
           phone: '1234567890',
@@ -51,7 +51,7 @@ exports.seed = function (knex) {
         },
         {
           id: 6,
-          auth0_id: 'google-oauth2|1019217409990120824471',
+          auth0_id: 'google-oauth2|101921740999012082447',
           name: 'Ying Chiu',
           email: 'test.test@gmail.com',
           phone: '1234567890',
