@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useAuth0 } from '@auth0/auth0-react'
 
 const initial = {
   title: '',
