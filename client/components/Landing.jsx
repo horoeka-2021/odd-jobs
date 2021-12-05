@@ -18,6 +18,10 @@ function Landing (props) {
     dispatch(fetchProfile(auth0Id, history))
   }
 
+  // // inside use effect()
+  // userEffect
+  // // get Auth0
+
   function handleMember () {
     // check if logged in Auth0 or not
     if (!isAuthenticated) {

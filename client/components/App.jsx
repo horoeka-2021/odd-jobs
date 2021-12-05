@@ -15,7 +15,8 @@ import { cacheUser } from '../actions/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
-  cacheUser(useAuth0)
+  console.log('cacheUser')
+  cacheUser(useAuth0) // this is not triggered
 
   return (
     <Router>
