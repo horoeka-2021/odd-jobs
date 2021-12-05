@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
+
 // import JobListItem from '../Jobs/JobListItem'
 import JobList from '../Jobs/JobList'
 import ProfileItem from '../Profile/ProfileItem'
-import { getJobById } from '../../api/jobs'
 import AddJob from '../Form/AddJob'
+import { getJobById } from '../../api/jobs'
 
 import { fetchProfile } from '../../actions/profiles'
 
 function MemberProfile (props) {
   const { history } = props
-  const [profile, setProfile] = useState([])
-  const [jobs, setJobList] = useState([])
   const { path, url } = useRouteMatch()
   const state = useSelector(state => state)
   const profiles = state.profiles
   const auth0Id = state.user.auth0Id
 
   const dispatch = useDispatch()
+
+  const [profile, setProfile] = useState([])
+  const [jobs, setJobList] = useState([])
 
   useEffect(() => {
     console.log('member-useEffect', auth0Id)
@@ -41,9 +43,9 @@ function MemberProfile (props) {
       })
   }, [])
 
-  console.log(profiles)
   return (
     <>
+
       <div>
         <ul>
           <li>
@@ -72,8 +74,8 @@ function MemberProfile (props) {
         <Route path={'/member/addjob'} >
           <AddJob userID={profiles.id} history={history}/>
         </Route>
-
       </div>
+
     </>
   )
 }

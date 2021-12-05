@@ -39,7 +39,6 @@ export function fetchProfile (auth0Id, history) {
         console.log('fetchProfile - profile', profile)
         dispatch(fetchProfileSuccess(profile))
         if (typeof profile.id === 'undefined') {
-          console.log('hello new member')
           history.push('/member/new')
         } else {
           console.log('hello exisiting')
@@ -62,7 +61,7 @@ export function addMember (newMember, history) {
       .then((member) => {
         console.log('new member', member)
         dispatch(addProfileSuccess(member))
-        history.push(`members/${member.id}`)
+        history.push('/members')
         return null
       })
       .catch((err) => {

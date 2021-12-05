@@ -13,6 +13,7 @@ function ProfileItem (props) {
       <p>{ genderList[gender]}</p>
       <p>{phone}</p>
       <p>{email}</p>
+      <button>Edit</button>
     </div>
   )
 }
