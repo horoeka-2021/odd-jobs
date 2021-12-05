@@ -44,35 +44,37 @@ function MemberProfile (props) {
   console.log(profiles)
   return (
     <>
-      <div>
-        <ul>
-          <li>
-            <Link to={`${url}/myprofile`}>My Profile</Link>
-          </li>
-          <li>
-            <Link to={`${url}`}>Listed Jobs</Link>
-          </li>
-          <li>
-            <Link to={`${url}/addjob`}>Add New Job</Link>
-          </li>
-        </ul>
-      </div>
+      <div className="container mx-auto artboard artboard-demo">
+        <div className="py-4 bg-white">
+          <ul className="menu items-stretch pr-96 mr-32 horizontal">
+            <li className="visited:bordered active:bordered">
+              <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>
+            </li>
+            <li className="visited:bg-base-200">
+              <Link className="font-sans" to={`${url}`}>LISTED JOBS</Link>
+            </li>
+            <li className="visited:bordered active:bordered">
+              <Link className="font-sans"to={`${url}/addjob`}>ADD NEW JOB</Link>
+            </li>
+          </ul>
+        </div>
 
-      <div>
-        <h1>Member page</h1>
-        <h2>You are now logged in</h2>
+        <div>
+          <h1>Member page</h1>
+          <h2>You are now logged in</h2>
 
-        <Route exact path={path} >
-          {/* <JobListItem jobs={jobs} /> */}
-          <JobList jobs={jobs}/>
-        </Route>
-        <Route path={'/members/myprofile'}>
-          <ProfileItem data={profile}/>
-        </Route>
-        <Route path={'/members/addjob'} >
-          <AddJob userID={profiles.id} history={history}/>
-        </Route>
+          <Route exact path={path} >
+            {/* <JobListItem jobs={jobs} /> */}
+            <JobList jobs={jobs}/>
+          </Route>
+          <Route path={'/member/myprofile'}>
+            <ProfileItem data={profile}/>
+          </Route>
+          <Route path={'/member/addjob'} >
+            <AddJob userID={profiles.id} history={history}/>
+          </Route>
 
+        </div>
       </div>
     </>
   )
