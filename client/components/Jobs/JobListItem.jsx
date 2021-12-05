@@ -1,5 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
+// api detail
 
 function JobListItem ({ jobs }) {
   console.log('jobsItem', jobs)
