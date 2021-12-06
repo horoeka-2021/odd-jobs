@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './styles/main.scss'
 
 import 'regenerator-runtime/runtime'
 
@@ -16,10 +17,10 @@ import store from './store'
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Auth0Provider
-      domain = {'horoeka-2021-tommy.au.auth0.com'}
-      clientId = {'qnmXNdDByBoCtPGsv2u1Vj0EZRubrWDg'}
+      domain = {'dev-bekgk-j7.us.auth0.com'}
+      clientId = {'Cgi79romxK0TEunaP25UzzSgFdDNUVrt'}
       redirectUri={window.location.origin}
-      audience='https://boilerplate-tommy.herokuapp.com'
+      audience='https://oddjobs-horoeka.herokuapp.com'
     >
       <Provider store={store}>
         <App />

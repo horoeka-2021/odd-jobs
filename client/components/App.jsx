@@ -1,22 +1,37 @@
-import { HashRouter as Router, Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import React from 'react'
-import Example from './Example'
-import ExampleDataFromServer from './ExampleDataFromServer'
+import Landing from './Landing'
 import Nav from './Nav'
+import ApprenticeProfile from './Apprentices/ApprenticeProfile'
+import MemberProfile from './Community/MemberProfile'
+import JobList from './Jobs/JobList'
+import NewApprentice from './Form/NewApprentice'
+import NewMember from './Form/NewMember'
+import OurStorys from './OurStorys/OurStorys'
+import WaitIndicator from './WaitIndicator'
 
 // authentication
 import { cacheUser } from '../actions/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
-  cacheUser(useAuth0)
+  console.log('cacheUser')
+  cacheUser(useAuth0) // this is not triggered
+
   return (
     <Router>
       <Route path='/' component={Nav} />
-      <h1>Hello from React - env : {process.env.NODE_ENV}</h1>
-      <Link to='/example'>To see the example</Link>
-      <Route path='/example' exact render={() => <Example title='Welcome'/>}/>
-      <Route path='/example' exact component={ExampleDataFromServer}/>
+      <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
+      <Route path='/ourstorys' component={OurStorys} />
+      <Route exact path='/apprentices' component={ApprenticeProfile} />
+      <Route path='/member' render={({ history }) => {
+        return <MemberProfile history={history}>
+          <WaitIndicator />
+        </MemberProfile>
+      }} />
+      <Route exact path='/jobs' component={JobList} />
+      <Route path='/apprentice/new' component={NewApprentice} />
+      <Route path='/member/new' render={({ history }) => <NewMember history={history}/>} />
     </Router>
   )
 }
