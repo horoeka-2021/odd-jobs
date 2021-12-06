@@ -10,7 +10,7 @@ function ProfileItem (props) {
       <h1>Profile item</h1>
       <p>{name}</p>
       <p>{birthday}</p>
-      <p>{ genderList[gender]}</p>
+      <p>{genderList[gender]}</p>
       <p>{phone}</p>
       <p>{email}</p>
       <button>Edit</button>

@@ -1,8 +1,8 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-// api detail
+// api called detail
 
-function JobListItem ({ jobs }) {
+function JobListItem () {
   return (
     <div>
       {/* {jobs.map((jobs) => {
@@ -17,7 +17,7 @@ function JobListItem ({ jobs }) {
           </div>
         )
       })} */}
-      <h1>job list item</h1>
+      <h1>job list item wehqjekhwehqwkjehqwh</h1>
 
     </div>
 

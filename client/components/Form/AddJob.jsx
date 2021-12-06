@@ -7,9 +7,9 @@ const initial = {
   locations: '4',
   payment: ''
 }
-
+// waiting for backend to send location ID
 export default function AddJob (props) {
-  // const { history } = props
+  const { history } = props
   const [newJob, setNewJob] = useState(initial)
 
   function handleChange (e) {

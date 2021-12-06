@@ -19,7 +19,7 @@ function MemberProfile (props) {
 
   const dispatch = useDispatch()
 
-  const [profile, setProfile] = useState([])
+  // const [profile, setProfile] = useState([])
   const [jobs, setJobList] = useState([])
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function MemberProfile (props) {
 
     // if there is member profile ==> get job list
 
-    setProfile(profiles)
+    // setProfile(profiles)
     getJobById(profiles.id)
       .then(jobList => {
         setJobList(jobList)
@@ -68,7 +68,7 @@ function MemberProfile (props) {
         </div>
         <div>
           <Route exact path={path} >
-            <JobList jobs={jobs}/>
+            <JobList jobs={jobs} userID={profiles.id}/>
           </Route>
           <Route path={'/member/myprofile'}>
             <ProfileItem data={profiles}/>

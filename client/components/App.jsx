@@ -33,7 +33,7 @@ function App () {
         <Signup />
       </Route>
       <Route path='/apprentice/new' component={NewApprentice} />
-      <Route exact path='/members/new' render={({ history }) => <NewMember history={history}/>} />
+      <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
     </Router>
   )
 }
