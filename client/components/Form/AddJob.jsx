@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const initial = {
   title: '',
@@ -9,10 +10,11 @@ const initial = {
 
 }
 
-export default function AddJob () {
+export default function AddJob() {
   const [newJob, setNewJob] = useState(initial)
+  const state = useSelector(state => state)
 
-  function handleChange (e) {
+  function handleChange(e) {
     const { name, value } = e.target
 
     setNewJob({
@@ -21,9 +23,13 @@ export default function AddJob () {
     })
   }
 
-  function handleAdd (e) {
+  function handleAdd(e) {
     e.preventDefault()
+    const job = { ...newJob }
 
+    addJob(job, state.auth0Id, state.token)
+      .then(setNewJob)
+      .catch(err => console.log(err))
     console.log(newJob)
   }
   return (
@@ -35,10 +41,10 @@ export default function AddJob () {
         <form >
           <div >
             <label >Job Title
-              <input name='title' value={newJob.title} onChange={handleChange}/>
+              <input name='title' value={newJob.title} onChange={handleChange} />
             </label>
             <label >Job Description
-              <textarea name='description' value={newJob.description }onChange={handleChange}/>
+              <textarea name='description' value={newJob.description} onChange={handleChange} />
             </label>
 
             <label>Classification</label>
@@ -67,9 +73,9 @@ export default function AddJob () {
               <option value={5}>Central Auckland</option>
             </select>
 
-            <input type="radio" name='payment' value='Paid' onChange={handleChange}/>
+            <input type="radio" name='payment' value='Paid' onChange={handleChange} />
             <label >Paid</label>
-            <input type='radio' name='payment' value='koha' onChange={handleChange}/>
+            <input type='radio' name='payment' value='koha' onChange={handleChange} />
             <label>Koha</label>
           </div>
           <button onClick={handleAdd}>Add</button>
