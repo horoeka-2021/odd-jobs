@@ -28,7 +28,8 @@ module.exports = {
 
   getApprenticeByUserId,
   getApprenticeLocations,
-  getApprenticeServiceTypes
+  getApprenticeServiceTypes,
+  addNewApprentice
 }
 
 function getExamples (db = database) {
@@ -140,13 +141,13 @@ function getMemberJobsList (userId, db = database) {
 }
 
 // ALL JOB FUNCTIONS ===========================================================
-function getJobDetails (userId, db = database) {
+function getJobDetails (jobId, db = database) {
   return db('jobs')
-    .where('created_member_id', userId)
+    .where('jobs.id', jobId)
     .leftJoin('locations', 'locations.id', 'jobs.location_id')
     .leftJoin('service_types', 'service_types.id', 'jobs.service_type_id')
     .select(
-      'jobs.id as id',
+      'jobs.id as jobId',
       'jobs.title as jobTitle',
       'jobs.description as jobDescription',
       'jobs.paid as jobPaid',
@@ -157,7 +158,9 @@ function getJobDetails (userId, db = database) {
       'jobs.created_date as jobCreatedDate',
       'jobs.updated_date as jobUpdatedDate',
       'jobs.status as jobStatus',
+      'locations.id as locationId',
       'locations.name as locationName',
+      'service_types.id as serviceTypeId',
       'service_types.name as serviceTypeName'
     )
     .first()
@@ -287,4 +290,19 @@ function getApprenticeServiceTypes (userId, db = database) {
       'service_types.name as serviceType',
       'experience_rating.name as experienceRating'
     )
+}
+
+function addNewApprentice (apprentice, db = database) {
+  return db('apprentice_profiles')
+    .join('users', 'users.id', 'apprentice_profiles.id')
+    .join('service_types', 'service_types.id', 'apprentice_service_types.service_type_id')
+    .join('experience_rating', 'experience_rating.id', 'apprentice_service_types.experience_rating_id')
+    .insert(apprentice)
+    .returning({
+      id: apprentice.id,
+      name: apprentice.name,
+      email: apprentice.email,
+      phone: apprentice.phone,
+      birth_date: apprentice.birth_date
+    })
 }

@@ -8,7 +8,9 @@ function Nav () {
 
   function handleLogOff (e) {
     e.preventDefault()
-    logout()
+    logout({
+      returnTo: window.location.origin
+    })
   }
 
   function handleLogIn (e) {

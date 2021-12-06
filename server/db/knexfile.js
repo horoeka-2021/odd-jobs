@@ -52,5 +52,4 @@ module.exports = {
     },
     useNullAsDefault: true
   }
-
 }
