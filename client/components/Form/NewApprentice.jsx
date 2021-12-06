@@ -24,7 +24,7 @@ export default function NewApprentice () {
           <div><h1 className="text-3xl font-semibold">Become Apprentices Today!</h1></div>
           <div><p>Work for, and learn from, an platforn to gain on job experiences</p></div>
         </div>
-        <section className="w-9/12" >
+        <section className="w-3/5" >
           <form >
             <div >
               <h2 className="text-2xl font-semibold">Personal Info</h2>
@@ -140,11 +140,12 @@ export default function NewApprentice () {
               </select>
 
             </div>
-            <div className="pb-8"></div>
-            <button className="inline-block px-4 py-3 text-sm
+            <div className="submit-div">
+              <button className="inline-block px-4 py-3 text-sm
           font-semibold text-center text-white uppercase transition duration-200 ease-in-out
          bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600"onClick={handleAdd}>
              Submit</button>
+            </div>
           </form>
         </section>
 
