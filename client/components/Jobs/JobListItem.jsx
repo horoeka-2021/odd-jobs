@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom'
 // api called detail
 
 function JobListItem () {
+  const [job, setJob] = useState([])
+
+  // useEffect(() => {
+  //   getJobByUserID(id)
+  //     .then(data => {
+  //       setJob(data)
+  //       return null
+  //     })
+  //     .catch(err => {
+  //       console.error(err)
+  //       return false
+  //     })
+  // }, [])
+
   return (
     <div>
-      {/* {jobs.map((jobs) => {
+      {/* {job.map((jobs) => {
         return (
           <div key={jobs.jobsId}>
             <ul key={jobs.jobsId}>

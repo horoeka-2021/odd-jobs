@@ -9,6 +9,7 @@ import AddJob from '../Form/AddJob'
 import { getJobById } from '../../api/jobs'
 
 import { fetchProfile } from '../../actions/profiles'
+import WelcomeProfile from './WelcomeProfile'
 
 function MemberProfile (props) {
   const { history } = props
@@ -19,7 +20,7 @@ function MemberProfile (props) {
 
   const dispatch = useDispatch()
 
-  // const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState([])
   const [jobs, setJobList] = useState([])
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function MemberProfile (props) {
 
     // if there is member profile ==> get job list
 
-    // setProfile(profiles)
+    setProfile(profiles)
     getJobById(profiles.id)
       .then(jobList => {
         setJobList(jobList)
@@ -49,10 +50,13 @@ function MemberProfile (props) {
         <div className="py-4 bg-white float-left w-full">
           <ul className="menu items-stretch horizontal">
             <li className="bordered">
+              <Link className="font-sans" to={`${url}`}>MAIN</Link>
+            </li>
+            <li className="bordered">
               <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>
             </li>
             <li className="bordered">
-              <Link className="font-sans" to={`${url}`}>LISTED JOBS</Link>
+              <Link className="font-sans" to={`${url}/joblist`}>LISTED JOBS</Link>
             </li>
             <li className="bordered">
               <Link className="font-sans"to={`${url}/addjob`}>ADD NEW JOB</Link>
@@ -68,6 +72,9 @@ function MemberProfile (props) {
         </div>
         <div>
           <Route exact path={path} >
+            <WelcomeProfile data={profiles}/>
+          </Route>
+          <Route path={`${path}/joblist`} >
             <JobList jobs={jobs} userID={profiles.id}/>
           </Route>
           <Route path={'/member/myprofile'}>

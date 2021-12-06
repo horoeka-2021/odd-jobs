@@ -9,6 +9,7 @@ function Jobs (props) {
   console.log('job list', path)
   console.log('joblist', jobs, userID) // memebr
   const [showDetail, setShowDetail] = useState(false)
+  
 
   function handleDetail () {
     console.log('show')
@@ -34,11 +35,11 @@ function Jobs (props) {
         )
       })}
 
-      <div>
+      {/* <div>
         { showDetail &&
         <JobListItem />
         }
-      </div>
+      </div> */}
 
     </div>
   )
