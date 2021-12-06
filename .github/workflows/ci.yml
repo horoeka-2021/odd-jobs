@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the dev branch
   push:
-    branches: devops-22-cd #[ dev, main ]
+    branches: [ dev, prod, devops-22-cd ]
   pull_request:
-    branches: #[ dev, main ]
+    branches: [ dev, prod ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -72,11 +72,32 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
         heroku_email: ${{secrets.HEROKU_EMAIL}}
-        # branch: 'dev' # this should be dev
       env:
         HD_NODE_ENV: development
         HD_JWT_SECRET: ${{secrets.JWT_SECRET}}
-        HD_SENDGRID_API_KEY: ${{secrets.SENDGRID}}
         HD_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
-        HD_AUTH0_API_EXPLORER_CLIENTID: ${{ secrets.AUTH0_API_EXPLORER_CLIENTID }}
-        HD_AUTH0_API_EXPLORER_SECRET: ${{ secrets.AUTH0_API_EXPLORER_SECRET }}   
+        HD_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+        HD_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}   
+        
+  deploy-prod:
+    runs-on: ubuntu-latest
+    # this prevents deployment for pull requests and works only for push in dev
+    if: ${{ github.ref == 'refs/heads/prod' }} # this should be dev
+    needs: build
+    # Each environment can have different evn vars which includes different Auth0 secrets 
+    # Those secrets can be different than the repository secrets
+    environment: production
+    steps:
+    - uses: actions/checkout@v2
+     
+    - uses: akhileshns/heroku-deploy@master
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+        heroku_email: ${{secrets.HEROKU_EMAIL}}
+      env:
+        HD_NODE_ENV: production
+        HD_JWT_SECRET: ${{secrets.JWT_SECRET}}
+        HD_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
+        HD_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+        HD_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}   
