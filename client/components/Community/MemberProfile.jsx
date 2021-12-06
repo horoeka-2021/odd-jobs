@@ -50,10 +50,10 @@ function MemberProfile (props) {
         <div className="py-4 bg-white float-left w-full">
           <ul className="menu items-stretch horizontal">
             <li className="bordered">
-              <Link className="font-sans" to={`${url}`}>MAIN</Link>
+              <Link className="font-sans" to={`${url}`}>INFO</Link>
             </li>
             <li className="bordered">
-              <Link className="font-sans" to={`${url}/myprofile`}>MY INFO</Link>
+              <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>
             </li>
             <li className="bordered">
               <Link className="font-sans" to={`${url}/joblist`}>LISTED JOBS</Link>
