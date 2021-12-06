@@ -1,23 +1,27 @@
 import React, { useState } from 'react'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
 
+
 import JobListItem from './JobListItem'
 
 function Jobs (props) {
   const { path, url } = useRouteMatch()
-  const { jobs, userID } = props
+  const { jobs } = props
   console.log('job list', path)
-  console.log('joblist', jobs, userID) // memebr
+  console.log('joblist', jobs) // memebr
   const [showDetail, setShowDetail] = useState(false)
-  
+  const [jobID, setJobId] = useState('')
 
-  function handleDetail () {
-    console.log('show')
+  function handleDetail (jobID) {
+    setJobId(jobID)
     setShowDetail(true)
   }
   /// get by user
   // all job unde this user - 4
   // id to id
+  // function handleClose () {
+  //   setShowDetail(false)
+  // }
 
   return (
     <div>
@@ -30,16 +34,21 @@ function Jobs (props) {
 
             <p>{data.jobsId}</p>
             <p>{data.jobsTitle}</p>
-            <button onClick={handleDetail}>More detail</button>
+            <button onClick={() => handleDetail(data.jobsId)}>More detail</button>
+            {/* <button onClick={() => handleClose()}>More detail</button> */}
           </div>
         )
       })}
 
-      {/* <div>
+      {/* <Route exact path={`${path}/details`} >
+        <JobListItem jobID={jobs.jobsID} />
+      </Route> */}
+
+      <div>
         { showDetail &&
-        <JobListItem />
+        <JobListItem jobID={jobID}/>
         }
-      </div> */}
+      </div>
 
     </div>
   )

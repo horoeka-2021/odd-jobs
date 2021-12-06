@@ -31,7 +31,7 @@ function MemberProfile (props) {
 
     // if there is member profile ==> get job list
 
-    setProfile(profiles)
+    // setProfile(profile)
     getJobById(profiles.id)
       .then(jobList => {
         setJobList(jobList)
