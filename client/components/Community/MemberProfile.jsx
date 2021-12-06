@@ -46,24 +46,27 @@ function MemberProfile (props) {
   return (
     <>
       <div className="container mx-auto artboard artboard-demo">
-        <div className="py-4 bg-white">
-          <ul className="menu items-stretch pr-96 mr-32 horizontal">
-            <li className="visited:bordered active:bordered">
+        <div className="py-4 bg-white float-left w-full">
+          <ul className="menu items-stretch horizontal">
+            <li className="bordered">
               <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>
             </li>
-            <li className="visited:bg-base-200">
+            <li className="bordered">
               <Link className="font-sans" to={`${url}`}>LISTED JOBS</Link>
             </li>
-            <li className="visited:bordered active:bordered">
+            <li className="bordered">
               <Link className="font-sans"to={`${url}/addjob`}>ADD NEW JOB</Link>
             </li>
           </ul>
         </div>
 
+        <div className="flex self-start mb-4 pl-36 ml-12 text-l breadcrumbs">
+          <ul>
+            <li className=" text-indigo-500 flex-3 h-12 text-m font-sans">COMMUNITY MEMBER</li>
+            <li className=" text-indigo-500 flex-2 h-12 text-m font-sans underline">You are now logged in</li>
+          </ul>
+        </div>
         <div>
-          <h1>Member page</h1>
-          <h2>You are now logged in</h2>
-
           <Route exact path={path} >
             <JobList jobs={jobs}/>
           </Route>

@@ -3,10 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'components/addjob';
 @import 'components/dates';
 @import 'components/image';
 @import 'components/react-datepicker.css'; 
 @import 'components/ourstory';
+
+
 body {
     background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0%,
      rgba(104, 127, 217, 0.0645831) 81.15%,
