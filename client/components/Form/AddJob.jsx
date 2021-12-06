@@ -9,7 +9,7 @@ const initial = {
 }
 
 export default function AddJob (props) {
-  const { history } = props
+  // const { history } = props
   const [newJob, setNewJob] = useState(initial)
 
   function handleChange (e) {
@@ -49,7 +49,7 @@ export default function AddJob (props) {
 
             <div className="form-control">
               <label className="label">Job Description
-                <textarea name='description' value={newJob.description }
+                <textarea name='description' value={newJob.description}
                   onChange={handleChange} className="textarea h-24
               textarea-bordered pr-40 mr-64 mt-4"/>
               </label>
@@ -59,7 +59,7 @@ export default function AddJob (props) {
               <label className="label">Classification</label>
               <select className="select select-bordered w-full max-w-xs"
                 name='service_types' onChange={handleChange}>
-                <option disabled="disabled" selected="selected">Select from this list</option>
+                <option hidden>Select from this list</option>
                 <option value={1}>Plumber</option>
                 <option value={2}>Electrician</option>
                 <option value={3}>Carpenter</option>
