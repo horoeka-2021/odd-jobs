@@ -20,7 +20,7 @@ function MemberProfile (props) {
 
   const dispatch = useDispatch()
 
-  const [profile, setProfile] = useState([])
+  // const [profile, setProfile] = useState([])
   const [jobs, setJobList] = useState([])
 
   useEffect(() => {
@@ -53,7 +53,7 @@ function MemberProfile (props) {
               <Link className="font-sans" to={`${url}`}>MAIN</Link>
             </li>
             <li className="bordered">
-              <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>
+              <Link className="font-sans" to={`${url}/myprofile`}>MY INFO</Link>
             </li>
             <li className="bordered">
               <Link className="font-sans" to={`${url}/joblist`}>LISTED JOBS</Link>
