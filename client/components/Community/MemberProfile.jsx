@@ -42,7 +42,7 @@ function MemberProfile (props) {
         return false
       })
   }, [])
-  console.log('landing', state.user.auth0Id)
+  // console.log('landing', state.user.auth0Id)
 
   return (
     <>

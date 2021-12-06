@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function WelcomeProfile ({ data }) {
-  console.log('welcome', data)
   return (
     <div>
       <h1>Welcome back {data.name}</h1>

@@ -5,12 +5,11 @@ import { getJobDetailById } from '../../api/jobs'
 
 function JobListItem ({ jobID }) {
   const [jobDetail, setJobDetail] = useState([])
-
+  console.log('Job ID pass in', jobID)
   // api called detail
   useEffect(() => {
     getJobDetailById(jobID)
       .then(data => {
-        console.log(data)
         setJobDetail(data)
         return null
       })
@@ -24,7 +23,9 @@ function JobListItem ({ jobID }) {
   return (
 
     <div >
-      <p>{jobDetail.Title}</p>
+      <h1>{jobDetail.Title}</h1>
+      <h1>{jobDetail.jobDescription}</h1>
+      {/* <h1>{jobDetail.jobPaid === 0 ? Paid : Koha}</h1> */}
 
       <button>Edit</button>
       <button>Delete</button>
