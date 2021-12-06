@@ -31,7 +31,6 @@ function MemberProfile (props) {
     // if there is member profile ==> get job list
 
     setProfile(profiles)
-    // console.log('setProfile --', profile)
     getJobById(profiles.id)
       .then(jobList => {
         setJobList(jobList)
@@ -42,6 +41,7 @@ function MemberProfile (props) {
         return false
       })
   }, [])
+  console.log('landing', state.user.auth0Id)
 
   return (
     <>
@@ -65,19 +65,17 @@ function MemberProfile (props) {
           <h2>You are now logged in</h2>
 
           <Route exact path={path} >
-            {/* <JobListItem jobs={jobs} /> */}
             <JobList jobs={jobs}/>
           </Route>
           <Route path={'/member/myprofile'}>
             <ProfileItem data={profile}/>
           </Route>
-          <Route path={'/member/addjob'} >
-            <AddJob userID={profiles.id} history={history}/>
+          <Route path={`${url}/addjob`} >
+            <AddJob userID={profile.id} history={history}/>
           </Route>
 
         </div>
       </div>
-
     </>
   )
 }

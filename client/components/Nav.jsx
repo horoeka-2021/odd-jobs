@@ -32,7 +32,7 @@ function Nav () {
             <Link to='/signup' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">Find Jobs</Link>
           </IfNotAuthenticated>
           <IfAuthenticated>
-            <Link to='/members' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">My Profile</Link>
+            <Link to='/member' className="btn btn-ghost text-gray-600 btn-m rounded-btn font-sans mx-2">My Profile</Link>
           </IfAuthenticated>
         </div>
         <div className="flex flex-row items-end">

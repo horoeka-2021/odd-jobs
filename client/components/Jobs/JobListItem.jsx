@@ -5,7 +5,7 @@ import React from 'react'
 function JobListItem ({ jobs }) {
   return (
     <div>
-      {jobs.map((jobs) => {
+      {/* {jobs.map((jobs) => {
         return (
           <div key={jobs.jobsId}>
             <ul key={jobs.jobsId}>
@@ -16,7 +16,8 @@ function JobListItem ({ jobs }) {
             <button>Delete</button>
           </div>
         )
-      })}
+      })} */}
+      <h1>job list item</h1>
 
     </div>
 
