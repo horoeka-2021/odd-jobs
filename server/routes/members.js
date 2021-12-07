@@ -6,7 +6,7 @@ const db = require('../db/db')
 
 // =============================================================================
 // PUT route: /api/v1/members/2/edit               (edit a member's information)
-router.put('/:user_id/edit', async (req, res) => {
+router.put('/:user_id/edit', checkJwt, async (req, res) => {
   const userId = req.params.user_id
   const { name, email, phone, locationId, birthDate } = req.body
   const member = {

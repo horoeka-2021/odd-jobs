@@ -134,8 +134,12 @@ function updateMember (user, db = database) {
       name: user.name,
       email: user.email,
       phone: user.phone,
-      birth_date: user.birth_date,
-      location_id: user.location_id
+      birth_date: user.birth_date
+    })
+    .then(() => {
+      return db('member_profiles')
+        .update({ location_id: user.location_id })
+        .where('user_id', user.user_id)
     })
 }
 
