@@ -8,20 +8,8 @@ import { IfAuthenticated, IfNotAuthenticated } from './Auth0/Authenticated'
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
   const redirectUri = `${window.location.origin}/member`
-  // const auth0Id = state.user.auth0Id
-  // const history = useHistory()
 
-  // const dispatch = useDispatch()
   const { history } = props
-
-  // function checkProfile () {
-  //   dispatch(fetchProfile(auth0Id, history))
-  // }
-
-  // // inside use effect()
-  // userEffect
-  // // get Auth0
-
   function handleMember () {
     // check if logged in Auth0 or not
     if (!isAuthenticated) {
@@ -29,7 +17,6 @@ function Landing (props) {
         redirectUri: redirectUri
       })
     } else {
-      // checkProfile()
       history.push('/member')
     }
   }

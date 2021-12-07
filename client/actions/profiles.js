@@ -58,9 +58,9 @@ export function addMember (newMember, history) {
     // API post order to server
     return addProfile(newMember)
       .then((member) => {
-        console.log('new member', member)
+        console.log('ADD new member', member)
         dispatch(addProfileSuccess(member))
-        history.push('/members')
+        history.push('/')
         return null
       })
       .catch((err) => {

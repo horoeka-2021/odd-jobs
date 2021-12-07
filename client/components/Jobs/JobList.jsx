@@ -23,34 +23,44 @@ function Jobs (props) {
         return false
       })
   }, [])
-
+  console.log('joblist api', jobList)
   return (
+    <>
+      {jobList.length === 0 ? <div className="m-10">
+        <h1 className='text-lg font-mono medium text-blue-300'>No Job listed</h1> </div>
+        : <div className="pb-8">
+          <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-52">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" placeholder="drawer-toggle"/>
 
-    <div className="listing-tab">
-      <h3 className="text-2xl">You have listed {jobs.length} jobs</h3>
+            <div className="drawer-side">
+              <h3 className="drawer-overlay">You have listed {jobs.length} jobs</h3>
 
-      {jobList.map((data, index) => (
+              {jobList.map((data, index) => (
 
-        <div key={data.jobsId} tabIndex={index} className="collapse w-96 border rounded-box border-base-300">
-          <div className="collapse-title text-m font-medium">
+                <ul key={data.jobsId} tabIndex={index} className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+                  {/* <div className="collapse-title text-m font-medium"> */}
 
-            <button onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button>
-          </div>
-        </div>
+                  <li><button className="text-left" onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button></li>
+                  {/* </div> */}
+                </ul>
 
-      ))}
+              ))}
+            </div>
 
-      {/* <Route exact path={`${path}/details`} >
+            {/* <Route exact path={`${path}/details`} >
         <JobListItem jobID={jobs.jobsID} />
       </Route> */}
 
-      <div>
-        { showDetail &&
-        <JobListItem jobID={jobID}/>
-        }
-      </div>
+            <ul className="drawer-content">
+              { showDetail &&
+        <li><JobListItem jobID={jobID}/></li>
+              }
+            </ul>
 
-    </div>
+          </div>
+        </div>
+      }
+    </>
   )
 }
 

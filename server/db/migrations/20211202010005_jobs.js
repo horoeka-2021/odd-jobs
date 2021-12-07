@@ -12,7 +12,7 @@ exports.up = function (knex) {
       .onDelete('CASCADE')
     table.string('title')
     table.string('description')
-    table.string('status')
+    table.string('status').defaultTo('open')
     table.boolean('paid')
     table.date('expected_start')
     table.date('expected_end')

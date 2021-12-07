@@ -8,7 +8,7 @@ exports.up = function (knex) {
       .onUpdate('CASCADE')
       .onDelete('CASCADE')
     table.string('message')
-    table.string('status') // '' - not applied/applied/assigned
+    table.string('status').defaultTo('pending') // '' - not applied/applied/assigned
     table.date('applied_date')
   })
 }

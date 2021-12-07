@@ -7,7 +7,7 @@ exports.up = function (knex) {
     table.integer('job_id').references('id').inTable('jobs')
       .onUpdate('CASCADE')
       .onDelete('CASCADE')
-    table.string('status')
+    table.string('status').defaultTo('in progress')
     table.date('assigned_date')
   })
 }
