@@ -108,7 +108,7 @@ function getMemberByUserId (userId, db = database) {
     .first()
 }
 
-function addNewMember (newMember, db = database) {
+function addNewMember (newMember, locationId, db = database) {
   return db('users')
     .insert(newMember)
     // .returning({
@@ -120,7 +120,7 @@ function addNewMember (newMember, db = database) {
     // })
     .then((ids) => {
       db('member_profiles')
-        .insert({ user_id: ids[0], location_id: newMember.location_id })
+        .insert({ user_id: ids[0], location_id: locationId })
       return getMemberByUserId(ids[0])
     })
 }
