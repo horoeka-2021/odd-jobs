@@ -13,7 +13,7 @@ function WelcomeProfile ({ data }) {
         <p className="text-center leading-loose">Want your home cleaned or furniture put together?</p>
         <p className="text-center leading-loose">Just tell us about the task you’d like done,
       suggest a fair budget for a job well</p>
-        <p className="text-justify leading-loose"> done and you’ll start to receive offers from available Taskers.
+        <p className="text-center leading-loose p-3">done and you’ll start to receive offers from available Taskers.
         </p>
 
         <p className="text-center leading-loose">Got a question? Simply search our comprehensive </p>

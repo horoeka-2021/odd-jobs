@@ -40,37 +40,37 @@ function JobListItem ({ jobID }) {
           </ul>
           <div className="pt-5"></div>
           <table>
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Job Title:</td>
               <td>{jobTitle}</td>
             </tr>
 
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Job Description:</td>
               <td>{jobDescription}</td>
             </tr>
 
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Location:</td>
               <td>{locationName}</td>
             </tr>
 
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Type of Service:</td>
               <td>{serviceTypeName}</td>
             </tr>
 
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Type of Payment:</td>
               <td>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'}</td>
             </tr>
 
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Job Starts:</td>
               <td>{jobExpectedStart}</td>
             </tr>
 
-            <tr>
+            <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Job Ends:</td>
               <td>{jobExpectedEnd}</td>
             </tr>
@@ -80,9 +80,9 @@ function JobListItem ({ jobID }) {
 
         <div>
           <i className="fas fa-edit"></i><button className="p-1.5 capitalized
-          text-indigo-600 text-semibold">EDIT</button>
+          text-indigo-600 font-semibold">EDIT</button>
           <i className="fas fa-trash-alt"></i><button className="p-1.5 capitalized
-          text-indigo-600 text-semibold">DELETE</button>
+          text-indigo-600 font-semibold">DELETE</button>
         </div>
         {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
       </div>
