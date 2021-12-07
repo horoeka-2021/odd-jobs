@@ -6,15 +6,23 @@ import React, { useState } from 'react'
 export default function NewApprentice () {
   const [newApprentice, setNewApprentice] = useState([])
   // const history = useHistory()
-  // const minDate = new Date('12/02/2003')
 
-  function handleChange () {
+  function handleChange (e) {
+    const { name, value } = e.target
 
+    setNewApprentice({
+      ...newApprentice,
+      [name]: value
+    })
   }
-  function handleAdd () {
-    setNewApprentice(newApprentice)
-  }
 
+  function handleAdd (e) {
+    e.preventDefault()
+
+    console.log(newApprentice)
+    // dispatch(addNewJob(newObj))
+    // setNewJob(initial)
+  }
   // const jobList = ['Plumber', 'Electrician', 'Developer', 'Tutor', 'Builder', 'House Kepper', 'Community Support Worker', 'Babysitter', 'Gardener', 'Painter', 'Mechanic', ' Mover', 'Dog Walker']
   return (
 
@@ -49,7 +57,7 @@ export default function NewApprentice () {
                 <label className="label">
                   <span className="label-text">Phone</span>
                 </label>
-                <input type= 'phone' name="phone" value={newApprentice.phone} onChange={handleChange}
+                <input type= 'text' name="phone" value={newApprentice.phone} onChange={handleChange}
                   placeholder="phone" className="input input-bordered" />
               </div>
 
@@ -58,7 +66,7 @@ export default function NewApprentice () {
                 <label className="label">
                   <span className="label-text">Gender</span>
                 </label>
-                <input type='gender'name="gender" value={newApprentice.gender} onChange={handleChange}
+                <input type='text'name="gender" value={newApprentice.gender} onChange={handleChange}
                   placeholder="gender" className="input input-bordered" />
               </div>
 
@@ -66,7 +74,7 @@ export default function NewApprentice () {
                 <label className="label">
                   <span className="label-text">Description</span>
                 </label>
-                <textarea name='description' value='' onChange={handleChange}
+                <textarea name='description' value={newApprentice.description} onChange={handleChange}
                   className="textarea h-24 textarea-bordered" placeholder="description" />
               </div>
 

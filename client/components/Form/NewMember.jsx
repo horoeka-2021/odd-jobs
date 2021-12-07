@@ -35,7 +35,7 @@ export default function NewMember (props) {
       ...newMember,
       auth0Id: auth0Id
     }
-    console.log(newObj)
+    // console.log(newObj)
     dispatch(addMember(newObj, history))
   }
 
@@ -68,6 +68,14 @@ export default function NewMember (props) {
               <option value={1}>Male</option>
               <option value={2}>Female</option>
               <option value={3}>Not Specified</option>
+            </select>
+            <select name='locationId' onChange={handleChange}>
+              <option hidden>Select from this list</option>
+              <option value={1}>North Auckland</option>
+              <option value={2}>South Auckland</option>
+              <option value={3}>West Auckland</option>
+              <option value={4}>East Auckland</option>
+              <option value={5}>Central Auckland</option>
             </select>
             <div><button>Submit</button></div>
           </div>
