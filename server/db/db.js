@@ -168,6 +168,7 @@ function getJobDetails (jobId, db = database) {
       'jobs.created_date as jobCreatedDate',
       'jobs.updated_date as jobUpdatedDate',
       'jobs.status as jobStatus',
+      'jobs.created_member_id as createdMemberId',
       'locations.id as locationId',
       'locations.name as locationName',
       'service_types.id as serviceTypeId',

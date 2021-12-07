@@ -79,21 +79,23 @@ router.post('/new', async (req, res) => {
     locationId,
     expectedStart,
     expectedEnd,
-    serviceTypeId
+    serviceTypeId,
+    userId
   } = req.body
   const jobListing = {
     title: title,
     description: description,
-    paid: paid,
-    location_id: locationId,
+    paid: Number(paid),
+    location_id: Number(locationId),
     expected_start: expectedStart,
     expected_end: expectedEnd,
-    service_type_id: serviceTypeId
+    service_type_id: Number(serviceTypeId),
+    created_member_id: userId
   }
   try {
     const job = await db.addJobListing(jobListing)
+    res.status(201)
     res.json(job)
-    res.sendStatus(201)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
@@ -124,8 +126,8 @@ router.post('/edit/:jobId', async (req, res) => {
   try {
     const updatedJobListing = await db.updateJobListing(req.params.jobId, jobListing)
     console.log('updatedJobListing: ', updatedJobListing)
+    res.status(201)
     res.json({ message: `Job ${updatedJobListing.id} successfully updated` })
-    res.sendStatus(201)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
