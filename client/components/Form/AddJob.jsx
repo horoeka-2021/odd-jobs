@@ -96,12 +96,14 @@ export default function AddJob (props) {
                 <label className="label">
                   <span className="label-text">Start Date: </span>
                 </label>
-                <input type='date' name='expectedStart' value={newJob.expectedStart} onChange={handleChange}/>
+
+                <input type='date' name='expectedStart' value={newJob.expectedStart} onChange={handleChange} className="input input-bordered w-3/4"/>
 
                 <label className="label">
                   <span className="label-text">End Date: </span>
                 </label>
-                <input type='date' name='expectedEnd' vaule={newJob.expectedEnd} onChange={handleChange}/>
+
+                <input type='date' name='expectedEnd' vaule={newJob.expectedEnd} onChange={handleChange} className="input input-bordered w-3/4"/>
 
               </div>
 

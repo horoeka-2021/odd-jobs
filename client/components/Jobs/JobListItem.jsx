@@ -33,13 +33,15 @@ function JobListItem ({ jobID }) {
         <label htmlFor="my-drawer" className="mx-auto btn btn-primary drawer-button lg:hidden">
         </label>
 
-        <div className=" text-s text-left w-full">
-          <ul className="w-4/5 leading-snug text-justify">
-            <li className="text-s">DATE: {jobCreatedDate}</li>
-            <li className="text-s">STATUS: {jobStatus}</li>
+        <div className=" text-s text-left w-full pt-5">
+          <ul className="w-4/5 leading-snug text-justify joblist-head">
+            <li className="text-s font-semibold">DATE: {jobCreatedDate}</li>
+            <li className="text-s font-semibold">STATUS:
+              <i className="fas fa-circle"></i>
+              {jobStatus}</li>
           </ul>
           <div className="pt-5"></div>
-          <table>
+          <table className="joblist-data">
             <tr className="pb-3">
               <td className="uppercase text-indigo-600 font-semibold">Job Title:</td>
               <td>{jobTitle}</td>
@@ -78,11 +80,12 @@ function JobListItem ({ jobID }) {
           </table>
         </div>
 
-        <div>
-          <i className="fas fa-edit"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">EDIT</button>
-          <i className="fas fa-trash-alt"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">DELETE</button>
+        <div className="pt-5 joblist-buts">
+          <i className="fas fa-edit"></i>
+          <button className="p-1.5 capitalized
+         font-semibold edit-but">EDIT</button>
+          <i className="fas fa-trash-alt"></i>
+          <button className="p-1.5 capitalized font-semibold del-but">DELETE</button>
         </div>
         {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
       </div>
