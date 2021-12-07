@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const checkJwt = require('../auth0')
+// const checkJwt = require('../auth0')
 const db = require('../db/db')
 
 // =============================================================================
 // PUT route: /api/v1/members/2/edit               (edit a member's information)
-router.put('/:user_id/edit', checkJwt, async (req, res) => {
+router.put('/:user_id/edit', async (req, res) => {
   const userId = req.params.user_id
   const { name, email, phone, locationId, birthDate } = req.body
   const member = {
