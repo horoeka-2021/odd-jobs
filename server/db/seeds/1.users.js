@@ -10,7 +10,7 @@ exports.seed = function (knex) {
           name: 'Goretti Alani',
           email: 'test.test@gmail.com',
           phone: '1234567890',
-          birth_date: '01/01/2000',
+          birth_date: '01-01-2000',
           gender_id: 1
         },
         {
@@ -19,7 +19,7 @@ exports.seed = function (knex) {
           name: 'Tommy Yoon',
           email: 'test.test@gmail.com',
           phone: '1234567890',
-          birth_date: '01/01/2000',
+          birth_date: '01-01-2000',
           gender_id: 3
         },
         {
@@ -28,7 +28,7 @@ exports.seed = function (knex) {
           name: 'Nathan Rowe',
           email: 'test.test@gmail.com',
           phone: '1234567890',
-          birth_date: '01/01/2000',
+          birth_date: '01-01-2000',
           gender_id: 2
         },
         {
@@ -37,7 +37,7 @@ exports.seed = function (knex) {
           name: 'Crystal Chan',
           email: 'test.test@gmail.com',
           phone: '1234567890',
-          birth_date: '01/01/2000',
+          birth_date: '01-01-2000',
           gender_id: 1
         },
         {
@@ -46,7 +46,7 @@ exports.seed = function (knex) {
           name: 'Nicky Plantita',
           email: 'test.test@gmail.com',
           phone: '1234567890',
-          birth_date: '01/01/2000',
+          birth_date: '01-01-2000',
           gender_id: 2
         },
         {
@@ -55,7 +55,7 @@ exports.seed = function (knex) {
           name: 'Ying Chiu',
           email: 'test.test@gmail.com',
           phone: '1234567890',
-          birth_date: '01/01/2000',
+          birth_date: '01-01-2000',
           gender_id: 3
         }
       ])
