@@ -119,9 +119,11 @@ function addNewMember (newMember, locationId, db = database) {
     //   gender_id: newMember.gender_id
     // })
     .then((ids) => {
-      db('member_profiles')
+      return db('member_profiles')
         .insert({ user_id: ids[0], location_id: locationId })
-      return getMemberByUserId(ids[0])
+        .then(() => {
+          return getMemberByUserId(ids[0])
+        })
     })
 }
 
