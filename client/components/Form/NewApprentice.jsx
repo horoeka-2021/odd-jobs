@@ -27,12 +27,11 @@ export default function NewApprentice () {
   return (
 
     <>
-      <div className="container mx-auto artboard artboard-demo">
-        <div className="grid grid-col-2 float-right w-4/5 p-8">
-          <div><h1 className="text-3xl font-semibold">Become Apprentices Today!</h1></div>
-          <div><p>Work for, and learn from, an platforn to gain on job experiences</p></div>
-        </div>
-        <section className="w-3/5" >
+      <div className="container mx-auto artboard artboard-demo w-11/12">
+        <div className="grid grid-col-2 float-right w-4/5 p-8"></div>
+        <div className="newapprentice-head"><h1 className="text-3xl font-semibold">Become Apprentices Today!</h1></div>
+        <div className="newapprentice-text"><p>Work for, and learn from, an platforn to gain on job experiences</p></div>
+        <section className="w-3/5 pb-10 pt-10">
           <form >
             <div >
               <h2 className="text-2xl font-semibold">Personal Info</h2>
@@ -78,8 +77,8 @@ export default function NewApprentice () {
                   className="textarea h-24 textarea-bordered" placeholder="description" />
               </div>
 
-              <div>
-                <label className="label">Classification</label>
+              <div className="pt-5">
+                <label className="label-text">Classification</label>
                 <select className="select select-bordered w-full max-w-xs"
                   name='service_types' onChange={handleChange}>
                   <option hidden>Select from this list</option>
@@ -93,6 +92,17 @@ export default function NewApprentice () {
                   <option value={8}>Developer</option>
                   <option value={9}>Mechanic</option>
                   <option value={10}>Tutor</option>
+                </select>
+              </div>
+
+              <div className="pt-5">
+                <label className="label-text pr-4">Experience</label>
+                <select className="select select-bordered w-full max-w-xs"
+                  name='experience' onChange={handleChange}>
+                  <option hidden>Select from this list</option>
+                  <option value={1}>Less than 6 months</option>
+                  <option value={2}>6- 12 months</option>
+                  <option value={3}>more than 12 months</option>
                 </select>
               </div>
 
@@ -138,15 +148,6 @@ export default function NewApprentice () {
                 </label>
               </div>
 
-              <label className="label">Experience</label>
-              <select className="select select-bordered w-full max-w-xs"
-                name='experience' onChange={handleChange}>
-                <option hidden>Select from this list</option>
-                <option value={1}>Less than 6 months</option>
-                <option value={2}>6- 12 months</option>
-                <option value={3}>more than 12 months</option>
-              </select>
-
             </div>
             <div className="submit-div">
               <button className="inline-block px-4 py-3 text-sm
@@ -154,9 +155,9 @@ export default function NewApprentice () {
          bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600"onClick={handleAdd}>
              Submit</button>
             </div>
+
           </form>
         </section>
-
       </div>
     </>
   )

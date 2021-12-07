@@ -40,7 +40,7 @@ function MemberProfile (props) {
   return (
     <>
       <div className="container mx-auto artboard artboard-demo">
-        <div className="py-4 bg-white float-left w-full">
+        <div className="pr-12 bg-white float-left w-11/12 pt-5">
           <ul className="menu items-stretch horizontal">
             <li className="bordered">
               <Link className="font-sans" to={`${url}`}>INFO</Link>

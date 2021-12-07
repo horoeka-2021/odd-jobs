@@ -11,7 +11,9 @@
 @import 'components/ourstory';
 @import 'components/welcomeprofile';
 @import 'components/newappprentice.scss';
-
+@import 'components/newmember.scss';
+@import 'components/footer.scss';
+@import 'components/daisyui.scss';
 
 body {
     background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0%,
@@ -19,6 +21,7 @@ body {
      rgba(104, 127, 217, 0.6) 100%);
     background-size: cover;
     margin: 0 auto;
+    padding-bottom: 100px;
 }
 
 h1,h2,h3,h4{

@@ -6,19 +6,19 @@ function ProfileItem (props) {
   const genderList = { 1: 'Male', 2: 'Female', 3: 'Not Specified' }
 
   return (
-    <div className="grid grid-cols-2 px-6">
+    <div className="grid grid-cols-2 px-6 gap-8 gap-y-2.5 leading-loose">
       <div className="">
         <div className="avatar placeholder">
-          <div className="bg-indigo-600 text-neutral-content rounded-full w-20 h-20">
-            <span>{name.charAt(0)}</span>
+          <div className="bg-indigo-600 rounded-btn w-24 h-24">
+            <span className="text-white text-xl">{name.charAt(0)}</span>
           </div>
         </div>
       </div>
 
-      <div className="self-center">
-        <h1 className="text-3xl text-indigo-600">Member Profile</h1></div>
+      <div className="self-center text-baseline">
+        <h1 className="text-3xl text-indigo-600 pt-8">Member Profile</h1></div>
 
-      <div className="" >
+      <div className="uppercase text-indigo-500 text-s" >
         <p>Name:</p>
         <p>Birthdate:</p>
         <p>Gender:</p>
