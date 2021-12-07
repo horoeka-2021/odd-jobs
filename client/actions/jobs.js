@@ -18,11 +18,12 @@ export function fetchJobsSuccess (jobs) {
 }
 
 export function fetchJobs (userID) {
+  console.log('fetch jobs', userID)
   return (dispatch) => {
     dispatch(fetchJobsPending())
     return getJobById(userID)
       .then((jobs) => {
-        console.log(jobs)
+        console.log('jobs api', jobs)
         dispatch(fetchJobsSuccess(jobs))
         return null
       })

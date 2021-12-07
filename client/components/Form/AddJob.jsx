@@ -25,9 +25,9 @@ export default function AddJob (props) {
     e.preventDefault()
 
     console.log(newJob)
-    // history.push('/')
+    history.push('/')
   }
-  console.log('add job -- ', props.userID)
+  // console.log('add job -- ', props.userID)
   return (
     <>
       <div>

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom'
-
 import { getJobDetailById } from '../../api/jobs'
 
 function JobListItem ({ jobID }) {
   const [jobDetail, setJobDetail] = useState({})
-  console.log('Job ID pass in', jobID)
+  // console.log('Job ID pass in', jobID)
   // api called detail
   useEffect(() => {
     getJobDetailById(jobID)
       .then(data => {
-        console.log('api', data)
+        // console.log('api', data)
         setJobDetail(data)
         return null
       })
@@ -25,7 +24,7 @@ function JobListItem ({ jobID }) {
     jobExpectedStart, jobPaid, jobStatus, jobTitle, locationName, serviceTypeName
   } = jobDetail
 
-  const payment = ['Paid', 'Koha']
+  // const payment = ['Paid', 'Koha']
 
   return (
 
@@ -39,7 +38,7 @@ function JobListItem ({ jobID }) {
         <li>{jobDescription}</li>
         <li>{locationName}</li>
         <li>{serviceTypeName}</li>
-        <li>{payment[jobPaid]}</li>
+        <li>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'} </li>
         <li>{jobExpectedStart}</li>
         <li>{jobExpectedEnd}</li>
       </ul>

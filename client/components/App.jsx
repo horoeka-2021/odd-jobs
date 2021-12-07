@@ -9,6 +9,7 @@ import NewMember from './Form/NewMember'
 import OurStorys from './OurStorys/OurStorys'
 import Signup from './Signup'
 import WaitIndicator from './WaitIndicator'
+import Footer from './Footer'
 
 // authentication
 import { cacheUser } from '../actions/user'
@@ -34,6 +35,7 @@ function App () {
       </Route>
       <Route path='/apprentice/new' component={NewApprentice} />
       <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
+      <Footer />
     </Router>
   )
 }
