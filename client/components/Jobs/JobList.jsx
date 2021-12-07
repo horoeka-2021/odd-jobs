@@ -26,25 +26,29 @@ function Jobs (props) {
 
   return (
 
-    <div className="listing-tab">
-      <h3 className="text-2xl">You have listed {jobs.length} jobs</h3>
+    <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-52">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" placeholder="drawer-toggle"/>
 
-      {jobList.map((data, index) => (
+      <div className="drawer-side">
+        <h3 className="drawer-overlay">You have listed {jobs.length} jobs</h3>
 
-        <div key={data.jobsId} tabIndex={index} className="collapse w-96 border rounded-box border-base-300">
-          <div className="collapse-title text-m font-medium">
+        {jobList.map((data, index) => (
 
-            <button onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button>
-          </div>
-        </div>
+          <ul key={data.jobsId} tabIndex={index} className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+            {/* <div className="collapse-title text-m font-medium"> */}
 
-      ))}
+            <li><button onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button></li>
+            {/* </div> */}
+          </ul>
+
+        ))}
+      </div>
 
       {/* <Route exact path={`${path}/details`} >
         <JobListItem jobID={jobs.jobsID} />
       </Route> */}
 
-      <div>
+      <div className="flex flex-col items-center justify-center drawer-content">
         { showDetail &&
         <JobListItem jobID={jobID}/>
         }

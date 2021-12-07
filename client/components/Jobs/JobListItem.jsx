@@ -28,27 +28,27 @@ function JobListItem ({ jobID }) {
 
   return (
 
-    <div >
-
+    < >
+      <label htmlFor="my-drawer-2" className="mb-4 btn btn-primary drawer-button lg:hidden">open menu</label>
       <p>{jobCreatedDate}</p>
       <p>{jobStatus}</p>
 
-      <ul>
-        <li>{jobTitle}</li>
-        <li>{jobDescription}</li>
-        <li>{locationName}</li>
-        <li>{serviceTypeName}</li>
-        <li>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'} </li>
-        <li>{jobExpectedStart}</li>
-        <li>{jobExpectedEnd}</li>
-      </ul>
+      <div className=" text-xs text-center lg:block">
+        <p >{jobTitle}</p>
+        <p>{jobDescription}</p>
+        <p>{locationName}</p>
+        <p>{serviceTypeName}</p>
+        <p>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'} </p>
+        <p>{jobExpectedStart}</p>
+        <p>{jobExpectedEnd}</p>
+      </div>
 
       <div>
         <button>Edit</button>
         <button>Delete</button>
       </div>
       {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
-    </div>
+    </>
 
   )
 }
