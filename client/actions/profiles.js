@@ -41,8 +41,6 @@ export function fetchProfile (auth0Id, history) {
         if (typeof profile.id === 'undefined') {
           history.push('/members/new')
         } else {
-          getJobById(profiles.id)
-
           history.push('/member')
         }
         return null
