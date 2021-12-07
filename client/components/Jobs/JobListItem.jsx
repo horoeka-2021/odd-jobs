@@ -35,8 +35,10 @@ function JobListItem ({ jobID }) {
 
         <div className=" text-s text-left w-full">
           <ul className="w-4/5 leading-snug text-justify">
-            <li className="text-s">DATE: {jobCreatedDate}</li>
-            <li className="text-s">STATUS: {jobStatus}</li>
+            <li className="text-s font-semibold">DATE: {jobCreatedDate}</li>
+            <li className="text-s font-semibold">STATUS:
+              <i className="fas fa-circle"></i>
+              {jobStatus}</li>
           </ul>
           <div className="pt-5"></div>
           <table>
@@ -79,10 +81,11 @@ function JobListItem ({ jobID }) {
         </div>
 
         <div>
-          <i className="fas fa-edit"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">EDIT</button>
-          <i className="fas fa-trash-alt"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">DELETE</button>
+          <i className="fas fa-edit"></i>
+          <button className="p-1.5 capitalized
+         font-semibold edit-but">EDIT</button>
+          <i className="fas fa-trash-alt"></i>
+          <button className="p-1.5 capitalized font-semibold del-but">DELETE</button>
         </div>
         {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
       </div>
