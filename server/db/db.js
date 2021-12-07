@@ -179,21 +179,22 @@ function getJobDetails (jobId, db = database) {
 function addJobListing (job, db = database) {
   return db('jobs')
     .insert(job)
-    .returning({
-      id: job.id,
-      title: job.title,
-      description: job.description,
-      paid: job.paid,
-      expected_start: job.expected_start,
-      expected_end: job.expected_end,
-      actual_start: job.actual_start,
-      actual_end: job.actual_end,
-      created_date: job.created_date,
-      status: job.status,
-      created_member_id: job.created_member_id,
-      location_id: job.location_id,
-      service_type_id: job.service_type_id
-    })
+    // .returning({
+    //   id: job.id,
+    //   title: job.title,
+    //   description: job.description,
+    //   paid: job.paid,
+    //   expected_start: job.expected_start,
+    //   expected_end: job.expected_end,
+    //   actual_start: job.actual_start,
+    //   actual_end: job.actual_end,
+    //   created_date: job.created_date,
+    //   status: job.status,
+    //   created_member_id: job.created_member_id,
+    //   location_id: job.location_id,
+    //   service_type_id: job.service_type_id
+    // })
+    .then((ids) => getJobDetails(ids[0], db))
 }
 
 function updateJobListing (job, db = database) {

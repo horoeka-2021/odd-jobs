@@ -6,7 +6,7 @@ exports.up = function (knex) {
     table.integer('location_id').references('id').inTable('locations')
     table.string('title')
     table.string('description')
-    table.string('status')
+    table.string('status').defaultTo('open')
     table.boolean('paid')
     table.date('expected_start')
     table.date('expected_end')
