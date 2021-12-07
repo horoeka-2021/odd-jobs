@@ -108,16 +108,22 @@ function getMemberByUserId (userId, db = database) {
     .first()
 }
 
-function addNewMember (newMember, db = database) {
+function addNewMember (newMember, locationId, db = database) {
   return db('users')
     .insert(newMember)
-    .returning({
-      name: newMember.name,
-      email: newMember.email,
-      phone: newMember.phone,
-      birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id,
-      location_id: newMember.location_id
+    // .returning({
+    //   name: newMember.name,
+    //   email: newMember.email,
+    //   phone: newMember.phone,
+    //   birth_date: newMember.birth_date,
+    //   gender_id: newMember.gender_id
+    // })
+    .then((ids) => {
+      return db('member_profiles')
+        .insert({ user_id: ids[0], location_id: locationId })
+        .then(() => {
+          return getMemberByUserId(ids[0])
+        })
     })
 }
 
@@ -128,8 +134,12 @@ function updateMember (user, db = database) {
       name: user.name,
       email: user.email,
       phone: user.phone,
-      birth_date: user.birth_date,
-      location_id: user.location_id
+      birth_date: user.birth_date
+    })
+    .then(() => {
+      return db('member_profiles')
+        .update({ location_id: user.location_id })
+        .where('user_id', user.user_id)
     })
 }
 
