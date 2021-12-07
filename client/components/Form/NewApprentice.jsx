@@ -3,7 +3,14 @@ import React, { useState } from 'react'
 // import { useHistory } from 'react-router-dom'
 // import { useAuth0 } from '@auth0/auth0-react'
 const initial = {
-
+  name: '',
+  email: '',
+  phone: '',
+  gender: '',
+  description: '',
+  service_types: '',
+  experience: '',
+  locationId: ''
 }
 
 export default function NewApprentice () {
@@ -23,6 +30,7 @@ export default function NewApprentice () {
     e.preventDefault()
 
     console.log(newApprentice)
+    setNewApprentice(initial)
     // dispatch(addNewJob(newObj))
     // setNewJob(initial)
   }
@@ -113,15 +121,7 @@ export default function NewApprentice () {
 
               <div className='form-control float-left'>
                 <label className="cursor-pointer label">
-                  <input type='checkbox' name='central' checked={newApprentice.central}
-                    onChange={handleChange} className='checkbox' />
-                  <span className='label-text'>Central Auckland</span>
-                </label>
-              </div>
-
-              <div className='form-control float-left'>
-                <label className="cursor-pointer label">
-                  <input type='checkbox' name='north' checked={newApprentice.north}
+                  <input type='checkbox' name='locationId' value={1}
                     onChange={handleChange} className='checkbox' />
                   <span className='label-text'>North Auckland</span>
                 </label>
@@ -129,15 +129,15 @@ export default function NewApprentice () {
 
               <div className='form-control float-left'>
                 <label className="cursor-pointer label">
-                  <input type='checkbox' name='east' checked={newApprentice.east}
+                  <input type='checkbox' name='locationId' value={2}
                     onChange={handleChange} className='checkbox' />
-                  <span className='label-text'>East Auckland</span>
+                  <span className='label-text'>South Auckland</span>
                 </label>
               </div>
 
               <div className='form-control float-left'>
                 <label className="cursor-pointer label">
-                  <input type='checkbox' name='west' checked={newApprentice.west}
+                  <input type='checkbox' name='locationId' value={3}
                     onChange={handleChange} className='checkbox' />
                   <span className='label-text'>West Auckland</span>
                 </label>
@@ -145,9 +145,17 @@ export default function NewApprentice () {
 
               <div className='form-control float-left'>
                 <label className="cursor-pointer label">
-                  <input type='checkbox' name='south' checked={newApprentice.south}
+                  <input type='checkbox' name='locationId' value={4}
                     onChange={handleChange} className='checkbox' />
-                  <span className='label-text'>South Auckland</span>
+                  <span className='label-text'>East Auckland</span>
+                </label>
+              </div>
+
+              <div className='form-control float-left'>
+                <label className="cursor-pointer label">
+                  <input type='checkbox' name='locationId' value={5}
+                    onChange={handleChange} className='checkbox' />
+                  <span className='label-text'>Central Auckland</span>
                 </label>
               </div>
 

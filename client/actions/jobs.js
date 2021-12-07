@@ -55,7 +55,7 @@ export function addNewJob (newJob) {
     dispatch(addJobsPending())
     return addJob(newJob)
       .then((jobs) => {
-        console.log('add job message', jobs)
+        console.log('add job return', jobs)
         dispatch(addJobsSuccess(jobs))
         return null
       })

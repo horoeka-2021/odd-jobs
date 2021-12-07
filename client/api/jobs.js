@@ -20,6 +20,7 @@ export function getJobDetailById (id) {
 
 // add a new job under member profile /api/v1/jobs/new
 export function addJob (newJob) {
+  console.log('api', newJob)
   return request.post('/api/v1/jobs/new')
     .send({ newJob: newJob })
     .then((res) => {
