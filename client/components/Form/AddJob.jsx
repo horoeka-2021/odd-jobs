@@ -51,7 +51,7 @@ export default function AddJob (props) {
               <label className="label">Job Description
                 <textarea name='description' value={newJob.description}
                   onChange={handleChange} className="textarea h-24
-              textarea-bordered pr-40 mr-64 mt-4"/>
+              textarea-bordered pr-42 mr-64 mt-4"/>
               </label>
             </div>
 
@@ -89,7 +89,7 @@ export default function AddJob (props) {
 
           </div>
 
-          <div className="addjob-but">
+          <div className="addjob-but pt-5 pb-10">
             <button className="inline-block px-4 py-3 text-sm
           font-semibold text-center text-white uppercase transition duration-200 ease-in-out
          bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleAdd}>ADD JOB
