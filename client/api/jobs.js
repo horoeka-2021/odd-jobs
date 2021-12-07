@@ -17,3 +17,12 @@ export function getJobDetailById (id) {
   return request.get(`/api/v1/jobs/details/${id}`)
     .then((res) => res.body)
 }
+
+// add a new job under member profile /api/v1/jobs/new
+export function addJob (newJob) {
+  return request.post('/api/v1/jobs/new')
+    .send({ newJob: newJob })
+    .then((res) => {
+      return res.body
+    })
+}
