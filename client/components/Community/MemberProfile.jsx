@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
 
@@ -6,7 +6,7 @@ import { Link, Route, useRouteMatch } from 'react-router-dom'
 import JobList from '../Jobs/JobList'
 import ProfileItem from '../Profile/ProfileItem'
 import AddJob from '../Form/AddJob'
-import { getJobById } from '../../api/jobs'
+// import { getJobById } from '../../api/jobs'
 
 import { fetchProfile } from '../../actions/profiles'
 import WelcomeProfile from './WelcomeProfile'
@@ -16,12 +16,14 @@ function MemberProfile (props) {
   const { path, url } = useRouteMatch()
   const state = useSelector(state => state)
   const profiles = state.profiles
+  const jobs = state.jobs
+
   const auth0Id = state.user.auth0Id
 
   const dispatch = useDispatch()
 
-  const [profile, setProfile] = useState([])
-  const [jobs, setJobList] = useState([])
+  // const [profile, setProfile] = useState([])
+  // const [jobs, setJobList] = useState([])
 
   useEffect(() => {
     console.log('member-useEffect', auth0Id)
@@ -32,19 +34,17 @@ function MemberProfile (props) {
     // if there is member profile ==> get job list
 
     // setProfile(profile)
+    // getJobById(profiles.id)
+    //   .then(jobList => {
+    //     setJobList(jobList)
+    //     return null
+    //   })
+    //   .catch(err => {
+    //     console.error(err)
+    //     return false
+    //   })
   }, [])
 
-  getJobById(profiles.id)
-    .then(jobList => {
-      setJobList(jobList)
-      return null
-    })
-    .catch(err => {
-      console.error(err)
-      return false
-    })
-
-    
   // console.log('landing', state.user.auth0Id)
   console.log('member profiles', profiles)
 

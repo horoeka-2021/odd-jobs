@@ -1,4 +1,4 @@
-import { getJobs } from '../api/jobs'
+import { getJobById } from '../api/jobs'
 import { showError } from './error'
 
 export const FETCH_JOBS_PENDING = 'FETCH_JOBS_PENDING'
@@ -17,11 +17,12 @@ export function fetchJobsSuccess (jobs) {
   }
 }
 
-export function fetchJobs () {
+export function fetchJobs (userID) {
   return (dispatch) => {
     dispatch(fetchJobsPending())
-    return getJobs()
+    return getJobById(userID)
       .then((jobs) => {
+        console.log(jobs)
         dispatch(fetchJobsSuccess(jobs))
         return null
       })

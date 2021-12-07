@@ -1,4 +1,5 @@
 import { getProfile, addProfile } from '../api/profiles'
+import { fetchJobs } from './jobs'
 
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING'
 export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS'
@@ -36,13 +37,12 @@ export function fetchProfile (auth0Id, history) {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
-        // console.log('fetchProfile - profile', profile)
         dispatch(fetchProfileSuccess(profile))
         if (typeof profile.id === 'undefined') {
           history.push('/members/new')
         } else {
-          get
-          history.push('/member')
+          console.log('fetchProfile - profile ID', profile.id)
+          return fetchJobs(profile.id)
         }
         return null
       })

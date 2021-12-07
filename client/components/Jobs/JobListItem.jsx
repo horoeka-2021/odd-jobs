@@ -21,8 +21,8 @@ function JobListItem ({ jobID }) {
   }, [jobID])
 
   const {
-    jobActualEnd, jobActualStart, jobCreatedDate, jobDescription, jobExpectedEnd,
-    jobExpectedStart, jobPaid, jobStatus, jobTitle, jobUpdatedDate, locationName, serviceTypeName
+    jobCreatedDate, jobDescription, jobExpectedEnd,
+    jobExpectedStart, jobPaid, jobStatus, jobTitle, locationName, serviceTypeName
   } = jobDetail
 
   const payment = ['Paid', 'Koha']
