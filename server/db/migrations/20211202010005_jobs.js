@@ -2,7 +2,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('jobs', (table) => {
     table.increments('id').primary()
     table.integer('service_type_id').references('id').inTable('service_types')
-    table.integer('created_member_id').references('id').inTable('member_profiles')
+    table.integer('created_member_id').references('id').inTable('users')
     table.integer('location_id').references('id').inTable('locations')
     table.string('title')
     table.string('description')
