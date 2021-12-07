@@ -111,16 +111,17 @@ function getMemberByUserId (userId, db = database) {
 function addNewMember (newMember, db = database) {
   return db('users')
     .insert(newMember)
-    .returning({
-      name: newMember.name,
-      email: newMember.email,
-      phone: newMember.phone,
-      birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id
-    })
+    // .returning({
+    //   name: newMember.name,
+    //   email: newMember.email,
+    //   phone: newMember.phone,
+    //   birth_date: newMember.birth_date,
+    //   gender_id: newMember.gender_id
+    // })
     .then((ids) => {
-      return db('member_profiles')
+      db('member_profiles')
         .insert({ user_id: ids[0], location_id: newMember.location_id })
+      return getMemberByUserId(ids[0])
     })
 }
 

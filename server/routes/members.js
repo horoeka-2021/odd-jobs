@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+const checkJwt = require('../auth0')
 const db = require('../db/db')
 
 // =============================================================================
@@ -54,7 +55,7 @@ router.get('/', (req, res) => {
 
 // =============================================================================
 // POST route: /api/v1/users/signup                         (creates a new user)
-router.post('/', function (req, res) {
+router.post('/', checkJwt, function (req, res) {
   const { name, email, phone, birthDate, genderId, auth0Id, locationId } = req.body
   const member = {
     auth0_id: auth0Id,
