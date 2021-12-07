@@ -11,9 +11,9 @@ function OurStorys () {
       </div>
       <div className="mx-0 mx-auto text-center max-w-screen-2xl">
         <div className="w-3/4 mx-0 mx-auto pt-10">
-          <h2 className="text-3xl font-weight: 700 font-bold">E tautoko ana tatou i te Roopū Odd Jobs</h2>
           <h2 className="text-3xl font-weight: 700 font-bold">Everyone support the Odd Jobs community!</h2>
-          <p className="pt-5">As a recent graduate in Web Development, OddJobs founder and product owner Nathan
+          <h2 className="text-2xl font-weight: 700 font-bold">E tautoko ana tatou i te Roopū Odd Jobs</h2>
+          <p className="pt-5 leading-loose text-center">As a recent graduate in Web Development, OddJobs founder and product owner Nathan
            saw the need for a site that could bring together other junior devs and service and trade apprentices,
            looking to gain the experience and self-confidence needed to grow their career.
             So he and his team of five embarked on a week-long journey to create a hub for community members to post
@@ -52,31 +52,44 @@ function OurStorys () {
         <div className="container mx-auto pt-10">
           <h2 className="text-3xl font-weight: 700 font-bold">OUR TEAM</h2>
         </div>
+
         <div className="grid grid-cols-3 gap-4 pt-5">
           <div className="col-span-3 text-center">
             <img src="../img/nathan.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p className="leading-tight"><img src="../img/linked.webp" className="max-h-10 inline"/>Nathan Rowe</p>
-            <p className="leading-tight">Founder/ Backend Lead</p>
+            <p className="leading-normal">
+              <a href="https://www.linkedin.com/in/nathan-rowe-7a7273170/" className="no-underline" target="_blank" rel="noreferrer">
+                <img src="../img/linked.webp" className="max-h-10 inline"/></a>
+                Nathan Rowe</p>
+            <p className="leading-loose">Founder/ Backend Lead</p>
           </div>
+
           <div className="">
             <img src="../img/goretti.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Goretti Alani</p>
-            <p className="leading-tight">Vibe Lead/ Security Lead</p>
+            <p><a href="http://www.linkedin.com/in/goretti-alani-a63a2a226" className="no-underline"
+              target="_blank" rel="noreferrer"><img src="../img/linked.webp" className="max-h-10 inline"/></a>
+              Goretti Alani</p>
+            <p className="leading-loose">Vibe Lead/ Security Lead</p>
           </div>
-          <div className="">
+
+          <div>
             <img src="../img/crystal.png" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Crystal Chan</p>
-            <p className="leading-tight">Frontend Lead</p>
+            <p><a href="https://www.linkedin.com/" className="no-underline"
+              target="_blank" rel="noreferrer"><img src="../img/linked.webp" className="max-h-10 inline"/></a>Crystal Chan</p>
+            <p className="leading-loose">Frontend Lead</p>
           </div>
-          <div className="">
+
+          <div>
             <img src="../img/nick.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Nicky Caparas</p>
-            <p className="leading-tight">Styling Lead/ Scrum Master</p>
+            <p> <a href="https://www.linkedin.com/in/nickycaparas/" className="no-underline" target="_blank" rel="noreferrer">
+              <img src="../img/linked.webp" className="max-h-10 inline"/></a>Nicky Caparas</p>
+            <p className="leading-loose">Styling Lead/ Scrum Master</p>
           </div>
+
           <div className="col-span-3 text-center">
             <img src="../img/tommy.jpg" className="mask mask-circle self-center inline max-w-xs max-h-48" />
-            <p><img src="../img/linked.webp" className="max-h-10 inline"/>Tommy Yoon</p>
-            <p className="leading-tight">Git Lead/ DevOps</p>
+            <p><a href="https://www.linkedin.com/in/tommy-yoon-583431227/" className="no-underline" target="_blank" rel="noreferrer">
+              <img src="../img/linked.webp" className="max-h-10 inline"/></a>Tommy Yoon</p>
+            <p className="leading-loose">Git Lead/ DevOps</p>
           </div>
 
         </div>
