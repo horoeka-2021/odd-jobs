@@ -116,8 +116,11 @@ function addNewMember (newMember, db = database) {
       email: newMember.email,
       phone: newMember.phone,
       birth_date: newMember.birth_date,
-      gender_id: newMember.gender_id,
-      location_id: newMember.location_id
+      gender_id: newMember.gender_id
+    })
+    .then((ids) => {
+      return db('member_profiles')
+        .insert({ user_id: ids[0], location_id: newMember.location_id })
     })
 }
 
