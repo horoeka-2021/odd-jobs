@@ -25,35 +25,36 @@ function Jobs (props) {
   }, [])
 
   return (
+    <div className="pb-8">
+      <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-52">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" placeholder="drawer-toggle"/>
 
-    <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-52">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" placeholder="drawer-toggle"/>
+        <div className="drawer-side">
+          <h3 className="drawer-overlay">You have listed {jobs.length} jobs</h3>
 
-      <div className="drawer-side">
-        <h3 className="drawer-overlay">You have listed {jobs.length} jobs</h3>
+          {jobList.map((data, index) => (
 
-        {jobList.map((data, index) => (
+            <ul key={data.jobsId} tabIndex={index} className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+              {/* <div className="collapse-title text-m font-medium"> */}
 
-          <ul key={data.jobsId} tabIndex={index} className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-            {/* <div className="collapse-title text-m font-medium"> */}
+              <li><button className="text-left" onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button></li>
+              {/* </div> */}
+            </ul>
 
-            <li><button onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button></li>
-            {/* </div> */}
-          </ul>
+          ))}
+        </div>
 
-        ))}
-      </div>
-
-      {/* <Route exact path={`${path}/details`} >
+        {/* <Route exact path={`${path}/details`} >
         <JobListItem jobID={jobs.jobsID} />
       </Route> */}
 
-      <div className="flex flex-col items-center justify-center drawer-content">
-        { showDetail &&
-        <JobListItem jobID={jobID}/>
-        }
-      </div>
+        <ul className="drawer-content">
+          { showDetail &&
+        <li><JobListItem jobID={jobID}/></li>
+          }
+        </ul>
 
+      </div>
     </div>
   )
 }
