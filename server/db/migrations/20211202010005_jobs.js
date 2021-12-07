@@ -18,7 +18,7 @@ exports.up = function (knex) {
     table.date('expected_end')
     table.date('actual_start')
     table.date('actual_end')
-    table.date('created_date')
+    table.date('created_date').defaultTo(knex.fn.now())
     table.date('updated_date')
     table.date('deleted_date')
   })
