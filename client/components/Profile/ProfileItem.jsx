@@ -18,7 +18,7 @@ function ProfileItem (props) {
       <div className="self-center">
         <h1 className="text-3xl text-indigo-600">Member Profile</h1></div>
 
-      <div className="">
+      <div className="" >
         <p>Name:</p>
         <p>Birthdate:</p>
         <p>Gender:</p>
@@ -26,7 +26,7 @@ function ProfileItem (props) {
         <p>Email:</p>
       </div>
 
-      <div className="">
+      <div className="" key={id}>
         <p>{name}</p>
         <p>{birthday}</p>
         <p>{genderList[gender]}</p>

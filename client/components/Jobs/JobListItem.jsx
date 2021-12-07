@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom'
-
 import { getJobDetailById } from '../../api/jobs'
 
 function JobListItem ({ jobID }) {
-  const [jobDetail, setJobDetail] = useState([])
-  console.log('Job ID pass in', jobID)
+  const [jobDetail, setJobDetail] = useState({})
+  // console.log('Job ID pass in', jobID)
   // api called detail
   useEffect(() => {
     getJobDetailById(jobID)
       .then(data => {
+        // console.log('api', data)
         setJobDetail(data)
         return null
       })
@@ -17,18 +17,37 @@ function JobListItem ({ jobID }) {
         console.error(err)
         return false
       })
-  }, [])
-  console.log('detail', jobDetail)
+  }, [jobID])
+
+  const {
+    jobCreatedDate, jobDescription, jobExpectedEnd,
+    jobExpectedStart, jobPaid, jobStatus, jobTitle, locationName, serviceTypeName
+  } = jobDetail
+
+  // const payment = ['Paid', 'Koha']
 
   return (
 
     <div >
-      <h1>{jobDetail.Title}</h1>
-      <h1>{jobDetail.jobDescription}</h1>
-      {/* <h1>{jobDetail.jobPaid === 0 ? Paid : Koha}</h1> */}
 
-      <button>Edit</button>
-      <button>Delete</button>
+      <p>{jobCreatedDate}</p>
+      <p>{jobStatus}</p>
+
+      <ul>
+        <li>{jobTitle}</li>
+        <li>{jobDescription}</li>
+        <li>{locationName}</li>
+        <li>{serviceTypeName}</li>
+        <li>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'} </li>
+        <li>{jobExpectedStart}</li>
+        <li>{jobExpectedEnd}</li>
+      </ul>
+
+      <div>
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+      {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
     </div>
 
   )

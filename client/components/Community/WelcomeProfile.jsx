@@ -9,21 +9,22 @@ function WelcomeProfile ({ data }) {
         to outsource tasks
       </h2>
       <br></br>
-      <p className="text-center leading-normal">Want your home cleaned or furniture put together?</p>
-      <p className="text-center leading-normal">Just tell us about the task you’d like done,
+      <p className="text-center leading-loose">Want your home cleaned or furniture put together?</p>
+      <p className="text-center leading-loose">Just tell us about the task you’d like done,
       suggest a fair budget for a job well</p>
-      <p className="text-justify leading-normal"> done and you’ll start to receive offers from available Taskers.
+      <p className="text-justify leading-loose"> done and you’ll start to receive offers from available Taskers.
       </p>
 
-      <p className="text-center leading-normal">Got a question? Simply search our comprehensive </p>
+      <p className="text-center leading-loose">Got a question? Simply search our comprehensive </p>
       <div className="help-nav"><Link to='/' className=" inline-block px-4 py-3 text-sm
           font-semibold text-center text-white uppercase transition duration-200 ease-in-out
          bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">Help Centre</Link></div>
-      <p className="text-center leading-normal"> for your answer.If you’re still stuck then feel free to
+      <p className="text-center leading-loose break-words"> for your answer.If you’re still stuck then feel free to
          reach out to our expert.</p>
-      <p className="text-center leading-normal">Customer Support Team who are more
+      <p className="text-center leading-loose">Customer Support Team who are more
          than happy to help.</p>
-      <div className="pb-10"></div>
+      <div className="pb-2"></div>
+      <div><img src="../img/customercare.png" className="max-w-xl"/></div>
     </div>
   )
 }
