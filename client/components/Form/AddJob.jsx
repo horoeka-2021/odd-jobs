@@ -15,7 +15,7 @@ export default function AddJob (props) {
   const [newJob, setNewJob] = useState(initial)
   const dispatch = useDispatch()
   const jobMessage = useSelector(state => state.jobs.message)
-  console.log('success', typeof jobMessage)
+  console.log('success messages - api', jobMessage)
 
   const jobCreatedDate = new Date().toISOString().slice(0, 10)
 
