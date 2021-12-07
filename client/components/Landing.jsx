@@ -1,14 +1,13 @@
 import React from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import { fetchProfile } from '../actions/profiles'
 import { useAuth0 } from '@auth0/auth0-react'
+import { IfAuthenticated, IfNotAuthenticated } from './Auth0/Authenticated'
 
 function Landing (props) {
   const { loginWithRedirect, isAuthenticated } = useAuth0()
   const redirectUri = `${window.location.origin}/member`
-  const state = useSelector(state => state)
   // const auth0Id = state.user.auth0Id
   // const history = useHistory()
 
@@ -34,7 +33,6 @@ function Landing (props) {
       history.push('/member')
     }
   }
-  console.log('landing', state.user.auth0Id)
 
   return (
 
@@ -65,10 +63,16 @@ function Landing (props) {
               <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
             </Link>
           </div>
-
-          <div className="flex items-baseline">
-            <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>GET STARTED</button>
-          </div>
+          <IfNotAuthenticated>
+            <div className="flex items-baseline">
+              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>GET STARTED</button>
+            </div>
+          </IfNotAuthenticated>
+          <IfAuthenticated>
+            <div className="flex items-baseline">
+              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>Go Profile</button>
+            </div>
+          </IfAuthenticated>
 
         </div>
       </div>

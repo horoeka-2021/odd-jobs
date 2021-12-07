@@ -11,3 +11,9 @@ export function getJobById (id) {
   return request.get(`/api/v1/jobs/${id}`)
     .then((res) => res.body)
 }
+
+// get job by Job ID
+export function getJobDetailById (id) {
+  return request.get(`/api/v1/jobs/details/${id}`)
+    .then((res) => res.body)
+}

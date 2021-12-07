@@ -36,13 +36,11 @@ export function fetchProfile (auth0Id, history) {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
-        console.log('fetchProfile - profile', profile)
+        // console.log('fetchProfile - profile', profile)
         dispatch(fetchProfileSuccess(profile))
         if (typeof profile.id === 'undefined') {
-          console.log('hello new member')
-          history.push('/member/new')
+          history.push('/members/new')
         } else {
-          console.log('hello exisiting')
           history.push('/member')
         }
         return null
@@ -62,7 +60,7 @@ export function addMember (newMember, history) {
       .then((member) => {
         console.log('new member', member)
         dispatch(addProfileSuccess(member))
-        history.push(`members/${member.id}`)
+        history.push('/members')
         return null
       })
       .catch((err) => {

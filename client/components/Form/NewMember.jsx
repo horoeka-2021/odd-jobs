@@ -69,8 +69,8 @@ export default function NewMember (props) {
               <option value={2}>Female</option>
               <option value={3}>Not Specified</option>
             </select>
+            <div><button>Submit</button></div>
           </div>
-          <button>Submit</button>
         </form>
       </section>
     </>

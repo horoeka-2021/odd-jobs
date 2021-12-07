@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import React from 'react'
 import Landing from './Landing'
 import Nav from './Nav'
 import ApprenticeProfile from './Apprentices/ApprenticeProfile'
 import MemberProfile from './Community/MemberProfile'
-import JobList from './Jobs/JobList'
 import NewApprentice from './Form/NewApprentice'
 import NewMember from './Form/NewMember'
 import OurStorys from './OurStorys/OurStorys'
+import Signup from './Signup'
 import WaitIndicator from './WaitIndicator'
 
 // authentication
@@ -29,9 +29,11 @@ function App () {
           <WaitIndicator />
         </MemberProfile>
       }} />
-      <Route exact path='/jobs' component={JobList} />
+      <Route exact path='/signup' >
+        <Signup />
+      </Route>
       <Route path='/apprentice/new' component={NewApprentice} />
-      <Route path='/member/new' render={({ history }) => <NewMember history={history}/>} />
+      <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
     </Router>
   )
 }
