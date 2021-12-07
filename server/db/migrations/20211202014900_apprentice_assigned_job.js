@@ -3,7 +3,7 @@ exports.up = function (knex) {
     table.increments('id').primary()
     table.integer('user_id').references('id').inTable('users')
     table.integer('job_id').references('id').inTable('jobs')
-    table.string('status')
+    table.string('status').defaultTo('in progress')
     table.date('assigned_date')
   })
 }

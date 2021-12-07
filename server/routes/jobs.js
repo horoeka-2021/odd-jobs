@@ -91,9 +91,8 @@ router.post('/new', async (req, res) => {
     service_type_id: serviceTypeId
   }
   try {
-    const newJobListing = await db.addJobListing(jobListing)
-    console.log('newJobListing: ', newJobListing)
-    res.json({ message: `Job ${newJobListing.id} successfully created` })
+    const job = await db.addJobListing(jobListing)
+    res.json(job)
     res.sendStatus(201)
   } catch (error) {
     console.error(error)
