@@ -20,7 +20,7 @@
     "build-knex": "npm run knex-server -- migrate:latest",
     "build-webpack": "webpack --config client/webpack.prod.js --mode=production",
     "heroku-cleanup": "npm run knex-server -- seed:run",
-    "start": "NODE_LOG_LEVEL=tiny node server"
+    "start": "NODE_LOG_LEVEL=tiny node server" 
   },
   "keywords": [
     "node",
