@@ -5,6 +5,8 @@ function profiles (state = [], action) {
     case FETCH_PROFILE_SUCCESS:
       return action.profiles
 
+ 
+
     case ADD_PROFILE_SUCCESS:
       return action.newMember
 

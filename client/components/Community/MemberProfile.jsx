@@ -20,7 +20,7 @@ function MemberProfile (props) {
 
   const dispatch = useDispatch()
 
-  // const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState([])
   const [jobs, setJobList] = useState([])
 
   useEffect(() => {
@@ -32,17 +32,21 @@ function MemberProfile (props) {
     // if there is member profile ==> get job list
 
     // setProfile(profile)
-    getJobById(profiles.id)
-      .then(jobList => {
-        setJobList(jobList)
-        return null
-      })
-      .catch(err => {
-        console.error(err)
-        return false
-      })
   }, [])
+
+  getJobById(profiles.id)
+    .then(jobList => {
+      setJobList(jobList)
+      return null
+    })
+    .catch(err => {
+      console.error(err)
+      return false
+    })
+
+    
   // console.log('landing', state.user.auth0Id)
+  console.log('member profiles', profiles)
 
   return (
     <>
