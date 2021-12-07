@@ -18,12 +18,13 @@ function WelcomeProfile ({ data }) {
       <p className="text-center leading-loose">Got a question? Simply search our comprehensive </p>
       <div className="help-nav"><Link to='/' className=" inline-block px-4 py-3 text-sm
           font-semibold text-center text-white uppercase transition duration-200 ease-in-out
-         bg-indigo-500 rounded-md cursor-pointer hover:border-indigo-600">Help Centre</Link></div>
-      <p className="text-center leading-loose"> for your answer.If you’re still stuck then feel free to
+         bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">Help Centre</Link></div>
+      <p className="text-center leading-loose break-words"> for your answer.If you’re still stuck then feel free to
          reach out to our expert.</p>
       <p className="text-center leading-loose">Customer Support Team who are more
          than happy to help.</p>
-      <div className="pb-10"></div>
+      <div className="pb-2"></div>
+      <div><img src="../img/customercare.png" className="max-w-xl"/></div>
     </div>
   )
 }
