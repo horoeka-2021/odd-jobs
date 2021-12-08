@@ -48,9 +48,9 @@ jobs:
         run: npm ci
         
       - name: Linting
-        # run: "npm run lint -- --rule 'no-console: 2'"
+        run: "npm run lint -- --rule 'no-console: 2'"
         # run: "npm run lint -- --quiet"
-        run: "npm run lint"
+        # run: "npm run lint"
         
       - name: Test
         run: npm run test-no-watch
@@ -100,4 +100,5 @@ jobs:
         HD_JWT_SECRET: ${{secrets.JWT_SECRET}}
         HD_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
         HD_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
-        HD_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}   
+        HD_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
+        

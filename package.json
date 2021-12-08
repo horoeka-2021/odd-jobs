@@ -2,12 +2,13 @@
   "name": "study-react",
   "version": "0.0.0",
   "private": true,
-  "description": "Boilerplate for React/Express web applications",
+  "description": "Odd jobs",
   "engines": {
     "node": "14.x"
   },
   "scripts": {
     "knex": "NODE_ENV=local knex --knexfile server/db/knexfile.js",
+    "knex-server": "knex --knexfile server/db/knexfile.js",
     "dev": "NODE_ENV=local run-p dev-client dev-server",
     "dev-client": "NODE_ENV=local webpack --config client/webpack.dev.js --watch",
     "dev-server": "NODE_ENV=local NODE_LOG_LEVEL=dev nodemon server",
@@ -15,10 +16,11 @@
     "test-trace": "jest --watchAll",
     "test-no-watch": "jest",
     "lint": "eslint . --ext .js,.jsx .",
-    "heroku-postbuild": "npm run build-knex && npm run build-webpack",
-    "build-knex": "npm run knex -- migrate:latest",
+    "heroku-postbuild": "npm run build-knex-clear && npm run build-knex && npm run build-webpack",
+    "build-knex-clear": "npm run knex-server -- migrate:down",
+    "build-knex": "npm run knex-server -- migrate:latest",
     "build-webpack": "webpack --config client/webpack.prod.js --mode=production",
-    "heroku-cleanup": "npm run knex -- seed:run",
+    "heroku-cleanup": "npm run knex-server -- seed:run",
     "start": "NODE_LOG_LEVEL=tiny node server"
   },
   "keywords": [

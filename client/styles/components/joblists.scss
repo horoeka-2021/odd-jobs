@@ -1,0 +1,16 @@
+.listing-tab{
+    margin-right: 32rem;
+}
+.joblists-items{
+    width:1024px;
+    overflow-x:scroll;
+}
+.fa-edit, .fa-trash-alt,.edit-but, .del-but {
+    color:#5A6694;
+}
+.fa-circle{
+    color: #F9C74F;
+}
+.joblist-head, .joblist-data, .joblist-buts{
+    transform: translate(30px,10px);
+}

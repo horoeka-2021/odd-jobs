@@ -9,10 +9,13 @@ router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
     const jobs = await db.getMemberJobsList(userId)
-    console.log(`list of jobs: ${JSON.stringify(jobs)}`)
+    // console.log(`list of jobs: ${JSON.stringify(jobs)}`)
+    res.status(200)
     res.json(jobs)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
 })
 
@@ -25,16 +28,19 @@ router.get('/:apprenticeAppliedJobId/:apprenticeId/apprenticeAppliedJob', async 
   try {
     // get applicant info
     const applicantInfo = await db.getJobApplicant(apprenticeAppliedJobId)
-    console.log(`applicantDetails: ${applicantInfo}`)
+    // console.log(`applicantDetails: ${applicantInfo}`)
     // get applicant's location array
     const locations = await db.getApprenticeLocations(apprenticeId)
     applicantInfo.locations = locations
     // get applicant's service type & experience rating array
     const serviceTypes = await db.getApprenticeServiceTypes(apprenticeId)
     applicantInfo.serviceTypes = serviceTypes
+    res.status(200)
     res.json(applicantInfo)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
 })
 
@@ -44,12 +50,14 @@ router.get('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
   try {
     const jobDetails = await db.getJobDetails(jobId)
-    console.log(`jobDetails: ${jobDetails}`)
+    // console.log(`jobDetails: ${jobDetails}`)
     const applicants = await db.getJobApplicantList(jobId)
-    console.log(`applicants: ${JSON.stringify(applicants)}`)
+    // console.log(`applicants: ${JSON.stringify(applicants)}`)
     jobDetails.applicants = applicants
+    res.status(200)
     res.json(jobDetails)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -60,10 +68,12 @@ router.get('/details/:jobId', async (req, res) => {
 router.delete('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
   try {
-    const deletedJobListing = await db.deleteJobListingById(jobId)
-    console.log('deletedJobListing: ', deletedJobListing)
-    res.json({ message: `Job ${jobId} successfully deleted` })
+    const ids = await db.deleteJobListingById(jobId)
+    // console.log('deletedJobListing: ', deletedJobListing)
+    res.status(200)
+    res.json({ message: `Job ${ids[0]} successfully deleted` })
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -79,23 +89,25 @@ router.post('/new', async (req, res) => {
     locationId,
     expectedStart,
     expectedEnd,
-    serviceTypeId
+    serviceTypeId,
+    userId
   } = req.body
   const jobListing = {
     title: title,
     description: description,
-    paid: paid,
-    location_id: locationId,
+    paid: Number(paid),
+    location_id: Number(locationId),
     expected_start: expectedStart,
     expected_end: expectedEnd,
-    service_type_id: serviceTypeId
+    service_type_id: Number(serviceTypeId),
+    created_member_id: userId
   }
   try {
-    const newJobListing = await db.addJobListing(jobListing)
-    console.log('newJobListing: ', newJobListing)
-    res.json({ message: `Job ${newJobListing.id} successfully created` })
-    res.sendStatus(201)
+    const job = await db.addJobListing(jobListing)
+    res.status(201)
+    res.json(job)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -124,10 +136,11 @@ router.post('/edit/:jobId', async (req, res) => {
   }
   try {
     const updatedJobListing = await db.updateJobListing(req.params.jobId, jobListing)
-    console.log('updatedJobListing: ', updatedJobListing)
+    // console.log('updatedJobListing: ', updatedJobListing)
+    res.status(201)
     res.json({ message: `Job ${updatedJobListing.id} successfully updated` })
-    res.sendStatus(201)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -135,15 +148,16 @@ router.post('/edit/:jobId', async (req, res) => {
 
 // UTILITY ====================================================================
 // GET route: /api/v1/jobs/                        (returns a list of all jobs)
-router.get('/', (req, res) => {
-  db.getAllJobs()
-    .then(jobs => {
-      res.status(200)
-      return res.json(jobs)
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message })
-    })
+router.get('/', async (req, res) => {
+  try {
+    const jobs = await db.getAllJobs()
+    res.status(200)
+    res.json(jobs)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 // // API endpoint example

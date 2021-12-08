@@ -36,19 +36,18 @@ export function fetchProfile (auth0Id, history) {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
-        console.log('fetchProfile - profile', profile)
+        // console.log('fetchProfile - profile', profile)
         dispatch(fetchProfileSuccess(profile))
         if (typeof profile.id === 'undefined') {
-          console.log('hello new member')
-          history.push('/member/new')
+          history.push('/members/new')
         } else {
-          console.log('hello exisiting')
           history.push('/member')
         }
         return null
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        // eslint-disable-next-line no-console
         console.error(errMessage)
       })
   }
@@ -60,13 +59,14 @@ export function addMember (newMember, history) {
     // API post order to server
     return addProfile(newMember)
       .then((member) => {
-        console.log('new member', member)
+        // console.log('ADD new member', member)
         dispatch(addProfileSuccess(member))
-        history.push(`members/${member.id}`)
+        history.push('/')
         return null
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        // eslint-disable-next-line no-console
         console.error(errMessage)
       })
   }

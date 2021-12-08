@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+// const checkJwt = require('../auth0')
 const db = require('../db/db')
 
 // =============================================================================
@@ -18,9 +19,11 @@ router.put('/:user_id/edit', async (req, res) => {
   }
   try {
     const updatedMember = await db.updateMember(member)
-    console.log('updatedMember: ', updatedMember)
-    res.sendStatus(200)
+    // console.log('updatedMember: ', updatedMember)
+    res.status(200)
+    res.json(updatedMember)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -32,8 +35,10 @@ router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
     const member = await db.getMemberByUserId(userId)
+    res.status(200)
     res.json(member)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -41,21 +46,22 @@ router.get('/:userId', async (req, res) => {
 
 // UTILITY =====================================================================
 // GET route: /api/v1/members/                       (get a list of ALL members)
-router.get('/', (req, res) => {
-  db.getAllMembers()
-    .then(members => {
-      res.status(200)
-      return res.json(members)
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message })
-    })
+router.get('/', async (req, res) => {
+  try {
+    const members = await db.getAllMembers()
+    res.status(200)
+    res.json(members)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 // =============================================================================
 // POST route: /api/v1/users/signup                         (creates a new user)
-router.post('/', function (req, res) {
-  const { name, email, phone, birthDate, genderId, auth0Id } = req.body
+router.post('/', async (req, res) => {
+  const { name, email, phone, birthDate, genderId, auth0Id, locationId } = req.body
   const member = {
     auth0_id: auth0Id,
     name: name,
@@ -64,12 +70,15 @@ router.post('/', function (req, res) {
     birth_date: birthDate,
     gender_id: genderId
   }
-  db.addNewMember(member)
-    .then((member) => {
-      res.status(201).json(member)
-      return null
-    })
-    .catch((error) => console.error(error))
+  try {
+    const addedMember = await db.addNewMember(member, locationId)
+    res.status(201)
+    res.json(addedMember)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 // =============================================================================
@@ -81,6 +90,7 @@ router.post('/getMemberProfileByAuthId', async (req, res) => {
     const member = await db.getMemberByAuthId(auth0Id)
     res.json(member === undefined ? {} : member)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }

@@ -4,18 +4,19 @@ import Landing from './Landing'
 import Nav from './Nav'
 import ApprenticeProfile from './Apprentices/ApprenticeProfile'
 import MemberProfile from './Community/MemberProfile'
-import JobList from './Jobs/JobList'
 import NewApprentice from './Form/NewApprentice'
 import NewMember from './Form/NewMember'
 import OurStorys from './OurStorys/OurStorys'
+import Signup from './Signup'
 import WaitIndicator from './WaitIndicator'
+import Footer from './Footer'
 
 // authentication
 import { cacheUser } from '../actions/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
-  console.log('cacheUser')
+  // console.log('cacheUser')
   cacheUser(useAuth0) // this is not triggered
 
   return (
@@ -29,9 +30,12 @@ function App () {
           <WaitIndicator />
         </MemberProfile>
       }} />
-      <Route exact path='/jobs' component={JobList} />
+      <Route exact path='/signup' >
+        <Signup />
+      </Route>
       <Route path='/apprentice/new' component={NewApprentice} />
-      <Route path='/member/new' render={({ history }) => <NewMember history={history}/>} />
+      <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
+      <Footer />
     </Router>
   )
 }

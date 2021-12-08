@@ -29,6 +29,7 @@ router.get('/api/', async (req, res) => {
     const examples = await db.getExamples()
     res.json({ examples })
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
