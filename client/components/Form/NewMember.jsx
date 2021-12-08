@@ -14,14 +14,14 @@ const initial = {
 
 }
 
-export default function NewMember (props) {
+export default function NewMember(props) {
   const auth0Id = useSelector(state => state.user.auth0Id)
   const dispatch = useDispatch()
   const { history } = props
 
   const [newMember, setNewMember] = useState(initial)
 
-  function handleChange (e) {
+  function handleChange(e) {
     const { name, value } = e.target
 
     setNewMember({
@@ -29,7 +29,7 @@ export default function NewMember (props) {
       [name]: value
     })
   }
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     e.preventDefault()
     const newObj = {
       ...newMember,
@@ -44,8 +44,8 @@ export default function NewMember (props) {
     <>
       <div className="container mx-auto artboard artboard-demo w-11/12">
         <div className="grid grid-col-2 float-right w-4/5 p-8"></div>
-        <div className="newmember-head"><h1 className="text-3xl font-semibold">Become Community Member Today!</h1></div>
-        <div className="newmember-text"><p>The best place for people and businesses to outsource tasks</p></div>
+        <div className="newmember-head"><h1 className="text-3xl font-semibold">Join the Odd Jobs Community!</h1></div>
+        <div className="newmember-text"><p>Register now and post your odd job today.</p></div>
 
         <section className="w-3/5 pt-10">
           <form onSubmit={handleSubmit}>
@@ -57,7 +57,7 @@ export default function NewMember (props) {
                   <span className="label-text">Name</span>
                 </label>
                 <input type='text' name="name" value={newMember.name} onChange={handleChange}
-                  placeholder="name" className="input input-bordered"/>
+                  placeholder="name" className="input input-bordered" />
               </div>
 
               <div className="form-control">
@@ -65,7 +65,7 @@ export default function NewMember (props) {
                   <span className="label-text">Email</span>
                 </label>
                 <input type='text' name="email" value={newMember.email} onChange={handleChange}
-                  placeholder="info@domain.com" className="input input-bordered"/>
+                  placeholder="info@domain.com" className="input input-bordered" />
               </div>
 
               <div className="form-control">
@@ -73,7 +73,7 @@ export default function NewMember (props) {
                   <span className="label-text">Phone</span>
                 </label>
                 <input type='text' name="phone" value={newMember.phone} onChange={handleChange}
-                  placeholder="phone" className="input input-bordered"/>
+                  placeholder="phone" className="input input-bordered" />
               </div>
 
               <div className="form-control">
@@ -81,7 +81,7 @@ export default function NewMember (props) {
                   <span className="label-text">Birth Date</span>
                 </label>
                 <input type='date' name="birthDate" value={newMember.birthDate} onChange={handleChange}
-                  placeholder="dd/mm/yyyy" className="input input-bordered text-gray-400"/>
+                  placeholder="dd/mm/yyyy" className="input input-bordered text-gray-400" />
               </div>
 
               <div>
@@ -98,7 +98,7 @@ export default function NewMember (props) {
                 <button className="inline-block px-4 py-3 text-sm
           font-semibold text-center text-white uppercase transition duration-200 ease-in-out
          bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">
-             Submit</button>
+                  Submit</button>
                 <div className="pb-10"></div>
               </div>
             </div>
