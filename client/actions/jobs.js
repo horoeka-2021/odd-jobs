@@ -33,7 +33,7 @@ export function addJobsSuccess (jobs) {
 }
 
 export function fetchJobs (userID) {
-  console.log('fetch jobs', userID)
+  // console.log('fetch jobs', userID)
   return (dispatch) => {
     dispatch(fetchJobsPending())
     return getJobById(userID)

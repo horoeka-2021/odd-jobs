@@ -16,6 +16,7 @@ function JobListItem ({ jobID }) {
         return null
       })
       .catch(err => {
+        // eslint-disable-next-line no-console
         console.error(err)
         return false
       })
