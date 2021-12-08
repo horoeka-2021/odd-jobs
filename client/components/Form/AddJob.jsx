@@ -16,6 +16,8 @@ const initial = {
 export default function AddJob (props) {
   const { userID } = props
   const [newJob, setNewJob] = useState(initial)
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
   const dispatch = useDispatch()
   const job = useSelector(state => state.jobs)
   console.log('FRONT_END - job return', job)
@@ -42,6 +44,7 @@ export default function AddJob (props) {
     console.log(newObj)
     dispatch(addNewJob(newObj))
     setNewJob(initial)
+    setFormSubmitted(true)
   }
 
   return (
@@ -53,7 +56,7 @@ export default function AddJob (props) {
         <p>It’s amazing what you can’t do yourself</p>
       </div>
 
-      {job.jobTitle === null
+      {formSubmitted === false
         ? <section>
           <form >
             <div >
