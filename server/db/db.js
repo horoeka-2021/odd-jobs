@@ -110,7 +110,7 @@ function getMemberByUserId (userId, db = database) {
 
 function addNewMember (newMember, locationId, db = database) {
   return db('users')
-    .insert(newMember)
+    .insert(newMember, ['id'])
     // .returning({
     //   name: newMember.name,
     //   email: newMember.email,
@@ -179,7 +179,7 @@ function getJobDetails (jobId, db = database) {
 
 function addJobListing (job, db = database) {
   return db('jobs')
-    .insert(job)
+    .insert(job, ['id'])
     // .returning({
     //   id: job.id,
     //   title: job.title,
