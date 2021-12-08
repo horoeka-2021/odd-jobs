@@ -11,11 +11,11 @@ function WelcomeProfile ({ data }) {
         <br></br>
         <h4 className="text-5xl font-bold text-center mb-3">Here you will find:</h4>
         <br />
+        <h4 className="text-2xl font-semibold text-center">Your OddNews</h4>
+        <br />
         <h4 className="text-2xl font-semibold text-center">This Weeks Featured OddJob</h4>
         <br />
         <h4 className="text-2xl font-semibold text-center">Whats Happening in Your Area</h4>
-        <br />
-        <h4 className="text-2xl font-semibold text-center">Your OddNews</h4>
         <br />
         <p className="text-center leading-loose break-words">Start here to help grow the OddJobs community!</p>
         <div className="help-nav mt-20 mr-32 my-auto">
