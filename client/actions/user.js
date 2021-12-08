@@ -23,7 +23,7 @@ export async function cacheUser (useAuth0, state) {
     try {
       const accessToken = await getAccessTokenSilently()
 
-      console.log('token\n', accessToken)
+      // console.log('token\n', accessToken)
       const userToSave = {
         auth0Id: user.sub,
         email: user.email,
@@ -31,6 +31,7 @@ export async function cacheUser (useAuth0, state) {
       }
       store.dispatch(setUser(userToSave))
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.error(err)
     }
   }

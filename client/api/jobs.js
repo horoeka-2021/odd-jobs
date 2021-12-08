@@ -14,14 +14,14 @@ export function getJobById (id) {
 
 // get job by Job ID
 export function getJobDetailById (id) {
-  console.log('api send', id)
+  // console.log('api send', id)
   return request.get(`/api/v1/jobs/details/${id}`)
     .then((res) => res.body)
 }
 
 // add a new job under member profile /api/v1/jobs/new
 export function addJob (newJob) {
-  console.log('api', newJob)
+  // console.log('api', newJob)
   return request.post('/api/v1/jobs/new')
     .send(newJob)
     .then((res) => {

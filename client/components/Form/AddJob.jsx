@@ -20,6 +20,7 @@ export default function AddJob (props) {
 
   const dispatch = useDispatch()
   const job = useSelector(state => state.jobs)
+  // eslint-disable-next-line: no-console
   console.log('FRONT_END - job return', job)
 
   // const jobCreatedDate = new Date().toISOString().slice(0, 10)
@@ -41,7 +42,7 @@ export default function AddJob (props) {
       // jobCreatedDate: jobCreatedDate,
       userId: userID
     }
-    console.log(newObj)
+    // console.log(newObj)
     dispatch(addNewJob(newObj))
     setNewJob(initial)
     setFormSubmitted(true)
