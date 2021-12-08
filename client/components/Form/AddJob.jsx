@@ -129,7 +129,7 @@ export default function AddJob (props) {
         </section>
 
         : <div className="m-14">
-          <h1 className='text-xl font-mono medium text-green-400'>Job successfully created</h1> </div> }
+          <h1 className='text-xl font-mono medium text-green-400'>Job Posted Successfully!</h1> </div> }
 
     </>
   )

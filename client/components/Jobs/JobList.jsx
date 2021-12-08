@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import JobListItem from './JobListItem'
 import { getJobById } from '../../api/jobs'
 
-function Jobs (props) {
+function Jobs(props) {
   const { userID } = props
   const [showDetail, setShowDetail] = useState(false)
   const [jobList, setJobList] = useState([])
   const [jobID, setJobId] = useState('')
 
-  function handleDetail (jobID) {
+  function handleDetail(jobID) {
     setJobId(jobID)
     setShowDetail(true)
   }
@@ -33,7 +33,7 @@ function Jobs (props) {
           <h1><span style={{ fontSize: '38px' }}>YOUR JOBS</span></h1> <br />
           <h1 className="mb-4"><span style={{ fontSize: '24px' }}>You have listed {jobList.length} jobs</span></h1>
           <div className="rounded-lg shadow bg-base-1000 drawer drawer-mobile h-900">
-            <span id="my-drawer-2"className="drawer-toggle" > </span>
+            <span id="my-drawer-2" className="drawer-toggle" > </span>
 
             <div className="drawer-side ">
               <ol>
@@ -50,9 +50,9 @@ function Jobs (props) {
               </ol>
             </div>
 
-            <ul className="drawer-content">
-              { showDetail &&
-                <li><JobListItem jobID={jobID}/></li>
+            <ul className="drawer-content ">
+              {showDetail &&
+                <li><JobListItem jobID={jobID} /></li>
               }
             </ul>
 

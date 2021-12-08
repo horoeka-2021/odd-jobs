@@ -39,15 +39,15 @@ function JobListItem ({ jobID }) {
           <h1><span style={{ fontSize: '32px' }}>JOB DETAILS</span></h1> <br />
 
           <div className="pt-5"></div>
-          <table>
-            <tbody>
+          <table >
+            <tbody >
               <tr className="pb-3">
                 <td className="uppercase text-indigo-600 font-semibold py-3 px-3">Job Title:</td>
                 <td>{jobTitle}</td>
               </tr>
 
               <tr className="pb-3">
-                <td className="uppercase text-indigo-600 font-semibold pb-3 px-3">Job Description:</td>
+                <td className="uppercase text-indigo-600 font-semibold pb-3 px-3 truncate ">Job Description:</td>
                 <td>{jobDescription}</td>
               </tr>
 
@@ -89,11 +89,11 @@ function JobListItem ({ jobID }) {
           </table>
         </div>
 
-        <div className='flex justify-end my-4 mr-5'>
-          <i className="fas fa-edit"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">EDIT</button>
-          <i className="fas fa-trash-alt"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">DELETE</button>
+        <div className='flex justify-start my-4 mr-5 '>
+          <span className='self-center'>  <i className="fas fa-edit"></i><button className="p-1.5 capitalized
+          text-indigo-600 font-semibold ">EDIT</button></span>
+          <span className='self-center'> <i className="fas fa-trash-alt"></i><button className="p-1.5 capitalized
+          text-indigo-600 font-semibold">DELETE</button></span>
         </div>
         {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
       </div>
@@ -117,11 +117,11 @@ function JobListItem ({ jobID }) {
           </table>
         </div>
 
-        <div className='flex justify-end my-4 mr-5'>
-          <i className="fas fa-hand-paper"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">ACCEPT</button>
-          <i className="fas fa-times-circle"></i><button className="p-1.5 capitalized
-          text-indigo-600 font-semibold">DECLINE</button>
+        <div className='flex justify-start my-4 mr-5'>
+          <span className='self-center'>  <i className="fas fa-check-circle"></i><button className="p-1.5 capitalized
+          text-indigo-600 font-semibold">ACCEPT</button></span>
+          <span className='self-center'>  <i className="fas fa-times-circle"></i><button className="p-1.5 capitalized
+          text-indigo-600 font-semibold">DECLINE</button></span>
         </div>
         {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
       </div>
