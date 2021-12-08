@@ -19,11 +19,6 @@ export default function AddJob (props) {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const dispatch = useDispatch()
-  // const job = useSelector(state => state.jobs)
-  // console.log('FRONT_END - job return', job)
-
-  // const jobCreatedDate = new Date().toISOString().slice(0, 10)
-
   function handleChange (e) {
     const { name, value } = e.target
 
@@ -134,7 +129,7 @@ export default function AddJob (props) {
         </section>
 
         : <div className="m-14">
-          <h1 className='text-xl font-mono medium text-green-400'>Job has successfully created</h1> </div> }
+          <h1 className='text-xl font-mono medium text-green-400'>Job successfully created</h1> </div> }
 
     </>
   )

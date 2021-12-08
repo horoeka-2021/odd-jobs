@@ -51,8 +51,7 @@ export function fetchJobs (userID) {
 
 export function addNewJob (newJob) {
   // console.log('add jobs', newJob)
-  console.log('add jobs', newJob)
-
+  // console.log('add jobs', newJob)
   return (dispatch) => {
     dispatch(addJobsPending())
     return addJob(newJob)

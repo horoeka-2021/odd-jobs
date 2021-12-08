@@ -39,7 +39,7 @@ function Jobs (props) {
                 <div key={data.jobsId} tabIndex={index} className="menu self-center p-2 m-4 w-80 bg-base-100 text-base-content ">
                   {/* <div className="collapse-title text-m font-medium"> */}
 
-                  <button className="text-left" onClick={() => handleDetail(data.jobsId)}>{data.jobsId} - {data.jobsTitle}</button>
+                  <button className="text-left" onClick={() => handleDetail(data.jobsId)}>{data.jobsTitle}</button>
 
                 </div>
 
