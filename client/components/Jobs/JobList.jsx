@@ -24,7 +24,6 @@ function Jobs (props) {
         return false
       })
   }, [])
-  // console.log('joblist api', jobList)
   return (
     <>
       {jobList.length === 0 ? <div className="m-10">

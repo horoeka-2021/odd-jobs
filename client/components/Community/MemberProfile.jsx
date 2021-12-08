@@ -21,11 +21,9 @@ function MemberProfile (props) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // check if the user has community member profile
     if (auth0Id !== '') {
       dispatch(fetchProfile(auth0Id, history))
     }
-    // setProfile(profile)
   }, [auth0Id])
 
   return (

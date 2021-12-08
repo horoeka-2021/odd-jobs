@@ -1,4 +1,5 @@
 import { getProfile, addProfile } from '../api/profiles'
+import { showError } from './error'
 
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING'
 export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS'
@@ -49,6 +50,7 @@ export function fetchProfile (auth0Id, history) {
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        dispatch(showError(errMessage))
         // eslint-disable-next-line no-console
         console.error(errMessage)
       })
@@ -67,6 +69,7 @@ export function addMember (newMember, history) {
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        dispatch(showError(errMessage))
         // eslint-disable-next-line no-console
         console.error(errMessage)
       })

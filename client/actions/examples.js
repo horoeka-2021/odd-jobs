@@ -25,12 +25,12 @@ export function fetchExamples () {
     try {
       dispatch(fetchExamplePending())
       const examples = await getExamples()
-      // eslint-disable-next-line no-console
-      console.log('from server', examples)
       dispatch(fetchExampleSuccess(examples))
     } catch (error) {
       const errMessage = error.response?.text || error.errMessage
       dispatch(showError(errMessage))
+      // eslint-disable-next-line no-console
+      console.error(errMessage)
     }
   }
 }
