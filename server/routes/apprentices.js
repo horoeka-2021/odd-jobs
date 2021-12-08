@@ -6,19 +6,16 @@ module.exports = router
 
 // UTILITY =====================================================================
 // GET route: /api/v1/apprentices/               (get a list of all apprentices)
-router.get('/', (req, res, next) => {
-  db.getAllApprentices()
-    .then(apprentices => {
-      res.status(200)
-      return res.json(apprentices)
-    })
-    .catch(err => {
-      res.status(500)
-      return res.json({
-        message: 'Error getting all apprentices',
-        error: err
-      })
-    })
+router.get('/', async (req, res) => {
+  try {
+    const apprentices = await db.getAllApprentices()
+    res.status(200)
+    res.json(apprentices)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 // =============================================================================
@@ -30,9 +27,10 @@ router.get('/:userId', async (req, res) => {
     const locations = await db.getApprenticeLocations(userId)
     apprentice.locations = locations
     res.json(apprentice)
-  } catch (err) {
-    console.log(err)
-    res.sendStatus(500)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
 })
 

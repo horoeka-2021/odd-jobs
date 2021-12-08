@@ -179,8 +179,8 @@ function addJobListing (job, db = database) {
     .insert(job)
     .returning('id')
     .then((ids) => {
-      console.log('ids', ids)
-      console.log('typeof ids', typeof ids)
+      // console.log('ids', ids)
+      // console.log('typeof ids', typeof ids)
       return getJobDetails(ids[0], db)
     })
 }
