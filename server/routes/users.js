@@ -10,6 +10,7 @@ router.post('/getUserByAuthID', async (req, res) => {
     const member = await db.getUser(auth0Id)
     res.json(member)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
     res.status(500).json({ error: error.message })
   }
@@ -17,15 +18,16 @@ router.post('/getUserByAuthID', async (req, res) => {
 
 // UTILITY ==============================================================
 // GET route: /api/v1/users/             (gets a list of ALL users)
-router.get('/', (req, res) => {
-  db.getAllUsers()
-    .then(users => {
-      res.status(200)
-      return res.json(users)
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message })
-    })
+router.get('/', async (req, res) => {
+  try {
+    const users = await db.getAllUsers()
+    res.status(200)
+    res.json(users)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 module.exports = router

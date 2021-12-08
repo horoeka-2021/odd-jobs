@@ -135,6 +135,9 @@ function updateMember (user, db = database) {
         .update({ location_id: user.location_id })
         .where('user_id', user.user_id)
     })
+    .then(() => {
+      return getMemberByUserId(user.user_id)
+    })
 }
 
 function getMemberJobsList (userId, db = database) {
@@ -204,6 +207,7 @@ function deleteJobListingById (jobId, db = database) {
   return db('jobs')
     .where('id', jobId)
     .del()
+    .returning('id')
 }
 
 function getJobApplicant (apprenticeAppliedJobId, db = database) {
