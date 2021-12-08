@@ -38,7 +38,7 @@ export function fetchJobs (userID) {
     dispatch(fetchJobsPending())
     return getJobById(userID)
       .then((jobs) => {
-        console.log('jobs api', jobs)
+        // console.log('jobs api', jobs)
         dispatch(fetchJobsSuccess(jobs))
         return null
       })
@@ -50,7 +50,7 @@ export function fetchJobs (userID) {
 }
 
 export function addNewJob (newJob) {
-  console.log('add jobs', newJob)
+  // console.log('add jobs', newJob)
   return (dispatch) => {
     dispatch(addJobsPending())
     return addJob(newJob)

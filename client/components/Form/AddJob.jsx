@@ -37,7 +37,7 @@ export default function AddJob (props) {
     const newObj = {
       ...newJob,
       // jobCreatedDate: jobCreatedDate,
-      userID: userID
+      userId: userID
     }
     console.log(newObj)
     dispatch(addNewJob(newObj))
@@ -53,7 +53,7 @@ export default function AddJob (props) {
         <p>It’s amazing what you can’t do yourself</p>
       </div>
 
-      {job.jobTitle !== null
+      {job.jobTitle === null
         ? <section>
           <form >
             <div >

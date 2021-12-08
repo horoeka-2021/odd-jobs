@@ -14,6 +14,7 @@ export function getJobById (id) {
 
 // get job by Job ID
 export function getJobDetailById (id) {
+  console.log('api send', id)
   return request.get(`/api/v1/jobs/details/${id}`)
     .then((res) => res.body)
 }
@@ -22,7 +23,7 @@ export function getJobDetailById (id) {
 export function addJob (newJob) {
   console.log('api', newJob)
   return request.post('/api/v1/jobs/new')
-    .send({ newJob: newJob })
+    .send(newJob)
     .then((res) => {
       return res.body
     })

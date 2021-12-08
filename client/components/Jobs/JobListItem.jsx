@@ -36,56 +36,56 @@ function JobListItem ({ jobID }) {
         <div className=" text-s text-left w-full pt-5">
           <ul className="w-4/5 leading-snug text-justify joblist-head">
             <li className="text-s font-semibold">DATE: {jobCreatedDate}</li>
-            <li className="text-s font-semibold">STATUS:
-              <i className="fas fa-circle"></i>
-              {jobStatus}</li>
+            <li className="text-s font-semibold ">STATUS:
+              <i className="fas fa-circle">{jobStatus}</i>
+            </li>
           </ul>
           <div className="pt-5"></div>
-          <table className="joblist-data">
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Title:</td>
-              <td>{jobTitle}</td>
-            </tr>
+          <table>
+            <tbody>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Title:</td>
+                <td>{jobTitle}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Description:</td>
-              <td>{jobDescription}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Description:</td>
+                <td>{jobDescription}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Location:</td>
-              <td>{locationName}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Location:</td>
+                <td>{locationName}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Type of Service:</td>
-              <td>{serviceTypeName}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Type of Service:</td>
+                <td>{serviceTypeName}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Type of Payment:</td>
-              <td>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Type of Payment:</td>
+                <td>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Starts:</td>
-              <td>{jobExpectedStart}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Starts:</td>
+                <td>{jobExpectedStart}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Ends:</td>
-              <td>{jobExpectedEnd}</td>
-            </tr>
-
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Ends:</td>
+                <td>{jobExpectedEnd}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 
-        <div className="pt-5 joblist-buts">
-          <i className="fas fa-edit"></i>
-          <button className="p-1.5 capitalized
-         font-semibold edit-but">EDIT</button>
-          <i className="fas fa-trash-alt"></i>
-          <button className="p-1.5 capitalized font-semibold del-but">DELETE</button>
+        <div>
+          <i className="fas fa-edit"></i><button className="p-1.5 capitalized
+          text-indigo-600 font-semibold">EDIT</button>
+          <i className="fas fa-trash-alt"></i><button className="p-1.5 capitalized
+          text-indigo-600 font-semibold">DELETE</button>
         </div>
         {/* <p>{jobPaid == 0 ? Paid : Koha}</p> */}
       </div>
