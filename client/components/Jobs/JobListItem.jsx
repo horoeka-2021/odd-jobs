@@ -33,48 +33,51 @@ function JobListItem ({ jobID }) {
         <label htmlFor="my-drawer" className="mx-auto btn btn-primary drawer-button lg:hidden">
         </label>
 
-        <div className=" text-s text-left w-full">
-          <ul className="w-4/5 leading-snug text-justify">
-            <li className="text-s">DATE: {jobCreatedDate}</li>
-            <li className="text-s">STATUS: {jobStatus}</li>
+        <div className=" text-s text-left w-full pt-5">
+          <ul className="w-4/5 leading-snug text-justify joblist-head">
+            <li className="text-s font-semibold">DATE: {jobCreatedDate}</li>
+            <li className="text-s font-semibold ">STATUS:
+              <i className="fas fa-circle">{jobStatus}</i>
+            </li>
           </ul>
           <div className="pt-5"></div>
           <table>
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Title:</td>
-              <td>{jobTitle}</td>
-            </tr>
+            <tbody>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Title:</td>
+                <td>{jobTitle}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Description:</td>
-              <td>{jobDescription}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Description:</td>
+                <td>{jobDescription}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Location:</td>
-              <td>{locationName}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Location:</td>
+                <td>{locationName}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Type of Service:</td>
-              <td>{serviceTypeName}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Type of Service:</td>
+                <td>{serviceTypeName}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Type of Payment:</td>
-              <td>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Type of Payment:</td>
+                <td>{jobPaid === 0 ? 'Paid' : jobPaid === 1 ? 'Koha' : 'Not Specified'}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Starts:</td>
-              <td>{jobExpectedStart}</td>
-            </tr>
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Starts:</td>
+                <td>{jobExpectedStart}</td>
+              </tr>
 
-            <tr className="pb-3">
-              <td className="uppercase text-indigo-600 font-semibold">Job Ends:</td>
-              <td>{jobExpectedEnd}</td>
-            </tr>
-
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold">Job Ends:</td>
+                <td>{jobExpectedEnd}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 

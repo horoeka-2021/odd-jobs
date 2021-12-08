@@ -5,19 +5,24 @@ import { addNewJob } from '../../actions/jobs'
 const initial = {
   title: '',
   description: '',
-  serviceTypeId: '',
-  locationId: '2',
-  paid: ''
+  serviceTypeId: 1,
+  locationId: 2,
+  paid: 0,
+  expectedStart: '',
+  expectedEnd: ''
+
 }
 // waiting for backend to send location ID
 export default function AddJob (props) {
   const { userID } = props
   const [newJob, setNewJob] = useState(initial)
-  const dispatch = useDispatch()
-  const jobMessage = useSelector(state => state.jobs.message)
-  console.log('success messages - api', jobMessage)
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
-  const jobCreatedDate = new Date().toISOString().slice(0, 10)
+  const dispatch = useDispatch()
+  const job = useSelector(state => state.jobs)
+  console.log('FRONT_END - job return', job)
+
+  // const jobCreatedDate = new Date().toISOString().slice(0, 10)
 
   function handleChange (e) {
     const { name, value } = e.target
@@ -33,11 +38,13 @@ export default function AddJob (props) {
 
     const newObj = {
       ...newJob,
-      jobCreatedDate: jobCreatedDate,
-      userID: userID
+      // jobCreatedDate: jobCreatedDate,
+      userId: userID
     }
+    console.log(newObj)
     dispatch(addNewJob(newObj))
     setNewJob(initial)
+    setFormSubmitted(true)
   }
 
   return (
@@ -49,7 +56,7 @@ export default function AddJob (props) {
         <p>It’s amazing what you can’t do yourself</p>
       </div>
 
-      {typeof jobMessage === 'undefined'
+      {formSubmitted === false
         ? <section>
           <form >
             <div >
@@ -92,22 +99,24 @@ export default function AddJob (props) {
                 <label className="label">
                   <span className="label-text">Start Date: </span>
                 </label>
-                <input type='date' name='startDate' value={newJob.expectedStart} onChange={handleChange}/>
+
+                <input type='date' name='expectedStart' value={newJob.expectedStart} onChange={handleChange} className="input input-bordered w-3/4"/>
 
                 <label className="label">
                   <span className="label-text">End Date: </span>
                 </label>
-                <input type='date' name='endDate' vaule={newJob.expectedEnd} onChange={handleChange}/>
+
+                <input type='date' name='expectedEnd' vaule={newJob.expectedEnd} onChange={handleChange} className="input input-bordered w-3/4"/>
 
               </div>
 
               <div className="form-control inline-block mt-6">
                 <label className="cursor-pointer label ">
-                  <input type="radio" name='paid' value='0' className="radio mr-4" onChange={handleChange}/>
+                  <input type="radio" name='paid' value={0} className="radio mr-4" onChange={handleChange}/>
                   <span className="label-text ">Paid</span>
                 </label>
                 <label className="cursor-pointer label  ">
-                  <input type="radio" name='paid' value='1' className="radio mr-4" onChange={handleChange}/>
+                  <input type="radio" name='paid' value={1} className="radio mr-4" onChange={handleChange}/>
                   <span className="label-text ">Koha</span>
                 </label>
               </div>
