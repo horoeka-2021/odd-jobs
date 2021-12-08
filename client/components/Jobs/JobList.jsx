@@ -31,23 +31,23 @@ function Jobs (props) {
         <h1 className='text-lg font-mono medium text-blue-300'>No Job listed</h1> </div>
         : <div className="pb-8">
           <h1 className="mb-4">You have listed {jobList.length} jobs</h1>
-          <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-52">
+          <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-62">
             <span id="my-drawer-2"className="drawer-toggle" > </span>
 
-            <div className="drawer-side ">
+            <div className="drawer-side">
               {jobList.map((data, index) => (
 
-                <div key={data.jobsId} tabIndex={index} className="menu self-center p-4 m-4 w-80 bg-base-100 text-base-content ">
+                <div key={data.jobsId} tabIndex={index} className="menu self-center p-3 w-80  text-base-content">
                   {/* <div className="collapse-title text-m font-medium"> */}
 
-                  <button className="text-left" onClick={() => handleDetail(data.jobsId)}>{data.jobsTitle}</button>
+                  <button className="text-left text-xl" onClick={() => handleDetail(data.jobsId)}>{data.jobsTitle}</button>
 
                 </div>
 
               ))}
             </div>
 
-            <ul className="drawer-content">
+            <ul className="drawer-content ">
               { showDetail &&
         <li><JobListItem jobID={jobID}/></li>
               }
