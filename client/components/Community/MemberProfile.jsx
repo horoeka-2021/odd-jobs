@@ -20,23 +20,13 @@ function MemberProfile (props) {
 
   const dispatch = useDispatch()
 
-  // const [profile, setProfile] = useState([])
-
   useEffect(() => {
-    // console.log('member-useEffect', auth0Id)
     // check if the user has community member profile
     if (auth0Id !== '') {
       dispatch(fetchProfile(auth0Id, history))
     }
-    // if no profile returns ==> move to member creation page
-
-    // if there is member profile ==> get job list
-
     // setProfile(profile)
   }, [auth0Id])
-
-  // console.log('landing', state.user.auth0Id)
-  // console.log('member profiles', profiles)
 
   return (
     <>
