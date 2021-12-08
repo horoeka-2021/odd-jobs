@@ -13,11 +13,11 @@ const initial = {
   locationId: ''
 }
 
-export default function NewApprentice () {
+export default function NewApprentice() {
   const [newApprentice, setNewApprentice] = useState(initial)
   // const history = useHistory()
 
-  function handleChange (e) {
+  function handleChange(e) {
     const { name, value } = e.target
 
     setNewApprentice({
@@ -26,7 +26,7 @@ export default function NewApprentice () {
     })
   }
 
-  function handleAdd (e) {
+  function handleAdd(e) {
     e.preventDefault()
 
     // console.log(newApprentice)
@@ -40,8 +40,8 @@ export default function NewApprentice () {
     <>
       <div className="container mx-auto artboard artboard-demo w-11/12">
         <div className="grid grid-col-2 float-right w-4/5 p-8"></div>
-        <div className="newapprentice-head"><h1 className="text-3xl font-semibold">Become Apprentices Today!</h1></div>
-        <div className="newapprentice-text"><p>Work for, and learn from, an platforn to gain on job experiences</p></div>
+        <div className="newapprentice-head"><h1 className="text-3xl font-semibold"> Become an Apprentice Today!</h1></div>
+        <div className="newapprentice-text"><p>Apply for Odd Jobs and get your career up and running</p></div>
         <section className="w-3/5 pb-10 pt-10">
           <form >
             <div >
@@ -52,22 +52,22 @@ export default function NewApprentice () {
                   <span className="label-text">Name</span>
                 </label>
                 <input type='text' name="name" value={newApprentice.name} onChange={handleChange}
-                  placeholder="name" className="input input-bordered"/>
+                  placeholder="name" className="input input-bordered" />
               </div>
 
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type='email'name="email" value={newApprentice.email} onChange={handleChange}
-                  placeholder="email" className="input input-bordered"/>
+                <input type='email' name="email" value={newApprentice.email} onChange={handleChange}
+                  placeholder="email" className="input input-bordered" />
               </div>
 
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Phone</span>
                 </label>
-                <input type= 'text' name="phone" value={newApprentice.phone} onChange={handleChange}
+                <input type='text' name="phone" value={newApprentice.phone} onChange={handleChange}
                   placeholder="phone" className="input input-bordered" />
               </div>
 
@@ -76,7 +76,7 @@ export default function NewApprentice () {
                 <label className="label">
                   <span className="label-text">Gender</span>
                 </label>
-                <input type='text'name="gender" value={newApprentice.gender} onChange={handleChange}
+                <input type='text' name="gender" value={newApprentice.gender} onChange={handleChange}
                   placeholder="gender" className="input input-bordered" />
               </div>
 
@@ -164,7 +164,7 @@ export default function NewApprentice () {
               <button className="inline-block px-4 py-3 text-sm
           font-semibold text-center text-white uppercase transition duration-200 ease-in-out
          bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600"onClick={handleAdd}>
-             Submit</button>
+                Submit</button>
             </div>
 
           </form>

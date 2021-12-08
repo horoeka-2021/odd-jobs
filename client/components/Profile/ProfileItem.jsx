@@ -1,17 +1,18 @@
 import React from 'react'
 
-function ProfileItem (props) {
+function ProfileItem(props) {
   const { id, name, email, phone, birthDate: birthday, genderId: gender } = props.data
 
   const genderList = { 1: 'Male', 2: 'Female', 3: 'Not Specified' }
 
   return (
     <div className="grid grid-cols-2 px-6 gap-8 gap-y-2.5 leading-loose">
-      <div className="mt-2">
+      <div className="">
         <div className="avatar placeholder">
-          <div className="bg-indigo-600 rounded-btn w-24 h-24">
+          {/* <div className="bg-indigo-600 rounded-btn w-24 h-24">
             <span className="text-white text-xl">{name.charAt(0)}</span>
-          </div>
+          </div> */}
+          <span className='text-8xl text-indigo-600 '> <i className="fas fa-user-circle"></i></span>
         </div>
       </div>
 
