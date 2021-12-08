@@ -17,7 +17,7 @@
     "test-no-watch": "jest",
     "lint": "eslint . --ext .js,.jsx .",
     "heroku-postbuild": "npm run build-knex-clear && npm run build-knex && npm run build-webpack",
-    "build-knex-clear": "npm run knex-server -- migrate:rollback",
+    "build-knex-clear": "npm run knex-server -- migrate:down",
     "build-knex": "npm run knex-server -- migrate:latest",
     "build-webpack": "webpack --config client/webpack.prod.js --mode=production",
     "heroku-cleanup": "npm run knex-server -- seed:run",
