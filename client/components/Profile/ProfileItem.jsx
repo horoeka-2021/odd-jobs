@@ -6,12 +6,13 @@ function ProfileItem (props) {
   const genderList = { 1: 'Male', 2: 'Female', 3: 'Not Specified' }
 
   return (
-    <div className="grid grid-cols-2 px-6 gap-8 gap-y-2.5 leading-loose">
+    <div className="grid grid-cols-2 px-6 gap-6 gap-y-2.5 leading-loose">
       <div className="">
         <div className="avatar placeholder">
-          <div className="bg-indigo-600 rounded-btn w-24 h-24">
+          {/* <div className="bg-indigo-600 rounded-btn w-24 h-24">
             <span className="text-white text-xl">{name.charAt(0)}</span>
-          </div>
+          </div> */}
+          <span className='text-8xl text-indigo-600 '> <i className="fas fa-user-circle"></i></span>
         </div>
       </div>
 
