@@ -19,7 +19,7 @@ function Nav () {
   }
 
   return (
-    <div className="flex justify-center ml-auto mr-auto max-w-screen-2xl">
+    <div className="flex justify-center mt-4 mx-auto max-w-screen-2xl">
       <div className="navbar mb-2 bg-white text-neutral-content min-w-full">
         <div className="flex justify-space-between w-full">
           <div className="px-15">

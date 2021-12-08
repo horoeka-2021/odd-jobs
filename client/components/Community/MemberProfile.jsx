@@ -42,7 +42,7 @@ function MemberProfile (props) {
         <div className="pr-12 bg-white float-left w-11/12 pt-5">
           <ul className="menu items-stretch horizontal">
             <li className="bordered">
-              <Link className="font-sans" to={`${url}`}>INFO</Link>
+              <Link className="font-sans" to={`${url}`}>INFO HUB</Link>
             </li>
             <li className="bordered">
               <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>

@@ -38,7 +38,7 @@ export default function NewApprentice () {
   return (
 
     <>
-      <div className="container mx-auto artboard artboard-demo w-11/12">
+      <div className="container mx-auto artboard artboard-demo w-11/12 mb-20">
         <div className="grid grid-col-2 float-right w-4/5 p-8"></div>
         <div className="newapprentice-head"><h1 className="text-3xl font-semibold">Become Apprentices Today!</h1></div>
         <div className="newapprentice-text"><p>Work for, and learn from, an platforn to gain on job experiences</p></div>
