@@ -25,6 +25,7 @@ export function fetchExamples () {
     try {
       dispatch(fetchExamplePending())
       const examples = await getExamples()
+      // eslint-disable-next-line no-console
       console.log('from server', examples)
       dispatch(fetchExampleSuccess(examples))
     } catch (error) {

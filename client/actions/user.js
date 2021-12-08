@@ -31,6 +31,7 @@ export async function cacheUser (useAuth0, state) {
       }
       store.dispatch(setUser(userToSave))
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.error(err)
     }
   }

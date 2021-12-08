@@ -111,13 +111,7 @@ function getMemberByUserId (userId, db = database) {
 function addNewMember (newMember, locationId, db = database) {
   return db('users')
     .insert(newMember)
-    // .returning({
-    //   name: newMember.name,
-    //   email: newMember.email,
-    //   phone: newMember.phone,
-    //   birth_date: newMember.birth_date,
-    //   gender_id: newMember.gender_id
-    // })
+    .returning('id')
     .then((ids) => {
       return db('member_profiles')
         .insert({ user_id: ids[0], location_id: locationId })
@@ -140,6 +134,9 @@ function updateMember (user, db = database) {
       return db('member_profiles')
         .update({ location_id: user.location_id })
         .where('user_id', user.user_id)
+    })
+    .then(() => {
+      return getMemberByUserId(user.user_id)
     })
 }
 
@@ -180,22 +177,12 @@ function getJobDetails (jobId, db = database) {
 function addJobListing (job, db = database) {
   return db('jobs')
     .insert(job)
-    // .returning({
-    //   id: job.id,
-    //   title: job.title,
-    //   description: job.description,
-    //   paid: job.paid,
-    //   expected_start: job.expected_start,
-    //   expected_end: job.expected_end,
-    //   actual_start: job.actual_start,
-    //   actual_end: job.actual_end,
-    //   created_date: job.created_date,
-    //   status: job.status,
-    //   created_member_id: job.created_member_id,
-    //   location_id: job.location_id,
-    //   service_type_id: job.service_type_id
-    // })
-    .then((ids) => getJobDetails(ids[0], db))
+    .returning('id')
+    .then((ids) => {
+      // console.log('ids', ids)
+      // console.log('typeof ids', typeof ids)
+      return getJobDetails(ids[0], db)
+    })
 }
 
 function updateJobListing (job, db = database) {
@@ -220,6 +207,7 @@ function deleteJobListingById (jobId, db = database) {
   return db('jobs')
     .where('id', jobId)
     .del()
+    .returning('id')
 }
 
 function getJobApplicant (apprenticeAppliedJobId, db = database) {
@@ -227,10 +215,6 @@ function getJobApplicant (apprenticeAppliedJobId, db = database) {
     .join('users', 'users.id', 'apprentice_applied_job.user_id')
     .join('jobs', 'jobs.id', 'apprentice_applied_job.job_id')
     .join('gender', 'gender.id', 'users.gender_id')
-    // .join('apprentice_service_types', 'id', 'apprentice_service_types.user_id'),
-    // .join('apprentice_locations', 'id', 'user.')
-  // , 'apprentice_locations.user_id',
-  // 'experience_rating_id', 'experience_rating_id.user_id'
     .select(
       'apprentice_applied_job.id as id',
       'users.id as usersId',
@@ -240,11 +224,6 @@ function getJobApplicant (apprenticeAppliedJobId, db = database) {
       'users.phone as usersPhone',
       'users.birth_date as usersBirthDate',
       'gender.name as gender',
-      // 'apprentice_locations.locations_id as apprenticeLocationsId',
-      // 'apprentice_service_types.service_types_id as apprenticeServiceTypesId',
-      // 'experience_rating_id.rating as experienceRating',
-      // 'apprentice_applied_jobs.id as apprenticeAppliedJobsId',
-      // 'apprentice_applied_jobs.status as apprenticeAppliedStatus'
       'jobs.status as jobStatus',
       'apprentice_applied_job.status as applicationStatus'
     )

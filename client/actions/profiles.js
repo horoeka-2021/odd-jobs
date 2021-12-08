@@ -47,6 +47,7 @@ export function fetchProfile (auth0Id, history) {
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        // eslint-disable-next-line no-console
         console.error(errMessage)
       })
   }
@@ -65,6 +66,7 @@ export function addMember (newMember, history) {
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        // eslint-disable-next-line no-console
         console.error(errMessage)
       })
   }
