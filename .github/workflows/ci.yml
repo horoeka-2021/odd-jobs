@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the dev branch
   push:
-    branches: [ dev, prod, devops-91-cd ]
+    branches: [ dev, prod ]
   pull_request:
     branches: [ dev, prod ]
 
@@ -48,9 +48,9 @@ jobs:
         run: npm ci
         
       - name: Linting
-        # run: "npm run lint -- --rule 'no-console: 2'"
+        run: "npm run lint -- --rule 'no-console: 2'"
         # run: "npm run lint -- --quiet"
-        run: "npm run lint"
+        # run: "npm run lint"
         
       - name: Test
         run: npm run test-no-watch
@@ -59,7 +59,7 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     # this prevents deployment for pull requests and works only for push in dev
-    if: ${{ github.ref == 'refs/heads/devops-91-cd' }} # this should be dev
+    if: ${{ github.ref == 'refs/heads/dev' }} # this should be dev
     needs: build
     # Each environment can have different evn vars which includes different Auth0 secrets 
     # Those secrets can be different than the repository secrets
