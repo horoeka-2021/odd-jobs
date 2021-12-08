@@ -5,7 +5,7 @@ function WelcomeProfile ({ data }) {
   return (
     <div className="pb-10">
       <div className="container mx-auto">
-        <h1 className="text-3xl font-bold text-center">Welcome back {data.name}</h1>
+        <h1 className="text-3xl font-bold text-center mb-3">Welcome back <span className='text-neutral font-bold text-5xl'>{data.name}!</span></h1>
         <h2 className="text-2xl font-semibold text-center">The best place for people and businesses
         to outsource tasks
         </h2>
