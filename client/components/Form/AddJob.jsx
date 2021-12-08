@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addNewJob } from '../../actions/jobs'
 
 const initial = {
@@ -19,9 +19,9 @@ export default function AddJob (props) {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const dispatch = useDispatch()
-  const job = useSelector(state => state.jobs)
-  // eslint-disable-next-line: no-console
-  console.log('FRONT_END - job return', job)
+  // const job = useSelector(state => state.jobs)
+
+  // console.log('FRONT_END - job return', job)
 
   // const jobCreatedDate = new Date().toISOString().slice(0, 10)
 
