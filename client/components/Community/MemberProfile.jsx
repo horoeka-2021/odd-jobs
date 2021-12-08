@@ -25,13 +25,15 @@ function MemberProfile (props) {
   useEffect(() => {
     // console.log('member-useEffect', auth0Id)
     // check if the user has community member profile
-    dispatch(fetchProfile(auth0Id, history))
+    if (auth0Id !== '') {
+      dispatch(fetchProfile(auth0Id, history))
+    }
     // if no profile returns ==> move to member creation page
 
     // if there is member profile ==> get job list
 
     // setProfile(profile)
-  }, [])
+  }, [auth0Id])
 
   // console.log('landing', state.user.auth0Id)
   // console.log('member profiles', profiles)
