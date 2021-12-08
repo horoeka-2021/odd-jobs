@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function WelcomeProfile ({ data }) {
   return (
-    <div className="pb-10">
+    <div className="margin-bot pb-10">
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold text-center mb-3">Welcome back <span className='text-neutral font-bold text-5xl'>{data.name}!</span></h1>
         <h2 className="text-2xl font-semibold text-center">The best place for people and businesses
@@ -12,7 +12,7 @@ function WelcomeProfile ({ data }) {
         <br></br>
         <p className="text-center leading-loose">Want your home cleaned or furniture put together?</p>
         <p className="text-center leading-loose">Just tell us about the task you’d like done,
-      suggest a fair budget for a job well</p>
+          suggest a fair budget for a job well</p>
         <p className="text-center leading-loose p-3">done and you’ll start to receive offers from available Taskers.
         </p>
 

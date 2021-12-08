@@ -7,7 +7,7 @@ function ProfileItem (props) {
 
   return (
     <div className="grid grid-cols-2 px-6 gap-8 gap-y-2.5 leading-loose">
-      <div className="">
+      <div className="mt-2">
         <div className="avatar placeholder">
           <div className="bg-indigo-600 rounded-btn w-24 h-24">
             <span className="text-white text-xl">{name.charAt(0)}</span>
@@ -26,7 +26,7 @@ function ProfileItem (props) {
         <p>Email:</p>
       </div>
 
-      <div className="" key={id}>
+      <div className="mb-16" key={id}>
         <p>{name}</p>
         <p>{birthday}</p>
         <p>{genderList[gender]}</p>

@@ -38,7 +38,7 @@ function MemberProfile (props) {
 
   return (
     <>
-      <div className="container mx-auto artboard artboard-demo">
+      <div className="container mx-auto pb-20 mb-52 mt-12 artboard artboard-demo">
         <div className="pr-12 bg-white float-left w-11/12 pt-5">
           <ul className="menu items-stretch horizontal">
             <li className="bordered">
