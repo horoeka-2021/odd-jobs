@@ -34,7 +34,7 @@ function MemberProfile (props) {
   }, [])
 
   // console.log('landing', state.user.auth0Id)
-  // console.log('member profiles', profiles)
+  console.log('member profiles', profiles)
 
   return (
     <>
