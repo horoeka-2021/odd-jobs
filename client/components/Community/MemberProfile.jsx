@@ -15,7 +15,6 @@ function MemberProfile (props) {
   const { path, url } = useRouteMatch()
   const state = useSelector(state => state)
   const profiles = state.profiles
-  const jobs = state.jobs
 
   const auth0Id = state.user.auth0Id
 
@@ -24,7 +23,7 @@ function MemberProfile (props) {
   // const [profile, setProfile] = useState([])
 
   useEffect(() => {
-    console.log('member-useEffect', auth0Id)
+    // console.log('member-useEffect', auth0Id)
     // check if the user has community member profile
     dispatch(fetchProfile(auth0Id, history))
     // if no profile returns ==> move to member creation page
@@ -35,7 +34,7 @@ function MemberProfile (props) {
   }, [])
 
   // console.log('landing', state.user.auth0Id)
-  console.log('member profiles', profiles)
+  // console.log('member profiles', profiles)
 
   return (
     <>
@@ -68,7 +67,7 @@ function MemberProfile (props) {
             <WelcomeProfile data={profiles}/>
           </Route>
           <Route path={`${path}/joblist`} >
-            <JobList jobs={jobs} userID={profiles.id}/>
+            <JobList userID={profiles.id}/>
           </Route>
           <Route path={'/member/myprofile'}>
             <ProfileItem data={profiles}/>
