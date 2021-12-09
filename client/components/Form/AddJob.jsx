@@ -47,8 +47,7 @@ export default function AddJob (props) {
 
       <div>
         <h2 className="text-2xl font-semibold">Add New Job</h2>
-        <p>New Zealand&#39;s leading odd jobs platform for local community</p>
-        <p>It’s amazing what you can’t do yourself</p>
+        <p className="mb-20">New Zealand&#39;s leading odd jobs platform for local community</p>
       </div>
 
       {formSubmitted === false
@@ -60,7 +59,7 @@ export default function AddJob (props) {
                   <span className="label-text">Job Title</span>
                 </label>
                 <input name='title' value={newJob.title} onChange={handleChange}
-                  className="input input-bordered w-3/4"/>
+                  className="input input-bordered w-3/4" />
               </div>
 
               <div className="form-control">
@@ -95,23 +94,23 @@ export default function AddJob (props) {
                   <span className="label-text">Start Date: </span>
                 </label>
 
-                <input type='date' name='expectedStart' value={newJob.expectedStart} onChange={handleChange} className="input input-bordered w-3/4"/>
+                <input type='date' name='expectedStart' value={newJob.expectedStart} onChange={handleChange} className="input input-bordered w-3/4" />
 
                 <label className="label">
                   <span className="label-text">End Date: </span>
                 </label>
 
-                <input type='date' name='expectedEnd' vaule={newJob.expectedEnd} onChange={handleChange} className="input input-bordered w-3/4"/>
+                <input type='date' name='expectedEnd' vaule={newJob.expectedEnd} onChange={handleChange} className="input input-bordered w-3/4" />
 
               </div>
 
               <div className="form-control inline-block mt-6">
                 <label className="cursor-pointer label ">
-                  <input type="radio" name='paid' value={0} className="radio mr-4" onChange={handleChange}/>
+                  <input type="radio" name='paid' value={0} className="radio mr-4" onChange={handleChange} />
                   <span className="label-text ">Paid</span>
                 </label>
                 <label className="cursor-pointer label  ">
-                  <input type="radio" name='paid' value={1} className="radio mr-4" onChange={handleChange}/>
+                  <input type="radio" name='paid' value={1} className="radio mr-4" onChange={handleChange} />
                   <span className="label-text ">Koha</span>
                 </label>
               </div>
@@ -128,8 +127,8 @@ export default function AddJob (props) {
           </form>
         </section>
 
-        : <div className="m-14">
-          <h1 className='text-xl font-mono medium text-green-400'>Job Posted Successfully!</h1> </div> }
+        : <div className="mb-80">
+          <h1 className='text-xl font-mono medium text-green-400'>Job Posted Successfully!</h1> </div>}
 
     </>
   )

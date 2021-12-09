@@ -20,23 +20,25 @@ function App () {
   cacheUser(useAuth0) // this is not triggered
 
   return (
-    <Router>
-      <Route path='/' component={Nav} />
-      <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
-      <Route path='/ourstorys' component={OurStorys} />
-      <Route exact path='/apprentices' component={ApprenticeProfile} />
-      <Route path='/member' render={({ history }) => {
-        return <MemberProfile history={history}>
-          <WaitIndicator />
-        </MemberProfile>
-      }} />
-      <Route exact path='/signup' >
-        <Signup />
-      </Route>
-      <Route path='/apprentice/new' component={NewApprentice} />
-      <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
-      <Footer />
-    </Router>
+    <div maxWidth="980px">
+      <Router>
+        <Route path='/' component={Nav} />
+        <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
+        <Route path='/ourstorys' component={OurStorys} />
+        <Route exact path='/apprentices' component={ApprenticeProfile} />
+        <Route path='/member' render={({ history }) => {
+          return <MemberProfile history={history}>
+            <WaitIndicator />
+          </MemberProfile>
+        }} />
+        <Route exact path='/signup' >
+          <Signup />
+        </Route>
+        <Route path='/apprentice/new' component={NewApprentice} />
+        <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
+        <Footer />
+      </Router>
+    </div>
   )
 }
 
