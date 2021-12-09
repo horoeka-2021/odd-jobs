@@ -41,10 +41,10 @@ export default function NewMember (props) {
   return (
 
     <>
-      <div className="container mx-auto artboard artboard-demo w-11/12">
+      <div className="container mx-auto artboard artboard-demo w-11/12 mb-20 mt-12">
         <div className="grid grid-col-2 float-right w-4/5 p-8"></div>
-        <div className="newmember-head"><h1 className="text-3xl font-semibold">Become Community Member Today!</h1></div>
-        <div className="newmember-text"><p>The best place for people and businesses to outsource tasks</p></div>
+        <div className="newmember-head"><h1 className="text-3xl font-semibold">Join the OddJobs Community!</h1></div>
+        <div className="newmember-text"><p>Register now and post your oddJob today.</p></div>
 
         <section className="w-3/5 pt-10">
           <form onSubmit={handleSubmit}>

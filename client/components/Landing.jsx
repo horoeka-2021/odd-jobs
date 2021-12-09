@@ -22,52 +22,53 @@ function Landing (props) {
   }
 
   return (
+    <div className="flex justify-content-center mb-72 mt-24 ml-auto mr-auto max-w-screen-2xl">
 
-    <div className="flex mb-4">
-      <div className="w-5/12 pl-10 pr-10 pt-10 mx-20">
-        <h2 className="text-5xl font-weight: 700 font-bold tracking-wider">E tautoko ana tātou</h2>
-        <h2 className="text-5xl font-weight: 700 font-bold tracking-wider">i te Roopū Odd Jobs!</h2>
-        <p className="text-justify leading-tight w-11/12 pt-3 tracking-wide">
+      <div className="flex">
+        <div className="w-5/12 pl-10 pr-10 pt-10 mx-20">
+          <h2 className="text-5xl font-weight: 700 font-bold tracking-wider">E tautoko ana tātou</h2>
+          <h2 className="text-5xl font-weight: 700 font-bold tracking-wider">i te Roopū Odd Jobs!</h2>
+          <p className="text-justify leading-tight w-11/12 pt-3 tracking-wide">
         We stand by an ethos of building whanau who help fresh local talent gain skills and experience
         through koha and gifting.Odd Jobs will link you to local juniors and up and coming skilled
         workers within the trade and service fields.
 
-        </p>
-        <div className="w-full grid grid-cols-2 gap-1 pt-10 pb-8">
-          <div className="w-11/12">
-            <h3 className="text-xl font-weight: 700 font-bold">APPRENTICE</h3>
-            <p className="leading-tight">Current Apprentice or Junior in your field?</p>
+          </p>
+          <div className="w-full grid grid-cols-2 gap-1 pt-10 pb-8">
+            <div className="w-11/12">
+              <h3 className="text-xl font-weight: 700 font-bold">APPRENTICE</h3>
+              <p className="leading-tight">Current Apprentice or Junior in your field?</p>
 
-          </div>
-
-          <div className="mr-8">
-            <h3 className="text-xl font-weight: 700 font-bold">COMMUNITY MEMBER</h3>
-            <p className="leading-tight">Have an odd job you need help with?</p>
-          </div>
-
-          <div className="flex items-baseline pt-5">
-            <Link to='/apprentice/new'>
-              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
-            </Link>
-          </div>
-          <IfNotAuthenticated>
-            <div className="flex items-baseline pt-5">
-              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>GET STARTED</button>
             </div>
-          </IfNotAuthenticated>
-          <IfAuthenticated>
-            <div className="flex items-baseline pt-5">
-              <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>PROFILE</button>
-            </div>
-          </IfAuthenticated>
 
+            <div className="mr-8">
+              <h3 className="text-xl font-weight: 700 font-bold">COMMUNITY MEMBER</h3>
+              <p className="leading-tight">Have an odd job you need help with?</p>
+            </div>
+
+            <div className="flex items-baseline pt-5">
+              <Link to='/apprentice/new'>
+                <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600">GET STARTED</button>
+              </Link>
+            </div>
+            <IfNotAuthenticated>
+              <div className="flex items-baseline pt-5">
+                <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>GET STARTED</button>
+              </div>
+            </IfNotAuthenticated>
+            <IfAuthenticated>
+              <div className="flex items-baseline pt-5">
+                <button className="inline-block px-4 py-3 text-sm font-semibold text-center text-white uppercase transition duration-200 ease-in-out bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600" onClick={handleMember}>PROFILE</button>
+              </div>
+            </IfAuthenticated>
+
+          </div>
+        </div>
+        <div className="mx-10 flex flex-col justify-end items-end">
+          <img className="construct-image" src="../img/construction.gif" />
         </div>
       </div>
-      <div className="mx-10 flex flex-col justify-end items-end">
-        <img className="construct-image" src="../img/construction.gif" />
-      </div>
     </div>
-
   )
 }
 
