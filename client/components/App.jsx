@@ -16,27 +16,28 @@ import { cacheUser } from '../actions/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
-  // console.log('cacheUser')
-  cacheUser(useAuth0) // this is not triggered
+  cacheUser(useAuth0)
 
   return (
-    <Router>
-      <Route path='/' component={Nav} />
-      <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
-      <Route path='/ourstorys' component={OurStorys} />
-      <Route exact path='/apprentices' component={ApprenticeProfile} />
-      <Route path='/member' render={({ history }) => {
-        return <MemberProfile history={history}>
-          <WaitIndicator />
-        </MemberProfile>
-      }} />
-      <Route exact path='/signup' >
-        <Signup />
-      </Route>
-      <Route path='/apprentice/new' component={NewApprentice} />
-      <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
-      <Footer />
-    </Router>
+    <div maxWidth="980px">
+      <Router>
+        <Route path='/' component={Nav} />
+        <Route path='/' exact render={({ history }) => <Landing history={history}/>}/>
+        <Route path='/ourstorys' component={OurStorys} />
+        <Route exact path='/apprentices' component={ApprenticeProfile} />
+        <Route path='/member' render={({ history }) => {
+          return <MemberProfile history={history}>
+            <WaitIndicator />
+          </MemberProfile>
+        }} />
+        <Route exact path='/signup' >
+          <Signup />
+        </Route>
+        <Route path='/apprentice/new' component={NewApprentice} />
+        <Route path='/members/new' render={({ history }) => <NewMember history={history}/>} />
+        <Footer />
+      </Router>
+    </div>
   )
 }
 

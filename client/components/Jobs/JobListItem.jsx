@@ -9,7 +9,6 @@ function JobListItem ({ jobID }) {
   useEffect(() => {
     getJobDetailById(jobID)
       .then(data => {
-        // console.log('api', data)
         setJobDetail(data)
         setApplicant(data.applicants[0] ?? {})
 
@@ -35,12 +34,9 @@ function JobListItem ({ jobID }) {
         </label>
 
         <div className=" text-s text-left w-full pt-5">
-          <ul className="w-4/5 leading-snug text-justify joblist-head">
-            <li className="text-s font-semibold">DATE: <span className="text-gray-400">{jobCreatedDate}</span></li>
-            <li className="text-s font-semibold ">STATUS:
-              <i className="fas fa-circle"></i><span className="text-gray-400">{jobStatus}</span>
-            </li>
-          </ul>
+
+          <h1><span style={{ fontSize: '32px' }}>JOB DETAILS</span></h1> <br />
+
           <div className="pt-5"></div>
           <table >
             <tbody >
@@ -78,6 +74,16 @@ function JobListItem ({ jobID }) {
                 <td className="uppercase text-indigo-600 font-semibold pb-3 px-3">Job Ends:</td>
                 <td>{jobExpectedEnd}</td>
               </tr>
+
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold pb-3 px-3">Date Created:</td>
+                <td>{jobCreatedDate}</td>
+              </tr>
+
+              <tr className="pb-3">
+                <td className="uppercase text-indigo-600 font-semibold pb-3 px-3">Job Status:</td>
+                <td>{jobStatus}</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -96,6 +102,7 @@ function JobListItem ({ jobID }) {
         </label>
 
         <div className=" text-s text-left w-full pt-5">
+          <h1><span style={{ fontSize: '32px' }}>APPLICATIONS</span></h1> <br />
           <ul className="w-4/5 leading-snug text-justify joblist-head">
             <li className="text-s font-semibold mb-3">Applicant ID: <span className='text-green-500'>{applicant.id ?? 'None'} </span></li>
             <li className="text-s font-semibold mb-3">Applicant: <span className='text-green-500'>{applicant.usersName ?? '-'} </span></li>

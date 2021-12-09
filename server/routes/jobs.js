@@ -9,7 +9,6 @@ router.get('/:userId', async (req, res) => {
   const userId = req.params.userId
   try {
     const jobs = await db.getMemberJobsList(userId)
-    // console.log(`list of jobs: ${JSON.stringify(jobs)}`)
     res.status(200)
     res.json(jobs)
   } catch (error) {
@@ -28,7 +27,6 @@ router.get('/:apprenticeAppliedJobId/:apprenticeId/apprenticeAppliedJob', async 
   try {
     // get applicant info
     const applicantInfo = await db.getJobApplicant(apprenticeAppliedJobId)
-    // console.log(`applicantDetails: ${applicantInfo}`)
     // get applicant's location array
     const locations = await db.getApprenticeLocations(apprenticeId)
     applicantInfo.locations = locations
@@ -50,9 +48,7 @@ router.get('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
   try {
     const jobDetails = await db.getJobDetails(jobId)
-    // console.log(`jobDetails: ${jobDetails}`)
     const applicants = await db.getJobApplicantList(jobId)
-    // console.log(`applicants: ${JSON.stringify(applicants)}`)
     jobDetails.applicants = applicants
     res.status(200)
     res.json(jobDetails)
@@ -69,7 +65,6 @@ router.delete('/details/:jobId', async (req, res) => {
   const jobId = req.params.jobId
   try {
     const ids = await db.deleteJobListingById(jobId)
-    // console.log('deletedJobListing: ', deletedJobListing)
     res.status(200)
     res.json({ message: `Job ${ids[0]} successfully deleted` })
   } catch (error) {
@@ -136,7 +131,6 @@ router.post('/edit/:jobId', async (req, res) => {
   }
   try {
     const updatedJobListing = await db.updateJobListing(req.params.jobId, jobListing)
-    // console.log('updatedJobListing: ', updatedJobListing)
     res.status(201)
     res.json({ message: `Job ${updatedJobListing.id} successfully updated` })
   } catch (error) {

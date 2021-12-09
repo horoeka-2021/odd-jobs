@@ -12,7 +12,7 @@ function Signup () {
   //   }
 
   return (
-    <div className="container mx-auto artboard artboard-demo">
+    <div className="container mx-auto artboard artboard-demo mt-32 mb-56">
 
       <section className="w-3/5 p-16" >
         <form >

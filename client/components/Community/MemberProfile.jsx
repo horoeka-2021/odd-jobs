@@ -20,31 +20,19 @@ function MemberProfile (props) {
 
   const dispatch = useDispatch()
 
-  // const [profile, setProfile] = useState([])
-
   useEffect(() => {
-    // console.log('member-useEffect', auth0Id)
-    // check if the user has community member profile
     if (auth0Id !== '') {
       dispatch(fetchProfile(auth0Id, history))
     }
-    // if no profile returns ==> move to member creation page
-
-    // if there is member profile ==> get job list
-
-    // setProfile(profile)
   }, [auth0Id])
-
-  // console.log('landing', state.user.auth0Id)
-  // console.log('member profiles', profiles)
 
   return (
     <>
-      <div className="container mx-auto artboard artboard-demo">
+      <div className="container mx-auto pb-20 mb-52 mt-12 artboard artboard-demo">
         <div className="pr-12 bg-white float-left w-11/12 pt-5">
           <ul className="menu items-stretch horizontal">
             <li className="bordered">
-              <Link className="font-sans" to={`${url}`}>INFO</Link>
+              <Link className="font-sans" to={`${url}`}>INFO HUB</Link>
             </li>
             <li className="bordered">
               <Link className="font-sans" to={`${url}/myprofile`}>MY PROFILE</Link>

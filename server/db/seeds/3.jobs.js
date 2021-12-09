@@ -6,8 +6,8 @@ exports.seed = function (knex) {
       return knex('jobs').insert([
         {
           id: 1,
-          title: 'Build me a website',
-          description: 'I need a website built for my business, just a simple one that allows for login/register, and view a few items.',
+          title: 'Repair my old outdoor furniture',
+          description: 'Two deck chairs with wooden legs are damaged and a small side table needs to be looked at',
           service_type_id: 8,
           paid: true,
           created_member_id: 1,
@@ -18,7 +18,7 @@ exports.seed = function (knex) {
           created_date: '2016-01-01',
           updated_date: '2016-01-01',
           deleted_date: null,
-          location_id: 1,
+          location_id: 2,
           status: 'open'
         },
         {
@@ -27,7 +27,7 @@ exports.seed = function (knex) {
           description: 'I need a car battery fixed',
           service_type_id: 9,
           paid: true,
-          created_member_id: 3,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: null,
@@ -35,7 +35,7 @@ exports.seed = function (knex) {
           created_date: '2017-03-01',
           updated_date: '2017-03-01',
           deleted_date: null,
-          location_id: 4,
+          location_id: 2,
           status: 'pending'
         },
         {
@@ -44,7 +44,7 @@ exports.seed = function (knex) {
           description: 'I am looking for a tutor for javascript as I am a beginner developer and self-learning so would love to have a tutor for few hours a week',
           service_type_id: 10,
           paid: true,
-          created_member_id: 3,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: null,
@@ -52,7 +52,7 @@ exports.seed = function (knex) {
           created_date: '2016-01-01',
           updated_date: '2016-01-01',
           deleted_date: null,
-          location_id: 5,
+          location_id: 2,
           status: 'open'
         },
         {
@@ -61,7 +61,7 @@ exports.seed = function (knex) {
           description: 'Overgrown hedges around the garden need to be maintained, just a quick tidy up as they are overgrowing and need to be trimmed',
           service_type_id: 7,
           paid: false,
-          created_member_id: 3,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: null,
@@ -78,7 +78,7 @@ exports.seed = function (knex) {
           description: 'Both taps in the kitchen need fixing, I am not sure if they are leaking or not',
           service_type_id: 1,
           paid: false,
-          created_member_id: 3,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: null,
@@ -86,7 +86,7 @@ exports.seed = function (knex) {
           created_date: '2016-01-01',
           updated_date: '2016-01-01',
           deleted_date: null,
-          location_id: 5,
+          location_id: 2,
           status: 'open'
         },
         {
@@ -103,7 +103,7 @@ exports.seed = function (knex) {
           created_date: '2016-02-13',
           updated_date: '2016-02-14',
           deleted_date: null,
-          location_id: 4,
+          location_id: 2,
           status: 'assigned'
         },
         {
@@ -120,7 +120,7 @@ exports.seed = function (knex) {
           created_date: '2016-01-01',
           updated_date: '2016-01-01',
           deleted_date: null,
-          location_id: 3,
+          location_id: 2,
           status: 'open'
         },
         {
@@ -146,7 +146,7 @@ exports.seed = function (knex) {
           description: 'Two ceiling lights in the kitchen are not working. No idea why as bulbs are new',
           service_type_id: 2,
           paid: true,
-          created_member_id: 2,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: null,
@@ -163,7 +163,7 @@ exports.seed = function (knex) {
           description: 'Air con in the car is not working. Has been recently repaired but seems to be broken again',
           service_type_id: 9,
           paid: true,
-          created_member_id: 2,
+          created_member_id: 1,
           expected_start: '2017-01-01',
           expected_end: '2017-01-02',
           actual_start: null,

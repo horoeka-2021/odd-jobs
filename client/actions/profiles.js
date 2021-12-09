@@ -1,4 +1,5 @@
 import { getProfile, addProfile } from '../api/profiles'
+import { showError } from './error'
 
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING'
 export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS'
@@ -36,17 +37,20 @@ export function fetchProfile (auth0Id, history) {
     dispatch(fetchProfilePending())
     return getProfile(auth0Id)
       .then((profile) => {
-        // console.log('fetchProfile - profile', profile)
         dispatch(fetchProfileSuccess(profile))
-        if (typeof profile.id === 'undefined') {
+        // check if the user has community member profile
+        if (profile?.id === undefined) {
+          // if no profile returns ==> move to member creation page
           history.push('/members/new')
         } else {
+          // if there is member profile ==> member default
           history.push('/member')
         }
         return null
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        dispatch(showError(errMessage))
         // eslint-disable-next-line no-console
         console.error(errMessage)
       })
@@ -59,13 +63,13 @@ export function addMember (newMember, history) {
     // API post order to server
     return addProfile(newMember)
       .then((member) => {
-        // console.log('ADD new member', member)
         dispatch(addProfileSuccess(member))
         history.push('/')
         return null
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
+        dispatch(showError(errMessage))
         // eslint-disable-next-line no-console
         console.error(errMessage)
       })
