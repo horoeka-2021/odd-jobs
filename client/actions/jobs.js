@@ -45,6 +45,8 @@ export function fetchJobs (userID) {
       .catch((err) => {
         const errMessage = err.response?.text || err.message
         dispatch(showError(errMessage))
+        // eslint-disable-next-line no-console
+        console.error(errMessage)
       })
   }
 }
@@ -63,6 +65,8 @@ export function addNewJob (newJob) {
       .catch((err) => {
         const errMessage = err.response?.text || err.message
         dispatch(showError(errMessage))
+        // eslint-disable-next-line no-console
+        console.error(errMessage)
       })
   }
 }

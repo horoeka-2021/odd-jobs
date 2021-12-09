@@ -16,8 +16,7 @@ import { cacheUser } from '../actions/user'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function App () {
-  // console.log('cacheUser')
-  cacheUser(useAuth0) // this is not triggered
+  cacheUser(useAuth0)
 
   return (
     <div maxWidth="980px">

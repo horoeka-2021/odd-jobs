@@ -11,7 +11,7 @@ function Landing (props) {
 
   const { history } = props
   function handleMember () {
-    // check if logged in Auth0 or not
+    // check if logged in or not
     if (!isAuthenticated) {
       loginWithRedirect({
         redirectUri: redirectUri

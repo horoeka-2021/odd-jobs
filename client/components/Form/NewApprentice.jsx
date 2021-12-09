@@ -28,8 +28,6 @@ export default function NewApprentice () {
 
   function handleAdd (e) {
     e.preventDefault()
-
-    // console.log(newApprentice)
     setNewApprentice(initial)
     // dispatch(addNewJob(newObj))
     // setNewJob(initial)

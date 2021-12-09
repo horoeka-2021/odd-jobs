@@ -35,7 +35,6 @@ export default function NewMember (props) {
       ...newMember,
       auth0Id: auth0Id
     }
-    // console.log(newObj)
     dispatch(addMember(newObj, history))
   }
 

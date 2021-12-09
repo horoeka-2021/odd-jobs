@@ -9,7 +9,6 @@ function JobListItem ({ jobID }) {
   useEffect(() => {
     getJobDetailById(jobID)
       .then(data => {
-        // console.log('api', data)
         setJobDetail(data)
         setApplicant(data.applicants[0] ?? {})
 

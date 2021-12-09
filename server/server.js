@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // called all the time before any other function
 app.use((req, res, next) => {
+  // Here any task for all the requests can be added
   // console.log('HTTP request received')
   next()
 })
