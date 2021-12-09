@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import JobListItem from './JobListItem'
 import { getJobById } from '../../api/jobs'
 
-function Jobs(props) {
+function Jobs (props) {
   const { userID } = props
   const [showDetail, setShowDetail] = useState(false)
   const [jobList, setJobList] = useState([])
   const [jobID, setJobId] = useState('')
 
-  function handleDetail(jobID) {
+  function handleDetail (jobID) {
     setJobId(jobID)
     setShowDetail(true)
   }

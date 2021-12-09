@@ -13,13 +13,13 @@ const initial = {
 
 }
 // waiting for backend to send location ID
-export default function AddJob(props) {
+export default function AddJob (props) {
   const { userID } = props
   const [newJob, setNewJob] = useState(initial)
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const dispatch = useDispatch()
-  function handleChange(e) {
+  function handleChange (e) {
     const { name, value } = e.target
 
     setNewJob({
@@ -28,7 +28,7 @@ export default function AddJob(props) {
     })
   }
 
-  function handleAdd(e) {
+  function handleAdd (e) {
     e.preventDefault()
 
     const newObj = {

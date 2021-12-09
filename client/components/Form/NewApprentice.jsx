@@ -13,11 +13,11 @@ const initial = {
   locationId: ''
 }
 
-export default function NewApprentice() {
+export default function NewApprentice () {
   const [newApprentice, setNewApprentice] = useState(initial)
   // const history = useHistory()
 
-  function handleChange(e) {
+  function handleChange (e) {
     const { name, value } = e.target
 
     setNewApprentice({
@@ -26,7 +26,7 @@ export default function NewApprentice() {
     })
   }
 
-  function handleAdd(e) {
+  function handleAdd (e) {
     e.preventDefault()
 
     // console.log(newApprentice)
