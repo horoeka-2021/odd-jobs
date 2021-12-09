@@ -82,7 +82,7 @@ function OurStorys () {
             <p>
               Crystal Chan</p>
             <p className="leading-loose">Frontend Lead</p>
-            <a href="https://www.linkedin.com/" className="no-underline"
+            <a href="https://www.linkedin.com/in/crystal-chan-059281147/" className="no-underline"
               target="_blank" rel="noreferrer"><img src="../img/linked.webp" className="max-h-10 inline"/></a>
           </div>
 
